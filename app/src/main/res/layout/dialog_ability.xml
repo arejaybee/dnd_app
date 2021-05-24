@@ -11,26 +11,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp">
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="1"
-                android:paddingEnd="10sp"
-                android:paddingTop="10sp"
-                android:paddingStart="10sp"
-                android:layout_marginBottom="10sp">
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingStart="10dp"
+                android:layout_marginBottom="10dp">
                 <TextView
                     android:layout_columnWeight="1"
                     android:text="Title:"/>
                 <EditText
                     android:layout_columnWeight="1"
                     android:background="@drawable/edit_text_border"
-                    android:paddingTop="5sp"
-                    android:paddingStart="5sp"
-                    android:paddingEnd="5sp"
-                    android:paddingBottom="5sp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="5dp"
                     android:id="@+id/faet_title"/>
                 <TextView
                     android:layout_columnWeight="1"
@@ -38,18 +38,18 @@
                 <EditText
                     android:layout_columnWeight="1"
                     android:background="@drawable/edit_text_border"
-                    android:paddingTop="5sp"
-                    android:paddingStart="5sp"
-                    android:paddingEnd="5sp"
-                    android:paddingBottom="5sp"
+                    android:paddingTop="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="5dp"
                     android:id="@+id/faet_description"/>
                 <TextView
                     android:layout_columnWeight="1"
                     android:text="Type: "/>
                 <Spinner
-                    android:layout_height="20sp"
+                    android:layout_height="20dp"
                     android:layout_columnWeight="1"
-                    android:layout_width="200sp"
+                    android:layout_width="200dp"
                     android:spinnerMode="dropdown"
                     android:id="@+id/faet_type"/>
 
@@ -61,26 +61,26 @@
                     android:layout_width="wrap_content"
                     android:layout_gravity="end"
                     android:layout_alignParentEnd="true"
-                    android:paddingEnd="20sp"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="10dp"
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CONTINUE"
                         android:textStyle="bold"
-                        android:textSize="15sp"
+                        android:textSize="15dp"
                         android:textColor="@color/colorAccent"
                         android:id="@+id/fnbtn_save"/>
                     <TextView
-                        android:layout_width="30sp"
-                        android:layout_height="0sp" />
+                        android:layout_width="30dp"
+                        android:layout_height="0dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CANCEL"
-                        android:textSize="15sp"
+                        android:textSize="15dp"
                         android:textStyle="bold"
                         android:textColor="@color/colorAccent"
                         android:id="@+id/fnbtn_cancel"/>

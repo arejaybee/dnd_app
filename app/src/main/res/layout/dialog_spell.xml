@@ -7,8 +7,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="10sp"
-        android:layout_marginStart="10sp">
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -17,20 +17,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="1"
-                android:paddingEnd="10sp"
-                android:paddingTop="10sp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
                 android:useDefaultMargins="true"
-                android:paddingStart="10sp"
-                android:layout_marginBottom="10sp">
+                android:paddingStart="10dp"
+                android:layout_marginBottom="10dp">
                 <TextView
                     android:text="Name:"
                     android:layout_columnWeight="1"/>
                 <EditText
                     android:layout_height="wrap_content"
-                    android:paddingStart="5sp"
-                    android:paddingEnd="5sp"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="5sp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:background="@drawable/edit_text_border"
                     android:layout_columnWeight="100"
                     android:id="@+id/fspet_name"/>
@@ -39,10 +39,10 @@
                     android:layout_columnWeight="1"/>
                 <EditText
                     android:layout_height="wrap_content"
-                    android:paddingStart="5sp"
-                    android:paddingEnd="5sp"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="5sp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:background="@drawable/edit_text_border"
                     android:layout_columnWeight="100"
                     android:id="@+id/fspet_description"/>
@@ -55,26 +55,26 @@
                     android:layout_width="wrap_content"
                     android:layout_gravity="end"
                     android:layout_alignParentEnd="true"
-                    android:paddingEnd="20sp"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp"
+                    android:paddingEnd="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="10dp"
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CONTINUE"
                         android:textStyle="bold"
-                        android:textSize="15sp"
+                        android:textSize="15dp"
                         android:textColor="@color/colorAccent"
                         android:id="@+id/fnbtn_save"/>
                     <TextView
-                        android:layout_width="30sp"
-                        android:layout_height="0sp" />
+                        android:layout_width="30dp"
+                        android:layout_height="0dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CANCEL"
-                        android:textSize="15sp"
+                        android:textSize="15dp"
                         android:textStyle="bold"
                         android:textColor="@color/colorAccent"
                         android:id="@+id/fnbtn_cancel"/>

@@ -98,11 +98,7 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
         get() = floor((wisScore + wisScoreBonus - 10) / 2.0).toInt()
     val charMod: Int
         get() = floor((charScore + charScoreBonus - 10) / 2.0).toInt()
-    val skills: ArrayList<Skill>
-        get() {
-            sortSkills()
-            return skills
-        }
+    val skills = ArrayList<Skill>()
     var saves = ArrayList<SavingThrow>()
     var conditionalSavingThrowMods = ""
     var armorClass = ArmorClass()

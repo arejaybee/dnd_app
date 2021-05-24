@@ -6,24 +6,24 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10sp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/activity_main">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp">
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginStart="5sp"
-                android:layout_marginEnd="5sp">
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
                     android:textColor="@color/black"
                     android:text="Casting"/>
                 <GridLayout
@@ -64,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:gravity="center"
-                        android:textSize="24sp"
+                        android:textSize="24dp"
                         android:textColor="@color/black"
                         android:id="@+id/spet_spellAttack"
                         android:text="0"
@@ -74,29 +74,29 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/edit_text_border"
                         android:gravity="center"
-                        android:textSize="24sp"
+                        android:textSize="24dp"
                         android:id="@+id/spet_spellDC"
                         android:textColor="@color/black"
                         android:text="0"
                         android:layout_columnWeight="1"/>
 
                     <Spinner
-                        android:layout_height="32sp"
+                        android:layout_height="32dp"
                         android:layout_columnWeight="1"
                         android:spinnerMode="dropdown"
                         android:id="@+id/spsp_modifier" />
                 </GridLayout>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1sp"
-                    android:layout_marginBottom="3sp"
-                    android:layout_marginTop="3sp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
                     android:background="?android:attr/listDivider" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
                     android:text="Spells"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -114,15 +114,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Cantrips"
                                     android:id="@+id/sptv_lvl0"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:id="@+id/spib_toggle0"
                                     android:layout_toEndOf="@+id/sptv_lvl0"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -130,20 +130,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -183,9 +183,9 @@
                                 android:id="@+id/spll_lvl0"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -200,15 +200,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 1"
                                     android:id="@+id/sptv_lvl1"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl1"
                                     android:id="@+id/spib_toggle1"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -216,20 +216,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -269,9 +269,9 @@
                                 android:id="@+id/spll_lvl1"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -286,15 +286,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 2"
                                     android:id="@+id/sptv_lvl2"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl2"
                                     android:id="@+id/spib_toggle2"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -302,20 +302,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -355,9 +355,9 @@
                                 android:id="@+id/spll_lvl2"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -372,15 +372,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 3"
                                     android:id="@+id/sptv_lvl3"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl3"
                                     android:id="@+id/spib_toggle3"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -388,20 +388,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -441,9 +441,9 @@
                                 android:id="@+id/spll_lvl3"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -458,15 +458,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 4"
                                     android:id="@+id/sptv_lvl4"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl4"
                                     android:id="@+id/spib_toggle4"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -474,20 +474,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -527,9 +527,9 @@
                                 android:id="@+id/spll_lvl4"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -544,15 +544,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 5"
                                     android:id="@+id/sptv_lvl5"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl5"
                                     android:id="@+id/spib_toggle5"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -560,20 +560,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -613,9 +613,9 @@
                                 android:id="@+id/spll_lvl5"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -630,15 +630,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 6"
                                     android:id="@+id/sptv_lvl6"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl6"
                                     android:id="@+id/spib_toggle6"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -646,20 +646,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -699,9 +699,9 @@
                                 android:id="@+id/spll_lvl6"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -716,15 +716,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 7"
                                     android:id="@+id/sptv_lvl7"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl7"
                                     android:id="@+id/spib_toggle7"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -732,20 +732,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -785,9 +785,9 @@
                                 android:id="@+id/spll_lvl7"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -802,15 +802,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 8"
                                     android:id="@+id/sptv_lvl8"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl8"
                                     android:id="@+id/spib_toggle8"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -818,20 +818,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -871,9 +871,9 @@
                                 android:id="@+id/spll_lvl8"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                         <LinearLayout
@@ -888,15 +888,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="Level 9"
                                     android:id="@+id/sptv_lvl9"
-                                    android:textSize="24sp"/>
+                                    android:textSize="24dp"/>
                                 <ImageButton
                                     android:layout_width="wrap_content"
-                                    android:layout_height="40sp"
+                                    android:layout_height="40dp"
                                     android:layout_toEndOf="@+id/sptv_lvl9"
                                     android:id="@+id/spib_toggle9"
                                     android:background="@android:color/transparent"
                                     app:srcCompat="@android:drawable/ic_menu_more"
-                                    android:layout_marginStart="25sp"
+                                    android:layout_marginStart="25dp"
                                     android:onClick="onClickToggleSaves"/>
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -904,20 +904,20 @@
                                     android:orientation="horizontal"
                                     android:layout_alignParentEnd="true">
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_delete"
                                         android:onClick="onClickDelete"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_edit"
                                         android:onClick="onClickEdit"/>
                                     <ImageButton
-                                        android:layout_width="40sp"
-                                        android:layout_height="40sp"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
                                         android:background="@android:color/transparent"
                                         app:srcCompat="@android:drawable/ic_menu_add"
                                         android:onClick="onClickAdd"/>
@@ -957,9 +957,9 @@
                                 android:id="@+id/spll_lvl9"></LinearLayout>
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1sp"
-                                android:layout_marginBottom="3sp"
-                                android:layout_marginTop="3sp"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="3dp"
                                 android:background="?android:attr/listDivider" />
                         </LinearLayout>
                 </LinearLayout>

@@ -4,18 +4,18 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10sp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/activity_main">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp">
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5sp"
-                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="vertical">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -23,12 +23,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="30sp"
+                        android:textSize="30dp"
                         android:text="Saves"
                         android:textColor="@color/black"/>
                     <ImageButton
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:background="@android:color/transparent"
                         app:srcCompat="@android:drawable/ic_menu_more"
                         android:layout_alignParentEnd="true"
@@ -40,7 +40,7 @@
                     android:orientation="vertical"
                     android:visibility="gone"
                     android:id="@+id/c35ll_saveLayout"
-                    android:layout_marginEnd="5sp">
+                    android:layout_marginEnd="5dp">
                     <GridLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -65,8 +65,8 @@
                             android:layout_columnWeight="1"
                             android:text="Will"/>
                         <TextView
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_columnWeight="1"
                             android:id="@+id/c35tv_consave"
                             android:gravity="center"
@@ -74,8 +74,8 @@
                             android:textColor="@color/black"
                             android:text="0"/>
                         <TextView
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:background="@drawable/edit_text_border"
                             android:layout_columnWeight="1"
                             android:id="@+id/c35tv_dexsave"
@@ -83,8 +83,8 @@
                             android:textColor="@color/black"
                             android:text="0"/>
                         <TextView
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:gravity="center"
                             android:background="@drawable/edit_text_border"
                             android:layout_columnWeight="1"
@@ -96,9 +96,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:layout_marginStart="5sp"
-                        android:layout_marginEnd="5sp"
-                        android:layout_marginBottom="10sp">
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="10dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -106,24 +106,24 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minHeight="40sp"
-                            android:paddingEnd="5sp"
-                            android:paddingStart="5sp"
-                            android:textSize="20sp"
+                            android:minHeight="40dp"
+                            android:paddingEnd="5dp"
+                            android:paddingStart="5dp"
+                            android:textSize="20dp"
                             android:id="@+id/c35et_conditionalSaves"
                             android:background="@drawable/edit_text_border" />
                         </LinearLayout>
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1sp"
-                    android:layout_marginBottom="3sp"
-                    android:layout_marginTop="3sp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
                     android:background="?android:attr/listDivider" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
+                    android:textSize="30dp"
                     android:text="Stats"
                     android:textColor="@color/black"/>
                 <GridLayout
@@ -150,20 +150,20 @@
                         android:text="Flat-Foot"/>
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:id="@+id/c35tv_tac"
                         android:onClick="onClickArmor"
                         android:layout_columnWeight="1" />
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:background="@drawable/edit_text_border"
                         android:id="@+id/c35tv_ac"
@@ -171,10 +171,10 @@
                         android:layout_columnWeight="1" />
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:id="@+id/c35tv_ffac"
                         android:layout_columnWeight="1" />
@@ -195,30 +195,30 @@
                         android:layout_columnWeight="1"/>
 
                     <TextView android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:background="@drawable/edit_text_border"
                         android:id="@+id/c35tv_initiative"
                         android:onClick="onClickInitiative"
                         android:layout_columnWeight="1"/>
                     <EditText android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
                         android:inputType="number"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:background="@drawable/edit_text_border"
                         android:id="@+id/c35et_bab"
                         android:layout_columnWeight="1"/>
                     <TextView android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:background="@drawable/edit_text_border"
                         android:id="@+id/c35tv_grapple"
@@ -235,11 +235,11 @@
 
                     <TextView android:layout_columnWeight="1"/>
                     <EditText android:layout_width="wrap_content"
-                        android:layout_height="30sp"
+                        android:layout_height="30dp"
                         android:textColor="@color/black"
                         android:text="0"
                         android:inputType="number"
-                        android:textSize="16sp"
+                        android:textSize="16dp"
                         android:gravity="center"
                         android:background="@drawable/edit_text_border"
                         android:id="@+id/c35tv_speed"
@@ -264,11 +264,11 @@
                         android:layout_gravity="center"
                         android:baselineAligned="true">
                         <EditText
-                            android:minWidth="60sp"
-                            android:paddingEnd="5sp"
-                            android:paddingStart="5sp"
+                            android:minWidth="60dp"
+                            android:paddingEnd="5dp"
+                            android:paddingStart="5dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="60sp"
+                            android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:inputType="number"
@@ -278,17 +278,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="10sp"
-                            android:layout_marginEnd="10sp"
-                            android:textSize="60sp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="60dp"
                             android:layout_gravity="center"
                             android:text="/"/>
                         <EditText
-                            android:minWidth="60sp"
-                            android:paddingEnd="5sp"
-                            android:paddingStart="5sp"
+                            android:minWidth="60dp"
+                            android:paddingEnd="5dp"
+                            android:paddingStart="5dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="60sp"
+                            android:layout_height="60dp"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:inputType="number"
@@ -301,9 +301,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1sp"
-                    android:layout_marginBottom="3sp"
-                    android:layout_marginTop="3sp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
                     android:background="?android:attr/listDivider" />
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -312,7 +312,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="30sp"
+                        android:textSize="30dp"
                         android:textColor="@color/black"
                         android:text="Attacks"/>
                     <LinearLayout
@@ -320,14 +320,14 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true">
                         <ImageButton
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@android:drawable/ic_menu_delete"
                             android:onClick="onClickDelete"/>
                         <ImageButton
-                            android:layout_width="40sp"
-                            android:layout_height="40sp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:background="@android:color/transparent"
                             app:srcCompat="@android:drawable/ic_menu_add"
                             android:onClick="onClickNew"/>

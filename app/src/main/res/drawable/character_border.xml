@@ -1,5 +1,6 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
-    <solid android:color="@android:color/white" />
-    <stroke android:width="3dip" android:color="#999999"/>
-
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true"
+        android:drawable="@drawable/selected_character_border_active"/>
+    <item android:state_focused="false"
+        android:drawable="@drawable/selected_character_border_deactive"/>
+</selector>

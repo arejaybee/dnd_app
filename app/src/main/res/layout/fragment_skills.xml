@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10sp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10sp"
-        android:layout_marginEnd="10sp">
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5sp"
-            android:layout_marginEnd="5sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:orientation="vertical">
 
             <GridLayout
@@ -27,11 +27,11 @@
 
                 <ImageButton
                     android:id="@+id/imageButton1"
-                    android:layout_width="0sp"
+                    android:layout_width="0dp"
                     android:layout_columnWeight="0.5"
                     android:background="@android:color/transparent"
-                    android:minWidth="0sp"
-                    android:minHeight="0sp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
                     android:onClick="onClickNew"
                     app:srcCompat="@android:drawable/ic_menu_add" />
 
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="5sp"
+                    android:layout_marginBottom="5dp"
                     android:text="Ranks: 000" />
 
                 <TextView android:layout_columnWeight="0.25" />

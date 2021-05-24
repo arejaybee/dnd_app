@@ -6,4 +6,5 @@
     <string name="title_activity_ability">Ability</string>
     <string name="title_activity_inventory">Inventory</string>
     <string name="title_activity_combat_">Combat</string>
+    <string name="character_select_empty">Click the + button in the toolbar to get started!</string>
 </resources>

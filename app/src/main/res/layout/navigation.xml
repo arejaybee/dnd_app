@@ -3,8 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="5sp"
-    android:layout_marginEnd="5sp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
     android:orientation="vertical">
 
     <GridLayout
@@ -15,82 +15,82 @@
 
         <Button
             android:id="@+id/navbtn_description"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="DESCRIPTION"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_skills"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="SKILLS"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_combat"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="COMBAT"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_spells"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="SPELLS"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_inventory"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="INVENTORY"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_companion"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="COMPANION"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_abilities"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="ABILITIES"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
 
         <Button
             android:id="@+id/navbtn_notes"
-            android:layout_width="80sp"
-            android:layout_height="40sp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
             android:background="@drawable/navigation_button_unselected"
             android:onClick="onClickNavigation"
             android:text="NOTES"
-            android:textSize="8sp" />
+            android:textSize="8dp" />
     </GridLayout>
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="1sp"
-        android:layout_marginTop="6sp"
-        android:layout_marginBottom="10sp"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
         android:background="?android:attr/listDivider" />
 </LinearLayout>

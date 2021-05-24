@@ -5,19 +5,19 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10sp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/activity_main">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp">
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5sp"
-                android:layout_marginEnd="5sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="vertical">
 
                 <GridLayout
@@ -28,63 +28,63 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingEnd="100sp"
-                        android:textSize="30sp"
+                        android:paddingEnd="100dp"
+                        android:textSize="30dp"
                         android:textColor="@color/black"
                         android:layout_columnWeight="1"
                         android:layout_rowWeight="1"
-                        android:layout_marginBottom="5sp"
+                        android:layout_marginBottom="5dp"
                         android:text="Money"/>
                     <TextView
-                        android:paddingStart="25sp"
-                        android:paddingEnd="25sp"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="25dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="30sp"
+                        android:textSize="30dp"
                         android:textColor="@color/black"
                         android:layout_columnWeight="1"
                         android:layout_rowWeight="1"
-                        android:layout_marginBottom="5sp"
+                        android:layout_marginBottom="5dp"
                         android:text="Weight"/>
                     <EditText
                         android:id="@+id/iet_money"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
-                        android:paddingStart="5sp"
-                        android:paddingEnd="5sp"
+                        android:textSize="24dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
                         android:layout_columnWeight="1"
                         android:layout_rowWeight="1"
                         android:background="@drawable/edit_text_border" />
                     <TextView
                         android:text="0"
-                        android:textSize="24sp"
+                        android:textSize="24dp"
                         android:gravity="center"
                         android:id="@+id/itv_weight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingStart="5sp"
-                        android:paddingEnd="5sp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1"/>
                 </GridLayout>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1sp"
-                    android:layout_marginBottom="3sp"
-                    android:layout_marginTop="3sp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
                     android:background="?android:attr/listDivider" />
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="50sp">
+                    android:layout_marginEnd="50dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="30sp"
+                        android:textSize="30dp"
                         android:textColor="@color/black"
                         android:text="Inventory"
-                        android:layout_marginBottom="5sp"/>
+                        android:layout_marginBottom="5dp"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10sp"
+                    android:layout_marginEnd="10dp"
                     android:id="@+id/ill_inventoryLayout"
                     android:orientation="vertical">
 
