@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.app.arejaybee.character_sheet">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
@@ -25,41 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.DescriptionActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.SkillsActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.NotesActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.CompanionActivity"
-            android:label="@string/title_activity_companion"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.AbilityActivity"
-            android:label="@string/title_activity_ability"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.InventoryActivity"
-            android:label="@string/title_activity_inventory"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.CombatActivity5e"
-            android:label="@string/title_activity_combat_"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.CombatActivity35"
-            android:label="@string/title_activity_combat_"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.SpellActivity"
-            android:label="Spell_Activity"
-            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-    <LinearLayout
+ <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
@@ -17,7 +9,6 @@
         android:layout_marginBottom="10sp"
         android:id="@+id/activity_main">
 
-        <include layout="@layout/title_bar"/>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +21,6 @@
                 android:layout_marginEnd="5sp"
                 android:orientation="vertical">
 
-                <include layout="@layout/navigation"/>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -386,5 +376,4 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
 </layout>

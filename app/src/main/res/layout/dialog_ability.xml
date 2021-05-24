@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     android:layout_alignParentEnd="true"
                     android:paddingEnd="20sp"
                     android:paddingTop="5sp"
