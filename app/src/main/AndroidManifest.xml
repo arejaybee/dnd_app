@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
@@ -26,38 +26,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.DescriptionActivity"
+            android:name=".activities.DescriptionActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.SkillsActivity"
+            android:name=".activities.SkillsActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.NotesActivity"
+            android:name=".activities.NotesActivity"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.CompanionActivity"
+            android:name=".activities.CompanionActivity"
             android:label="@string/title_activity_companion"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.AbilityActivity"
+            android:name=".activities.AbilityActivity"
             android:label="@string/title_activity_ability"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.InventoryActivity"
+            android:name=".activities.InventoryActivity"
             android:label="@string/title_activity_inventory"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.CombatActivity5e"
+            android:name=".activities.CombatActivity5e"
             android:label="@string/title_activity_combat_"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Activities.CombatActivity35"
+            android:name=".activities.CombatActivity35"
             android:label="@string/title_activity_combat_"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activities.SpellActivity"
+        <activity android:name=".activities.SpellActivity"
             android:label="Spell_Activity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>

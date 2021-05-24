@@ -26,8 +26,8 @@
         <item name="colorAccent">@color/red</item>
     </style>
     <style name="EditBox" parent="AppTheme">
-        <item name ="android:paddingRight">5sp</item>
-        <item name ="android:paddingLeft">5sp</item>
+        <item name ="android:paddingEnd">5sp</item>
+        <item name ="android:paddingStart">5sp</item>
         <item name ="android:background">@drawable/edit_text_border</item>
     </style>
 </resources>

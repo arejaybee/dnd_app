@@ -1,91 +1,226 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+        <include layout="@layout/title_bar"/>
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginRight="10sp"
-            android:layout_marginLeft="10sp">
-            <GridLayout
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginStart="10sp">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="1"
-                android:paddingRight="10sp"
-                android:paddingTop="10sp"
-                android:paddingLeft="10sp"
-                android:layout_marginBottom="10sp">
-                <TextView
-                    android:layout_columnWeight="1"
-                    android:text="Title:"/>
-                <EditText
-                    android:layout_columnWeight="1"
-                    android:background="@drawable/edit_text_border"
-                    android:paddingTop="5sp"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:paddingBottom="5sp"
-                    android:id="@+id/faet_title"/>
-                <TextView
-                    android:layout_columnWeight="1"
-                    android:text="Description:"/>
-                <EditText
-                    android:layout_columnWeight="1"
-                    android:background="@drawable/edit_text_border"
-                    android:paddingTop="5sp"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:paddingBottom="5sp"
-                    android:id="@+id/faet_description"/>
-                <TextView
-                    android:layout_columnWeight="1"
-                    android:text="Type: "/>
-                <Spinner
-                    android:layout_height="20sp"
-                    android:layout_columnWeight="1"
-                    android:layout_width="200sp"
-                    android:spinnerMode="dropdown"
-                    android:id="@+id/faet_type"/>
+                android:orientation="vertical">
+                <include layout="@layout/navigation"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            </GridLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/ntv_titleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <ImageButton
+                        android:id="@+id/abbtn_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/ntv_titleText"
+                        android:layout_alignParentEnd="true"
+                        android:background="@android:color/transparent"
+                        android:onClick="onClickNew"
+                        app:srcCompat="@android:drawable/ic_menu_add" />
+
+                    <ImageButton
+                        android:id="@+id/abbtn_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/ntv_titleText"
+                        android:layout_marginEnd="10sp"
+                        android:layout_toStartOf="@id/abbtn_new"
+                        android:background="@android:color/transparent"
+                        android:onClick="onClickEdit"
+                        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    <ImageButton
+                        android:id="@+id/abbtn_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/ntv_titleText"
+                        android:layout_marginEnd="10sp"
+                        android:layout_toStartOf="@id/abbtn_edit"
+                        android:background="@android:color/transparent"
+                        android:onClick="onClickDelete"
+                        app:srcCompat="@android:drawable/ic_menu_delete" />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginTop="6sp"
+                    android:layout_marginBottom="10sp"
+                    android:background="?android:attr/listDivider" />
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_alignParentRight="true"
-                    android:paddingRight="20sp"
-                    android:paddingTop="5sp"
-                    android:paddingBottom="10sp"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    android:id="@+id/abll_layoutList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/abll_featList"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="CONTINUE"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorAccent"
-                        android:id="@+id/fnbtn_save"/>
-                    <TextView
-                        android:layout_width="30sp"
-                        android:layout_height="0sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Feats"
+                                android:textSize="30sp"
+                                android:textColor="@color/black" />
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                app:srcCompat="@android:drawable/ic_menu_more"
+                                android:foregroundGravity="right"
+                                android:layout_alignParentEnd="true"
+                                android:onClick="onClickToggleFeats"
+                                android:rotation="180"
+                                />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1sp"
+                            android:layout_marginTop="6sp"
+                            android:layout_marginBottom="10sp"
+                            android:background="?android:attr/listDivider" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/abll_featuresList"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="CANCEL"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorAccent"
-                        android:id="@+id/fnbtn_cancel"/>
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Class Features"
+                                android:textSize="30sp"
+                                android:textColor="@color/black"/>
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                app:srcCompat="@android:drawable/ic_menu_more"
+                                android:foregroundGravity="right"
+                                android:layout_alignParentEnd="true"
+                                android:onClick="onClickToggleFeatures"
+                                android:rotation="180"
+                                />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1sp"
+                            android:layout_marginTop="6sp"
+                            android:layout_marginBottom="10sp"
+                            android:background="?android:attr/listDivider" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/abll_traitList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Racial Traits"
+                                android:textSize="30sp"
+                                android:textColor="@color/black"/>
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                app:srcCompat="@android:drawable/ic_menu_more"
+                                android:foregroundGravity="right"
+                                android:layout_alignParentEnd="true"
+                                android:onClick="onClickToggleTraits"
+                                android:rotation="180"
+                                />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1sp"
+                            android:layout_marginTop="6sp"
+                            android:layout_marginBottom="10sp"
+                            android:background="?android:attr/listDivider" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/abll_languageList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Languages"
+                                android:textSize="30sp"
+                                android:textColor="@color/black" />
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                app:srcCompat="@android:drawable/ic_menu_more"
+                                android:foregroundGravity="right"
+                                android:layout_alignParentEnd="true"
+                                android:onClick="onClickToggleLanguage"
+                                android:rotation="180"
+                                />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1sp"
+                            android:layout_marginTop="6sp"
+                            android:layout_marginBottom="10sp"
+                            android:background="?android:attr/listDivider" />
+                    </LinearLayout>
                 </LinearLayout>
-            </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
-    </ScrollView>
 </android.support.constraint.ConstraintLayout>

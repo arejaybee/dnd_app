@@ -1,0 +1,355 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10sp"
+        android:id="@+id/activity_main">
+        <include layout="@layout/title_bar"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginStart="10sp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:layout_marginEnd="5sp"
+                android:orientation="vertical">
+
+                <include layout="@layout/navigation"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:text="Saves"
+                        android:textColor="@color/black"/>
+                    <ImageButton
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:background="@android:color/transparent"
+                        app:srcCompat="@android:drawable/ic_menu_more"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="onClickToggleSaves"/>
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:id="@+id/c35ll_saveLayout"
+                    android:layout_marginEnd="5sp">
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:useDefaultMargins="true"
+                        android:columnCount="3">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="center"
+                            android:text="Fortitude"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="center"
+                            android:text="Reflex"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_columnWeight="1"
+                            android:text="Will"/>
+                        <TextView
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
+                            android:layout_columnWeight="1"
+                            android:id="@+id/c35tv_consave"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_border"
+                            android:textColor="@color/black"
+                            android:text="0"/>
+                        <TextView
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_columnWeight="1"
+                            android:id="@+id/c35tv_dexsave"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:text="0"/>
+                        <TextView
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_border"
+                            android:layout_columnWeight="1"
+                            android:id="@+id/c35tv_wissave"
+                            android:textColor="@color/black"
+                            android:text="0"/>
+                    </GridLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginStart="5sp"
+                        android:layout_marginEnd="5sp"
+                        android:layout_marginBottom="10sp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Conditional Bonuses"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="40sp"
+                            android:paddingEnd="5sp"
+                            android:paddingStart="5sp"
+                            android:textSize="20sp"
+                            android:id="@+id/c35et_conditionalSaves"
+                            android:background="@drawable/edit_text_border" />
+                        </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_marginTop="3sp"
+                    android:background="?android:attr/listDivider" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:text="Stats"
+                    android:textColor="@color/black"/>
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:useDefaultMargins="true"
+                    android:columnCount="3">
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:gravity="center"
+                        android:text="Touch AC"/>
+                    <TextView
+                        android:id="@+id/a35tv_armorClass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:gravity="center"
+                        android:text="Armor Class" />
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:gravity="center"
+                        android:text="Flat-Foot"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:id="@+id/c35tv_tac"
+                        android:onClick="onClickArmor"
+                        android:layout_columnWeight="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_border"
+                        android:id="@+id/c35tv_ac"
+                        android:onClick="onClickArmor"
+                        android:layout_columnWeight="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:id="@+id/c35tv_ffac"
+                        android:layout_columnWeight="1" />
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Initiative"
+                        android:layout_gravity="center"
+                        android:layout_columnWeight="1"/>
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BAB"
+                        android:layout_gravity="center"
+                        android:layout_columnWeight="1"/>
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grapple"
+                        android:layout_gravity="center"
+                        android:layout_columnWeight="1"/>
+
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_border"
+                        android:id="@+id/c35tv_initiative"
+                        android:onClick="onClickInitiative"
+                        android:layout_columnWeight="1"/>
+                    <EditText android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_border"
+                        android:id="@+id/c35et_bab"
+                        android:layout_columnWeight="1"/>
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_border"
+                        android:id="@+id/c35tv_grapple"
+                        android:onClick="onClickGrapple"
+                        android:layout_columnWeight="1"/>
+
+                    <TextView android:layout_columnWeight="1"/>
+                    <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Speed"
+                        android:layout_gravity="center"
+                        android:layout_columnWeight="1"/>
+                    <TextView android:layout_columnWeight="1"/>
+
+                    <TextView android:layout_columnWeight="1"/>
+                    <EditText android:layout_width="wrap_content"
+                        android:layout_height="30sp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:inputType="number"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_border"
+                        android:id="@+id/c35tv_speed"
+                        android:layout_columnWeight="1"/>
+                    <TextView android:layout_columnWeight="1"/>
+
+
+                    <TextView android:layout_columnWeight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Health"
+                        android:layout_gravity="center"/>
+                    <TextView android:layout_columnWeight="1"/>
+
+
+                    <TextView android:layout_columnWeight="1"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:baselineAligned="true">
+                        <EditText
+                            android:minWidth="60sp"
+                            android:paddingEnd="5sp"
+                            android:paddingStart="5sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60sp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="0"
+                            android:background="@drawable/edit_text_border"
+                            android:id="@+id/c35et_curHP"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10sp"
+                            android:layout_marginEnd="10sp"
+                            android:textSize="60sp"
+                            android:layout_gravity="center"
+                            android:text="/"/>
+                        <EditText
+                            android:minWidth="60sp"
+                            android:paddingEnd="5sp"
+                            android:paddingStart="5sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60sp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:background="@drawable/edit_text_border"
+                            android:text="0"
+                            android:id="@+id/c35et_maxHP"/>
+                    </LinearLayout>
+                    <TextView android:layout_columnWeight="1"/>
+                </GridLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1sp"
+                    android:layout_marginBottom="3sp"
+                    android:layout_marginTop="3sp"
+                    android:background="?android:attr/listDivider" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:textColor="@color/black"
+                        android:text="Attacks"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true">
+                        <ImageButton
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
+                            android:background="@android:color/transparent"
+                            app:srcCompat="@android:drawable/ic_menu_delete"
+                            android:onClick="onClickDelete"/>
+                        <ImageButton
+                            android:layout_width="40sp"
+                            android:layout_height="40sp"
+                            android:background="@android:color/transparent"
+                            app:srcCompat="@android:drawable/ic_menu_add"
+                            android:onClick="onClickNew"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/c35ll_weaponLayout">
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
