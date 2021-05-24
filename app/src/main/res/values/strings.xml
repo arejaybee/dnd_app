@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Character Sheet</string>
+    <string name="title_activity_main">Character Sheet</string>
+
+    <string name="title_activity_companion">Companion</string>
+    <string name="title_activity_ability">Ability</string>
+    <string name="title_activity_inventory">Inventory</string>
+    <string name="title_activity_combat_">Combat</string>
+</resources>

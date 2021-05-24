@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="4"
+                android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/navbtn_description"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:text="DESCRIPTION"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_skills"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:text="SKILLS"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_combat"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:text="COMBAT"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_spells"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:text="SPELLS"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_inventory"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:text="INVENTORY"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_companion"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:text="COMPANION"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_abilities"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:text="ABILITIES"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/navbtn_notes"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:onClick="onClickNavigation"
+                    android:background="@drawable/navigation_button_unselected"
+                    android:text="NOTES"
+                    android:textSize="8sp" />
+            </GridLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="6sp"
+            android:layout_marginBottom="10sp"
+            android:background="?android:attr/listDivider" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

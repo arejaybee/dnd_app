@@ -1,0 +1,36 @@
+<resources>
+    <string-array name="abilities">
+        <item>STR</item>
+        <item>DEX</item>
+        <item>CON</item>
+        <item>INT</item>
+        <item>WIS</item>
+        <item>CHA</item>
+    </string-array>
+    <string-array name="abilityTypes">
+        <item>FEAT</item>
+        <item>CLASS FEATURE</item>
+        <item>RACIAL TRAIT</item>
+        <item>LANGUAGE</item>
+    </string-array>
+    <string-array name="editions">
+        <item>DND 3.5</item>
+        <item>DND 5.0</item>
+        <!--<item>Pathfinder</item>--> <!--Add this in after 3.5 and 5e are working.-->
+    </string-array>
+    <string-array name="itemSlots">
+        <item>NONE</item>
+        <item>BELT</item>
+        <item>BODY</item>
+        <item>CHEST</item>
+        <item>EYES</item>
+        <item>FEET</item>
+        <item>HANDS</item>
+        <item>HEAD</item>
+        <item>HEADBAND</item>
+        <item>NECK</item>
+        <item>RING</item>
+        <item>SHIELD</item>
+        <item>SHOULDERS</item>
+    </string-array>
+</resources>

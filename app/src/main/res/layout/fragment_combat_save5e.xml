@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10sp"
+            android:paddingTop="20sp"
+            android:paddingRight="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="10sp">
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="7"
+                android:paddingRight="10sp"
+                android:paddingLeft="10sp"
+                android:layout_marginBottom="10sp">
+                <TextView
+                    android:text="Total"
+                    android:layout_gravity="center"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_columnWeight="1"/>
+                <TextView
+                    android:text="Ability Mod"
+                    android:id="@+id/fcstv_mod"
+                    android:layout_gravity="center"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_columnWeight="1"/>
+                <TextView
+                    android:text="Proficiency"
+                    android:layout_gravity="center"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_columnWeight="1"/>
+                <TextView
+                    android:layout_gravity="center"
+                    android:text="Bonus"
+                    android:layout_columnWeight="1"/>
+                <TextView
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:id="@+id/fcstv_total"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_columnWeight="1"/>
+                <TextView
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:id="@+id/fcstv_modVal"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_columnWeight="1"/>
+                <TextView
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:id="@+id/fcstv_proficiencyMod"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_columnWeight="1"/>
+                <EditText
+                    android:hint="0"
+                    android:gravity="center"
+                    android:inputType="numberSigned"
+                    android:maxLength="3"
+                    android:background="@drawable/edit_text_border"
+                    android:id="@+id/fcset_bonus"
+                    android:layout_columnWeight="1"/>
+            </GridLayout>
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="5"
+                android:rowCount="2">
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proficiency:"
+                    android:layout_columnWeight="2"/>
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="None"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Half"
+                    android:textAlignment="center"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Normal"
+                    android:layout_columnWeight="1"/>
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Double"
+                    android:layout_columnWeight="1"/>
+                <TextView
+                    android:layout_columnWeight="2" />
+                <RadioButton
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/fcsrb_none"/>
+                <RadioButton
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/fcsrb_half"/>
+                <RadioButton
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/fcsrb_normal"/>
+                <RadioButton
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:id="@+id/fcsrb_double"/>
+            </GridLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_alignBottom="@id/feset_delete"
+                    android:layout_gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="20sp"
+                    android:paddingTop="5sp"
+                    android:paddingBottom="10sp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SAVE"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/fesrbtn_save"/>
+                    <TextView
+                        android:layout_width="30sp"
+                        android:layout_height="0sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CANCEL"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"
+                        android:id="@+id/fesrbtn_cancel"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

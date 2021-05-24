@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="PassCheckbox" parent="AppTheme">
+        <item name="colorAccent">@color/green</item>
+    </style>
+    <style name="FailCheckbox" parent="AppTheme">
+        <item name="colorAccent">@color/red</item>
+    </style>
+    <style name="EditBox" parent="AppTheme">
+        <item name ="android:paddingRight">5sp</item>
+        <item name ="android:paddingLeft">5sp</item>
+        <item name ="android:background">@drawable/edit_text_border</item>
+    </style>
+</resources>
