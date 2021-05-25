@@ -32,8 +32,7 @@ class SelectCharacterFragment : RobFragment() {
         toggleVisibility(players.isNotEmpty())
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         activity?.let {
-            recyclerView.adapter = CharacterSelectAdapter(players.toTypedArray(), it)
-
+            recyclerView.adapter = CharacterSelectAdapter(players, it)
         }
     }
 
@@ -43,6 +42,16 @@ class SelectCharacterFragment : RobFragment() {
     }
 
     override fun onClickAdd() {
-        Toast.makeText(requireContext(), "ADDED!", Toast.LENGTH_LONG).show()
+        val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
+        //Create a character here
+        adapter?.notifyDataSetChanged()
+        toggleVisibility(adapter != null && adapter.itemCount > 0)
+    }
+
+    override fun onClickDelete() {
+        val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
+        (adapter as CharacterSelectAdapter).deleteSelectedPlayer()
+        adapter.notifyDataSetChanged()
+        toggleVisibility(adapter.itemCount > 0)
     }
 }

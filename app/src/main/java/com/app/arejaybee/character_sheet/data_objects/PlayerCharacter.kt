@@ -13,7 +13,7 @@ import kotlin.math.floor
 
 @kotlinx.serialization.Serializable
 open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHelper.EDITION) : Serializable {
-    var characterID = ""
+    val characterID = UUID.randomUUID().toString()
     var name = ""
     var race = ""
     var characterClass = ""
@@ -24,7 +24,6 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
     var weight = ""
     var size = ""
     var exp = ""
-
     var speed: String = ""
     var strScore: Int = 10
         set(strScore) {
@@ -240,16 +239,6 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
         }
     }
 
-    fun generateCharacterID(): Boolean {
-        return try {
-            characterID = UUID.randomUUID().toString()
-            return true
-        } catch (e: Exception) {
-            println("Failed to update ID...")
-            true
-        }
-    }
-
     fun addSkill(s: Skill) {
         if (!skills.contains(s) && s.name != "") skills.add(s)
         updateSkills()
@@ -351,5 +340,12 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
             "WIS" -> saves[4] = st
             "CHA" -> saves[5] = st
         }
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if(other is PlayerCharacter) {
+            return other.characterID == this.characterID
+        }
+        return super.equals(other)
     }
 }
