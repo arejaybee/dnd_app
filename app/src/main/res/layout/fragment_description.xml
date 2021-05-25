@@ -89,7 +89,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_strScore"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -100,7 +100,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_strBonus"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -148,7 +148,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_dexScore"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -159,7 +159,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_dexBonus"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -208,7 +208,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_conScore"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -219,7 +219,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_conBonus"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -268,7 +268,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_intScore"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -279,7 +279,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_intBonus"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -328,7 +328,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_wisScore"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -339,7 +339,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_wisBonus"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -388,7 +388,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_charScore"
                         android:layout_columnWeight="1"
                         android:gravity="center"
@@ -399,7 +399,7 @@
                         android:layout_columnWeight="1"/>
 
                     <EditText
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/det_charBonus"
                         android:layout_columnWeight="1"
                         android:gravity="center"
