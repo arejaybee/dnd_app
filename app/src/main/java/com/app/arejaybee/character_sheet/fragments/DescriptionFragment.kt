@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.app.arejaybee.character_sheet.R
+import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
+
 
 class DescriptionFragment : RobFragment() {
     companion object {
@@ -12,7 +15,15 @@ class DescriptionFragment : RobFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_description, container, false)
+        //return inflater.inflate(R.layout.fragment_description, container, false)
+
+        val binding: FragmentDescriptionBinding = DataBindingUtil.inflate(
+                inflater, R.layout.fragment_description, container, false)
+        val view: View = binding.root
+        //here data must be an instance of the class MarsDataProvider
+        //here data must be an instance of the class MarsDataProvider
+        binding.rob = activity?.rob
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

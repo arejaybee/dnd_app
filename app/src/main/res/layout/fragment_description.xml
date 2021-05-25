@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="rob"
+            type="com.app.arejaybee.character_sheet.data_objects.PlayerCharacter" />
+    </data>
+    <LinearLayout
         android:clickable="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical"
@@ -50,7 +56,7 @@
                         android:layout_columnWeight="1"
                         android:gravity="center"
                         android:textSize="18sp"
-                        android:text="0"/>
+                        android:text="@{`` +rob.strMod}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -59,7 +65,7 @@
                         android:gravity="center"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={`` +rob.strScore}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -68,7 +74,7 @@
                         android:gravity="center"
                         android:inputType="numberSigned"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={`` +rob.strScoreBonus}"/>
 
                     <TextView
                         android:text="DEX"
@@ -80,7 +86,7 @@
                         android:layout_columnWeight="1"
                         android:textSize="18sp"
                         android:gravity="center"
-                        android:text="0"/>
+                        android:text="@{``+rob.dexMod}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -89,7 +95,7 @@
                         android:gravity="center"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.dexScore}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -98,7 +104,7 @@
                         android:gravity="center"
                         android:inputType="numberSigned"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.dexScoreBonus}"/>
 
                     <TextView
                         android:text="CON"
@@ -110,7 +116,7 @@
                         android:layout_columnWeight="1"
                         android:gravity="center"
                         android:textSize="18sp"
-                        android:text="0"/>
+                        android:text="@{``+rob.conMod}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -119,7 +125,7 @@
                         android:gravity="center"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.conScore}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -128,7 +134,7 @@
                         android:gravity="center"
                         android:inputType="numberSigned"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.conScoreBonus}"/>
 
                     <TextView
                         android:text="INT"
@@ -140,7 +146,7 @@
                         android:layout_columnWeight="1"
                         android:textSize="18sp"
                         android:gravity="center"
-                        android:text="0"/>
+                        android:text="@{``+rob.intMod}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -149,7 +155,7 @@
                         android:gravity="center"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.intScore}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -158,7 +164,7 @@
                         android:gravity="center"
                         android:inputType="numberSigned"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.intScoreBonus}"/>
 
                     <TextView
                         android:text="WIS"
@@ -170,7 +176,7 @@
                         android:layout_columnWeight="1"
                         android:textSize="18sp"
                         android:gravity="center"
-                        android:text="0"/>
+                        android:text="@{``+rob.wisMod}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -179,7 +185,7 @@
                         android:gravity="center"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.wisScore}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -188,7 +194,7 @@
                         android:gravity="center"
                         android:inputType="numberSigned"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.wisScoreBonus}"/>
 
                     <TextView
                         android:text="CHA"
@@ -200,7 +206,7 @@
                         android:layout_columnWeight="1"
                         android:gravity="center"
                         android:textSize="18sp"
-                        android:text="0"/>
+                        android:text="@{``+rob.charMod}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -209,7 +215,7 @@
                         android:gravity="center"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.charScore}"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -218,7 +224,7 @@
                         android:gravity="center"
                         android:inputType="numberSigned"
                         android:maxLength="3"
-                        android:text="0"/>
+                        android:text="@={``+rob.charScoreBonus}"/>
 
                 </GridLayout>
 
@@ -238,81 +244,109 @@
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
 
                     android:columnCount="2">
                     <TextView
-                        android:text="Name:" />
-
+                        android:text="Name:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_name"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.name}"/>
 
                     <TextView
-                        android:text="Race:"/>
+                        android:text="Race:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_race"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
-
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.race}"/>
 
                     <TextView
-                        android:text="Class:" />
+                        android:text="Class:"
+                        android:layout_columnWeight="1" />
                     <EditText
                         android:id="@+id/det_class"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.characterClass}"/>
 
                     <TextView
-                        android:text="Level:"/>
+                        android:text="Level:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_level"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
-
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.level}"/>
 
                     <TextView
-                        android:text="Alignment:" />
+                        android:text="Alignment:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_alignment"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.alignment}"/>
 
                     <TextView
-                        android:text="Gender:"/>
+                        android:text="Gender:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_gender"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
-
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.gender}"/>
 
                     <TextView
-                        android:text="Height:" />
+                        android:text="Height:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_height"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.height}"/>
+
                     <TextView
-                        android:text="Weight:"/>
+                        android:text="Weight:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_weight"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
-
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.weight}"/>
 
                     <TextView
-                        android:text="Size:" />
+                        android:text="Size:"
+                        android:layout_columnWeight="1" />
                     <EditText
                         android:id="@+id/det_size"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.size}"/>
+
                     <TextView
-                        android:text="Exp:"/>
+                        android:text="Exp:"
+                        android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_exp"
+                        android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
-                        android:paddingEnd="100dp"/>
+                        android:layout_columnWeight="10"
+                        android:text="@={rob.exp}"/>
                 </GridLayout>
             </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
+
+</layout>
