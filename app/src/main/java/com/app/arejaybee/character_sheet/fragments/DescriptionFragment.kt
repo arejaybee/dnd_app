@@ -22,10 +22,11 @@ class DescriptionFragment : RobFragment() {
     override fun onResume() {
         super.onResume()
         setupToolbar()
+        activity?.showNavigation(TAG)
     }
 
-    override fun onClickMenu() {
-        super.onClickMenu()
+    override fun onClickHome() {
+        super.onClickHome()
         activity?.onBackPressed()
     }
 

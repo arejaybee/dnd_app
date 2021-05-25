@@ -1,5 +1,6 @@
 package com.app.arejaybee.character_sheet.activity
 
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -49,6 +50,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun onClickNavigation(view: View) {
+        when(view.id) {
+            R.id.navbtn_description -> navigateToFragment(DescriptionFragment.TAG)
+            else -> Toast.makeText(this, "TODO!", Toast.LENGTH_LONG).show()
+        }
+    }
+
     override fun onBackPressed() {
         val currentFragment = getCurrentFragment()
         if(currentFragment is RobFragment && currentFragment !is SelectCharacterFragment) {
@@ -73,10 +81,31 @@ class MainActivity : AppCompatActivity() {
             DescriptionFragment.TAG -> DescriptionFragment()
             else -> RobFragment()
         }
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.activity_fragment_layout, fragment, tag)
-                .addToBackStack(tag)
-                .commit()
+        if(fragment.javaClass != getCurrentFragment()?.javaClass) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.activity_fragment_layout, fragment, tag)
+                    .addToBackStack(tag)
+                    .commit()
+        }
+    }
+
+    fun showNavigation(tag: String) {
+        findViewById<View>(R.id.activity_navigation).visibility = View.VISIBLE
+        findViewById<View>(R.id.navbtn_abilities).isSelected = false
+        findViewById<View>(R.id.navbtn_combat).isSelected = false
+        findViewById<View>(R.id.navbtn_companion).isSelected = false
+        findViewById<View>(R.id.navbtn_description).isSelected = false
+        findViewById<View>(R.id.navbtn_inventory).isSelected = false
+        findViewById<View>(R.id.navbtn_notes).isSelected = false
+        findViewById<View>(R.id.navbtn_skills).isSelected = false
+        findViewById<View>(R.id.navbtn_spells).isSelected = false
+        when(tag) {
+            DescriptionFragment.TAG -> findViewById<View>(R.id.navbtn_description).isSelected = true
+        }
+    }
+
+    fun hideNavigation() {
+        findViewById<View>(R.id.activity_navigation).visibility = View.GONE
     }
 
     private fun getCurrentFragment() : Fragment?{

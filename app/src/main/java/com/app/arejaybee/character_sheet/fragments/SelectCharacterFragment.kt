@@ -26,6 +26,7 @@ class SelectCharacterFragment : RobFragment() {
     override fun onResume() {
         super.onResume()
         setupToolbar()
+        activity?.hideNavigation()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

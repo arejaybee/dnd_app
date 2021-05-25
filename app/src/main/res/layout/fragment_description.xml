@@ -1,92 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:id="@+id/activity_main">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp">
-            <LinearLayout
+    <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:text="Ability Scores"
                     android:textColor="@color/black"/>
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:columnCount="7">
+                    android:columnCount="4">
                     <TextView
                         android:text="Ability"
                         android:layout_columnWeight="1" />
                     <TextView
-                        android:layout_columnWeight="1"/>
-                    <TextView
                         android:text="Modifier"
+                        android:gravity="center"
                         android:layout_columnWeight="1" />
-                    <TextView
-                        android:layout_columnWeight="1"/>
                     <TextView
                         android:text="Score"
+                        android:gravity="center"
                         android:layout_columnWeight="1" />
-                    <TextView
-                        android:layout_columnWeight="1"/>
                     <TextView
                         android:text="Bonus"
+                        android:gravity="center"
                         android:layout_columnWeight="1" />
 
-
-                    <!-- empty spacing -->
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
                     <TextView
                         android:text="STR"
                         android:layout_columnWeight="1"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
+                        android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_strMod"
                         android:layout_columnWeight="1"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -96,8 +60,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -108,44 +70,17 @@
                         android:maxLength="3"
                         android:text="0"/>
 
-                    <!-- empty spacing -->
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-
                     <TextView
                         android:text="DEX"
                         android:layout_columnWeight="1"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
+                        android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_dexMod"
                         android:layout_columnWeight="1"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:gravity="center"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -155,8 +90,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -167,45 +100,17 @@
                         android:maxLength="3"
                         android:text="0"/>
 
-
-                    <!-- empty spacing -->
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-
                     <TextView
                         android:text="CON"
                         android:layout_columnWeight="1"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
+                        android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_conMod"
                         android:layout_columnWeight="1"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -215,8 +120,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -227,45 +130,17 @@
                         android:maxLength="3"
                         android:text="0"/>
 
-
-                    <!-- empty spacing -->
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-
                     <TextView
                         android:text="INT"
                         android:layout_columnWeight="1"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
+                        android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_intMod"
                         android:layout_columnWeight="1"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:gravity="center"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -275,8 +150,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -287,45 +160,17 @@
                         android:maxLength="3"
                         android:text="0"/>
 
-
-                    <!-- empty spacing -->
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-
                     <TextView
                         android:text="WIS"
                         android:layout_columnWeight="1"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
+                        android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_wisMod"
                         android:layout_columnWeight="1"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:gravity="center"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -335,8 +180,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -347,45 +190,17 @@
                         android:maxLength="3"
                         android:text="0"/>
 
-
-                    <!-- empty spacing -->
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-                    <TextView
-                        android:layout_height="5dp"
-                        android:layout_columnWeight="0.005"  />
-
                     <TextView
                         android:text="CHA"
                         android:layout_columnWeight="1"
-                        android:textSize="25dp"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
+                        android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_charMod"
                         android:layout_columnWeight="1"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -395,8 +210,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="0"/>
-                    <TextView
-                        android:layout_columnWeight="1"/>
 
                     <EditText
                         android:background="@android:drawable/edit_text"
@@ -419,7 +232,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:text="Details"
                     android:textColor="@color/black"/>
                 <GridLayout
@@ -502,5 +315,4 @@
                         android:paddingEnd="100dp"/>
                 </GridLayout>
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+</LinearLayout>
