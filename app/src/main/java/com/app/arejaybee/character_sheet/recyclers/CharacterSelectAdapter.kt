@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
+import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
+import com.app.arejaybee.character_sheet.utils.Strings
 
 class CharacterSelectAdapter(private val dataSet: MutableList<PlayerCharacter>, val activity: MainActivity) :
         RecyclerView.Adapter<CharacterSelectAdapter.ViewHolder>() {
@@ -58,7 +60,19 @@ class CharacterSelectAdapter(private val dataSet: MutableList<PlayerCharacter>, 
         selectedIndex = dataSet.size-1
     }
 
+    fun getCharacter() : PlayerCharacter {
+        return dataSet[selectedIndex]
+    }
+
     fun deleteSelectedPlayer() {
+        //delete character
+        val uuid = dataSet[selectedIndex].characterID
+        SharedPreferenceUtil.instance.removeString(uuid)
+        //delete id from list
+        val uuidList = SharedPreferenceUtil.instance.getUUIDList()
+        uuidList.remove(uuid)
+        SharedPreferenceUtil.instance.setString(Strings.UUID_LIST_KEY, uuidList.joinToString(","))
+        //remove character from list
         dataSet.removeAt(selectedIndex)
     }
 }

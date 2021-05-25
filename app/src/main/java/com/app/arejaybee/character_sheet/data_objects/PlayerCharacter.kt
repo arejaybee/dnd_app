@@ -4,8 +4,16 @@
  */
 package com.app.arejaybee.character_sheet.data_objects
 
+import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
+import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
+import androidx.databinding.Observable
+import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
+import com.app.arejaybee.character_sheet.utils.Strings
 import kotlinx.serialization.Contextual
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.*
@@ -14,7 +22,15 @@ import kotlin.collections.ArrayList
 import kotlin.math.floor
 
 @kotlinx.serialization.Serializable
-open class PlayerCharacter(val edition: EnumHelper.EDITION) : Serializable {
+open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
+
+    companion object {
+        fun loadCharacter(key:String) : PlayerCharacter {
+            val json = SharedPreferenceUtil.instance.getString(key)
+            return Json.decodeFromString(json)
+        }
+    }
+
     val characterID = UUID.randomUUID().toString()
     var name = ""
     var race = ""
@@ -28,65 +44,66 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : Serializable {
     var exp = ""
     var speed: String = ""
     var strScore: Int = 10
-        set(strScore) {
-            field = strScore
-            updateSkills()
-        }
+    set(value) {
+        field = value
+        saveCharacter()
+    }
     var dexScore: Int = 10
-        set(dexScore) {
-            field = dexScore
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var conScore: Int = 10
-        set(conScore) {
-            field = conScore
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var intScore: Int = 10
-        set(intScore) {
-            field = intScore
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var wisScore: Int = 10
-        set(wisScore) {
-            field = wisScore
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var charScore: Int = 10
-        set(charScore) {
-            field = charScore
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var strScoreBonus: Int = 0
-        set(strScoreBonus) {
-            field = strScoreBonus
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var dexScoreBonus: Int = 0
-        set(dexScoreBonus) {
-            field = dexScoreBonus
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var conScoreBonus: Int = 0
-        set(conScoreBonus) {
-            field = conScoreBonus
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var intScoreBonus: Int = 0
-        set(intScoreBonus) {
-            field = intScoreBonus
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var wisScoreBonus: Int = 0
-        set(wisScoreBonus) {
-            field = wisScoreBonus
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
     var charScoreBonus: Int = 0
-        set(charScoreBonus) {
-            field = charScoreBonus
-            updateSkills()
+        set(value) {
+            field = value
+            saveCharacter()
         }
+
     val strMod: Int
         get() = floor((strScore + strScoreBonus - 10) / 2.0).toInt()
     val dexMod: Int
@@ -134,8 +151,20 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : Serializable {
         generateSaves(edition)
     }
 
-    fun toJson() : String {
+    private fun toJson() : String {
         return Json.encodeToString(this)
+    }
+
+    open fun saveCharacter() {
+        val json = toJson()
+        val pref = SharedPreferenceUtil.instance
+        pref.setString(characterID, json)
+
+        val uuidList = pref.getUUIDList()
+        if(!uuidList.contains(characterID)) {
+            uuidList.add(characterID)
+            SharedPreferenceUtil.instance.setString(Strings.UUID_LIST_KEY, uuidList.joinToString(","))
+        }
     }
 
     fun generateSaves(edition: EnumHelper.EDITION) {
@@ -214,9 +243,6 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : Serializable {
                 addSkill(Skill("Use Rope", "DEX", edition))
             }
         }
-    }
-
-    open fun saveCharacter() {
     }
 
     fun getAbilityMod(abilityName: String): Int {

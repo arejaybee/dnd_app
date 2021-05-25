@@ -23,17 +23,18 @@ class DescriptionFragment : RobFragment() {
         //here data must be an instance of the class MarsDataProvider
         //here data must be an instance of the class MarsDataProvider
         binding.rob = activity?.rob
+        binding.lifecycleOwner = this
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
     }
 
     override fun onResume() {
         super.onResume()
         setupToolbar()
         activity?.showNavigation(TAG)
+        activity?.rob?.saveCharacter()
     }
 
     override fun onClickHome() {

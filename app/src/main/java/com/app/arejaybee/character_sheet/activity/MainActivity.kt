@@ -13,11 +13,13 @@ import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.SelectCharacterFragment
+import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 
 class MainActivity : AppCompatActivity() {
     lateinit var rob: PlayerCharacter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SharedPreferenceUtil.setInstance(this)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
                 .replace(R.id.activity_fragment_layout, SelectCharacterFragment(), SelectCharacterFragment.TAG)

@@ -13,6 +13,8 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.recyclers.CharacterSelectAdapter
+import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
+import com.app.arejaybee.character_sheet.utils.Strings
 
 class SelectCharacterFragment : RobFragment() {
     companion object {
@@ -32,9 +34,8 @@ class SelectCharacterFragment : RobFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.setTitleText(R.string.app_name)
-
         val recyclerView = view.findViewById<RecyclerView>(R.id.character_select_recycler)
-        val players = mutableListOf<PlayerCharacter>()
+        val players = getPlayerList()
         toggleVisibility(players.isNotEmpty())
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         activity?.let {
@@ -65,6 +66,24 @@ class SelectCharacterFragment : RobFragment() {
         (adapter as CharacterSelectAdapter).deleteSelectedPlayer()
         adapter.notifyDataSetChanged()
         toggleVisibility(adapter.itemCount > 0)
+    }
+
+    override fun onClickEdit() {
+        val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
+        activity?.rob = (adapter as CharacterSelectAdapter).getCharacter()
+        activity?.navigateToFragment(DescriptionFragment.TAG)
+    }
+
+    fun getPlayerList() : MutableList<PlayerCharacter> {
+        val pref = SharedPreferenceUtil.instance
+        val idList = pref.getUUIDList()
+        val players = mutableListOf<PlayerCharacter>()
+        idList.map {
+            if(it.isNotEmpty()) {
+                players.add(PlayerCharacter.loadCharacter(it))
+            }
+        }
+        return players
     }
 
     private fun toggleVisibility(hasPlayers: Boolean) {
