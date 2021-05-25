@@ -15,13 +15,10 @@ class DescriptionFragment : RobFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //return inflater.inflate(R.layout.fragment_description, container, false)
 
         val binding: FragmentDescriptionBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_description, container, false)
         val view: View = binding.root
-        //here data must be an instance of the class MarsDataProvider
-        //here data must be an instance of the class MarsDataProvider
         binding.rob = activity?.rob
         binding.lifecycleOwner = this
         return view

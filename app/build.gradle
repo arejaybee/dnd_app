@@ -3,8 +3,7 @@ plugins {
 }
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-
-
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -50,6 +49,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
     implementation 'android.arch.lifecycle:extensions:1.1.1'
 }
+
 repositories {
     mavenCentral()
 }

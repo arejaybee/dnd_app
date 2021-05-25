@@ -4,15 +4,10 @@
  */
 package com.app.arejaybee.character_sheet.data_objects
 
-import android.app.Activity
-import android.content.Context
-import android.content.SharedPreferences
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import androidx.databinding.Observable
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 import com.app.arejaybee.character_sheet.utils.Strings
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -20,6 +15,7 @@ import java.io.*
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.floor
+import androidx.databinding.library.baseAdapters.BR
 
 @kotlinx.serialization.Serializable
 open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
@@ -32,72 +28,141 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
     }
 
     val characterID = UUID.randomUUID().toString()
+    @Bindable
     var name = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var race = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var characterClass = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var level = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var alignment = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var gender = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var height = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var weight = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var size = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var exp = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var speed: String = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var strScore: Int = 10
     set(value) {
         field = value
         saveCharacter()
+        notifyPropertyChanged(BR.strScore)
     }
+    @Bindable
     var dexScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var conScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var intScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var wisScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var charScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var strScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.strScoreBonus)
         }
+    @Bindable
     var dexScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var conScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var intScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var wisScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
         }
+    @Bindable
     var charScoreBonus: Int = 0
         set(value) {
             field = value
@@ -105,38 +170,104 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         }
 
     val strMod: Int
+        @Bindable(value = ["strScore", "strScoreBonus"])
         get() = floor((strScore + strScoreBonus - 10) / 2.0).toInt()
     val dexMod: Int
+        @Bindable(value = ["dexScore", "dexScoreBonus"])
         get() = floor((dexScore + dexScoreBonus - 10) / 2.0).toInt()
     val conMod: Int
+        @Bindable(value = ["conScore", "conScoreBonus"])
         get() = floor((conScore + conScoreBonus - 10) / 2.0).toInt()
     val intMod: Int
+        @Bindable(value = ["intScore", "intScoreBonus"])
         get() = floor((intScore + intScoreBonus - 10) / 2.0).toInt()
     val wisMod: Int
+        @Bindable(value = ["wisScore", "wisScoreBonus"])
         get() = floor((wisScore + wisScoreBonus - 10) / 2.0).toInt()
     val charMod: Int
+        @Bindable(value = ["charScore", "charScoreBonus"])
         get() = floor((charScore + charScoreBonus - 10) / 2.0).toInt()
     val skills = ArrayList<Skill>()
     var saves = ArrayList<SavingThrow>()
+    @Bindable
     var conditionalSavingThrowMods = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
     var armorClass = ArmorClass()
+    @Bindable
     var initiativeBonus = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var attackBonus = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var grappleBonus = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var currentHp = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var maxHp = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
     var weapons = ArrayList<Weapon>()
+    @Bindable
     var rebukeTimes = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var rebukeCheck = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var rebukeDamage = "0d0 + 0"
+        set(value) {
+            field = value
+            saveCharacter()
+        }
     var spellLists = ArrayList<SpellList>()
+    @Bindable
     var currency = "0gp"
+        set(value) {
+            field = value
+            saveCharacter()
+        }
     var items = ArrayList<InventoryItem>()
     var companions = ArrayList<PlayerCharacter>()
     var abilities = arrayOfNulls<ArrayList<Ability>>(4)
     var notes = ArrayList<Note>()
+    @Bindable
     var proficiency = 0
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+    @Bindable
     var spellAbility = ""
+        set(value) {
+            field = value
+            saveCharacter()
+        }
 
     init {
         weapons.add(Weapon())
