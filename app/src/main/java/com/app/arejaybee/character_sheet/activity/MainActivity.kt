@@ -115,4 +115,11 @@ class MainActivity : AppCompatActivity() {
         val backStackEntry = supportFragmentManager.getBackStackEntryAt(index)
         return supportFragmentManager.findFragmentByTag(backStackEntry.name)
     }
+
+    fun onClickStatField(view: View) {
+        val curFrag = getCurrentFragment()
+        if(curFrag is DescriptionFragment) {
+            curFrag.onClickStatField(view)
+        }
+    }
 }

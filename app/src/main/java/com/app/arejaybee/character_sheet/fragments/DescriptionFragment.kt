@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.NumberPicker
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
+import com.app.arejaybee.character_sheet.utils.NumberPickerDialog
 
 
 class DescriptionFragment : RobFragment() {
@@ -37,6 +40,26 @@ class DescriptionFragment : RobFragment() {
     override fun onClickHome() {
         super.onClickHome()
         activity?.onBackPressed()
+    }
+
+    fun onClickStatField(view: View) {
+        val tv = view as TextView
+        val title = when(tv.id) {
+            R.id.det_strScore -> "STR Score"
+            R.id.det_dexScore -> "DEX Score"
+            R.id.det_conScore -> "CON Score"
+            R.id.det_intScore -> "INT Score"
+            R.id.det_wisScore -> "WIS Score"
+            R.id.det_charScore -> "CHA Score"
+            R.id.det_strBonus -> "STR Bonus"
+            R.id.det_dexBonus -> "DEX Bonus"
+            R.id.det_conBonus -> "CON Bonus"
+            R.id.det_intBonus -> "INT Bonus"
+            R.id.det_wisBonus -> "WIS Bonus"
+            R.id.det_charBonus -> "CHA Bonus"
+            else -> ""
+        }
+        NumberPickerDialog.build(requireActivity(), title, tv).show()
     }
 
     private fun setupToolbar() {

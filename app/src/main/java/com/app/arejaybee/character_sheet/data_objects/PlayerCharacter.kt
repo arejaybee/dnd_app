@@ -106,30 +106,35 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.dexScore)
         }
     @Bindable
     var conScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.conScore)
         }
     @Bindable
     var intScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.intScore)
         }
     @Bindable
     var wisScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.wisScore)
         }
     @Bindable
     var charScore: Int = 10
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.charScore)
         }
     @Bindable
     var strScoreBonus: Int = 0
@@ -143,30 +148,35 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.dexScoreBonus)
         }
     @Bindable
     var conScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.conScoreBonus)
         }
     @Bindable
     var intScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.intScoreBonus)
         }
     @Bindable
     var wisScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.wisScoreBonus)
         }
     @Bindable
     var charScoreBonus: Int = 0
         set(value) {
             field = value
             saveCharacter()
+            notifyPropertyChanged(BR.charScoreBonus)
         }
 
     val strMod: Int

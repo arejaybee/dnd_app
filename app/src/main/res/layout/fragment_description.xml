@@ -49,180 +49,204 @@
                     <TextView
                         android:text="STR"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_strMod"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
                         android:textSize="18sp"
                         android:text="@{`` +rob.strMod}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_strScore"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:onClick="onClickStatField"
                         android:text="@={`` +rob.strScore}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_strBonus"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="numberSigned"
                         android:maxLength="3"
+                        android:onClick="onClickStatField"
                         android:text="@={`` +rob.strScoreBonus}"/>
 
                     <TextView
                         android:text="DEX"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_dexMod"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="18sp"
                         android:gravity="center"
                         android:text="@{``+rob.dexMod}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_dexScore"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:onClick="onClickStatField"
                         android:text="@={``+rob.dexScore}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_dexBonus"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="numberSigned"
                         android:maxLength="3"
+                        android:onClick="onClickStatField"
                         android:text="@={``+rob.dexScoreBonus}"/>
 
                     <TextView
                         android:text="CON"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_conMod"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
                         android:textSize="18sp"
                         android:text="@{``+rob.conMod}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_conScore"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
+                        android:onClick="onClickStatField"
                         android:text="@={``+rob.conScore}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_conBonus"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="numberSigned"
                         android:maxLength="3"
+                        android:onClick="onClickStatField"
                         android:text="@={``+rob.conScoreBonus}"/>
 
                     <TextView
                         android:text="INT"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_intMod"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="18sp"
                         android:gravity="center"
                         android:text="@{``+rob.intMod}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_intScore"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="number"
+                        android:onClick="onClickStatField"
                         android:maxLength="3"
                         android:text="@={``+rob.intScore}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_intBonus"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="numberSigned"
+                        android:onClick="onClickStatField"
                         android:maxLength="3"
                         android:text="@={``+rob.intScoreBonus}"/>
 
                     <TextView
                         android:text="WIS"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_wisMod"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="18sp"
                         android:gravity="center"
                         android:text="@{``+rob.wisMod}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_wisScore"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="number"
+                        android:onClick="onClickStatField"
                         android:maxLength="3"
                         android:text="@={``+rob.wisScore}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_wisBonus"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="numberSigned"
+                        android:onClick="onClickStatField"
                         android:maxLength="3"
                         android:text="@={``+rob.wisScoreBonus}"/>
 
                     <TextView
                         android:text="CHA"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:textSize="25sp"/>
 
                     <TextView
                         android:id="@+id/dtv_charMod"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
                         android:textSize="18sp"
                         android:text="@{``+rob.charMod}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_charScore"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="number"
+                        android:onClick="onClickStatField"
                         android:maxLength="3"
                         android:text="@={``+rob.charScore}"/>
 
-                    <EditText
+                    <TextView
                         android:background="@android:drawable/edit_text"
                         android:id="@+id/det_charBonus"
                         android:layout_columnWeight="1"
+                        android:ems="3"
                         android:gravity="center"
-                        android:inputType="numberSigned"
+                        android:onClick="onClickStatField"
                         android:maxLength="3"
                         android:text="@={``+rob.charScoreBonus}"/>
 
