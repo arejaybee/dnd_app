@@ -6,13 +6,15 @@ package com.app.arejaybee.character_sheet.data_objects
 
 import android.content.Context
 import kotlinx.serialization.Contextual
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import java.io.*
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.floor
 
 @kotlinx.serialization.Serializable
-open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHelper.EDITION) : Serializable {
+open class PlayerCharacter(val edition: EnumHelper.EDITION) : Serializable {
     val characterID = UUID.randomUUID().toString()
     var name = ""
     var race = ""
@@ -132,6 +134,10 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
         generateSaves(edition)
     }
 
+    fun toJson() : String {
+        return Json.encodeToString(this)
+    }
+
     fun generateSaves(edition: EnumHelper.EDITION) {
         when (edition) {
             EnumHelper.EDITION.FIFTH -> {
@@ -153,59 +159,59 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
     fun generateSkills(edition: EnumHelper.EDITION) {
         when (edition) {
             EnumHelper.EDITION.FIFTH -> {
-                addSkill(Skill("Athletics", "STR", this))
-                addSkill(Skill("Acrobatic", "DEX", this))
-                addSkill(Skill("Sleight of Hand", "DEX", this))
-                addSkill(Skill("Stealth", "DEX", this))
-                addSkill(Skill("Arcana", "INT", this))
-                addSkill(Skill("History", "INT", this))
-                addSkill(Skill("Investigation", "INT", this))
-                addSkill(Skill("Nature", "INT", this))
-                addSkill(Skill("Religion", "INT", this))
-                addSkill(Skill("Animal Handling", "WIS", this))
-                addSkill(Skill("Insignt", "WIS", this))
-                addSkill(Skill("Medicine", "WIS", this))
-                addSkill(Skill("Perception", "WIS", this))
-                addSkill(Skill("Survival", "WIS", this))
-                addSkill(Skill("Deception", "CHA", this))
-                addSkill(Skill("Intimidation", "CHA", this))
-                addSkill(Skill("Performance", "CHA", this))
-                addSkill(Skill("Persuasion", "CHA", this))
+                addSkill(Skill("Athletics", "STR", edition))
+                addSkill(Skill("Acrobatic", "DEX", edition))
+                addSkill(Skill("Sleight of Hand", "DEX", edition))
+                addSkill(Skill("Stealth", "DEX", edition))
+                addSkill(Skill("Arcana", "INT", edition))
+                addSkill(Skill("History", "INT", edition))
+                addSkill(Skill("Investigation", "INT", edition))
+                addSkill(Skill("Nature", "INT", edition))
+                addSkill(Skill("Religion", "INT", edition))
+                addSkill(Skill("Animal Handling", "WIS", edition))
+                addSkill(Skill("Insignt", "WIS", edition))
+                addSkill(Skill("Medicine", "WIS", edition))
+                addSkill(Skill("Perception", "WIS", edition))
+                addSkill(Skill("Survival", "WIS", edition))
+                addSkill(Skill("Deception", "CHA", edition))
+                addSkill(Skill("Intimidation", "CHA", edition))
+                addSkill(Skill("Performance", "CHA", edition))
+                addSkill(Skill("Persuasion", "CHA", edition))
             }
             EnumHelper.EDITION.THREE_FIVE -> {
                 //populate the array list with default skills
-                addSkill(Skill("Appraise", "INT", this))
-                addSkill(Skill("Balance", "DEX", this))
-                addSkill(Skill("Bluff", "CHA", this))
-                addSkill(Skill("Climb", "STR", this))
-                addSkill(Skill("Concentration", "CON", this))
-                addSkill(Skill("Decipher Script", "INT", this))
-                addSkill(Skill("Diplomacy", "CHA", this))
-                addSkill(Skill("Disable Device", "INT", this))
-                addSkill(Skill("Disguise", "INT", this))
-                addSkill(Skill("Escape Artist", "DEX", this))
-                addSkill(Skill("Forgery", "INT", this))
-                addSkill(Skill("Gather Information", "CHA", this))
-                addSkill(Skill("Handle Animal", "CHA", this))
-                addSkill(Skill("Heal", "WIS", this))
-                addSkill(Skill("Hide", "DEX", this))
-                addSkill(Skill("Intimidate", "CHA", this))
-                addSkill(Skill("Jump", "STR", this))
-                addSkill(Skill("Language", "INT", this))
-                addSkill(Skill("Listen", "WIS", this))
-                addSkill(Skill("Move Silently", "DEX", this))
-                addSkill(Skill("Open Lock", "DEX", this))
-                addSkill(Skill("Ride", "DEX", this))
-                addSkill(Skill("Search", "WIS", this))
-                addSkill(Skill("Sense Motive", "WIS", this))
-                addSkill(Skill("Sleight Of Hand", "DEX", this))
-                addSkill(Skill("Spellcraft", "INT", this))
-                addSkill(Skill("Spot", "WIS", this))
-                addSkill(Skill("Survival", "WIS", this))
-                addSkill(Skill("Swim", "STR", this))
-                addSkill(Skill("Tumble", "DEX", this))
-                addSkill(Skill("Use Magic Device", "CHA", this))
-                addSkill(Skill("Use Rope", "DEX", this))
+                addSkill(Skill("Appraise", "INT", edition))
+                addSkill(Skill("Balance", "DEX", edition))
+                addSkill(Skill("Bluff", "CHA", edition))
+                addSkill(Skill("Climb", "STR", edition))
+                addSkill(Skill("Concentration", "CON", edition))
+                addSkill(Skill("Decipher Script", "INT", edition))
+                addSkill(Skill("Diplomacy", "CHA", edition))
+                addSkill(Skill("Disable Device", "INT", edition))
+                addSkill(Skill("Disguise", "INT", edition))
+                addSkill(Skill("Escape Artist", "DEX", edition))
+                addSkill(Skill("Forgery", "INT", edition))
+                addSkill(Skill("Gather Information", "CHA", edition))
+                addSkill(Skill("Handle Animal", "CHA", edition))
+                addSkill(Skill("Heal", "WIS", edition))
+                addSkill(Skill("Hide", "DEX", edition))
+                addSkill(Skill("Intimidate", "CHA", edition))
+                addSkill(Skill("Jump", "STR", edition))
+                addSkill(Skill("Language", "INT", edition))
+                addSkill(Skill("Listen", "WIS", edition))
+                addSkill(Skill("Move Silently", "DEX", edition))
+                addSkill(Skill("Open Lock", "DEX", edition))
+                addSkill(Skill("Ride", "DEX", edition))
+                addSkill(Skill("Search", "WIS", edition))
+                addSkill(Skill("Sense Motive", "WIS", edition))
+                addSkill(Skill("Sleight Of Hand", "DEX", edition))
+                addSkill(Skill("Spellcraft", "INT", edition))
+                addSkill(Skill("Spot", "WIS", edition))
+                addSkill(Skill("Survival", "WIS", edition))
+                addSkill(Skill("Swim", "STR", edition))
+                addSkill(Skill("Tumble", "DEX", edition))
+                addSkill(Skill("Use Magic Device", "CHA", edition))
+                addSkill(Skill("Use Rope", "DEX", edition))
             }
         }
     }
@@ -213,7 +219,7 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
     open fun saveCharacter() {
     }
 
-    fun getAbilityScore(abilityName: String): Int {
+    fun getAbilityMod(abilityName: String): Int {
         var `val` = 0
         when (abilityName) {
             "STR" -> `val` = strScore + strScoreBonus
@@ -232,7 +238,6 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
             if (skills[i].name == "") {
                 skillsToRemove.add(skills[i])
             }
-            skills[i].updatePlayer(this)
         }
         for (i in skillsToRemove.indices) {
             skills.removeAt(i)
@@ -242,6 +247,14 @@ open class PlayerCharacter(@Contextual val context: Context, val edition: EnumHe
     fun addSkill(s: Skill) {
         if (!skills.contains(s) && s.name != "") skills.add(s)
         updateSkills()
+    }
+
+    fun getSkillMod(s: String) : Int{
+        val skill = skills.find { it.name == s }
+        skill?.let{
+            it.mod + getAbilityMod(it.ability)
+        }
+        return 0
     }
 
     fun sortSkills() {

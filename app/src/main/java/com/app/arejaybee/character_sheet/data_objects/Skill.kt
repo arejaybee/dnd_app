@@ -8,7 +8,7 @@ import com.app.arejaybee.character_sheet.data_objects.EnumHelper.*
 import kotlin.math.floor
 
 @kotlinx.serialization.Serializable
-class Skill(val skillName: String, var ability: String, var rob: PlayerCharacter) {
+class Skill(val skillName: String, var ability: String, private val edition: EDITION) {
     var rank = 0
     var bonus = 0
     var isClassSkill = false
@@ -22,7 +22,6 @@ class Skill(val skillName: String, var ability: String, var rob: PlayerCharacter
         }
         field = String.format("%-" + 30 + "." + 30 + "s", newName)
     }
-    lateinit var proficiency: PROFICIENCY
 
     fun Equals(s: Any?): Boolean {
         return if (s is Skill) {
@@ -30,20 +29,16 @@ class Skill(val skillName: String, var ability: String, var rob: PlayerCharacter
         } else false
     }
 
-    fun updatePlayer(c: PlayerCharacter) {
-        rob = c
-    }
-
     val mod: Int
         get() {
             var rank = rank
-            return when (rob.edition) {
-                EDITION.FIFTH -> rank + bonus + rob.getAbilityScore(ability)
+            return when (edition) {
+                EDITION.FIFTH -> rank + bonus
                 EDITION.THREE_FIVE -> {
                     if (!isClassSkill) {
                         rank = floor(rank / 2.0).toInt()
                     }
-                    rank + bonus + rob.getAbilityScore(ability)
+                    rank + bonus
                 }
             }
         }
