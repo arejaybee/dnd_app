@@ -279,6 +279,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.name}"/>
 
                     <TextView
@@ -290,6 +291,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.race}"/>
 
                     <TextView
@@ -301,6 +303,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.characterClass}"/>
 
                     <TextView
@@ -312,6 +315,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.level}"/>
 
                     <TextView
@@ -323,6 +327,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.alignment}"/>
 
                     <TextView
@@ -334,6 +339,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.gender}"/>
 
                     <TextView
@@ -345,6 +351,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.height}"/>
 
                     <TextView
@@ -356,6 +363,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.weight}"/>
 
                     <TextView
@@ -367,6 +375,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.size}"/>
 
                     <TextView
@@ -378,6 +387,7 @@
                         android:background="@android:drawable/edit_text"
                         android:layout_gravity="fill_horizontal"
                         android:layout_columnWeight="10"
+                        android:ems="20"
                         android:text="@={rob.exp}"/>
                 </GridLayout>
             </LinearLayout>

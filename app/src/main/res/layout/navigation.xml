@@ -18,6 +18,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_description"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:padding="5dp"
             android:onClick="onClickNavigation"
             android:text="DESCRIPTION"
@@ -27,6 +29,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_skills"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="SKILLS"
             android:textSize="12sp" />
@@ -35,6 +39,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_combat"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="COMBAT"
             android:textSize="12sp" />
@@ -43,6 +49,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_spells"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="SPELLS"
             android:textSize="12sp" />
@@ -51,6 +59,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_inventory"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="INVENTORY"
             android:textSize="12sp" />
@@ -59,6 +69,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_companion"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="COMPANION"
             android:textSize="12sp" />
@@ -67,6 +79,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_abilities"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="ABILITIES"
             android:textSize="12sp" />
@@ -75,6 +89,8 @@
             android:background="@drawable/navigation_button"
             android:id="@+id/navbtn_notes"
             android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:onClick="onClickNavigation"
             android:text="NOTES"
             android:textSize="12sp" />

@@ -8,6 +8,8 @@
     android:focusableInTouchMode="true"
     android:id="@+id/activity_main">
     <include layout="@layout/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/activity_toolbar"/>
 
     <ScrollView
@@ -21,6 +23,8 @@
 
             <include layout="@layout/navigation"
                 android:id="@+id/activity_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:visibility="gone"/>
 
             <RelativeLayout
