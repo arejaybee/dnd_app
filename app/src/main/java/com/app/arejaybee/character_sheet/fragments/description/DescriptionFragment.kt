@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.app.arejaybee.character_sheet.R
+import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.utils.NumberPickerDialog
@@ -66,5 +67,11 @@ class DescriptionFragment : RobFragment() {
         activity?.hideMenuItem(R.id.toolbar_save_btn)
 
         activity?.showMenuItem(R.id.toolbar_home_btn)
+
+        activity?.rob?.let {
+            if(it is CompanionCharacter) {
+                activity?.setTitleText("Companion of "+it.owner.name)
+            }
+        }
     }
 }

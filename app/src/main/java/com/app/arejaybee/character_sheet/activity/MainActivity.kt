@@ -7,10 +7,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
+import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
 import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.RobFragment
+import com.app.arejaybee.character_sheet.fragments.companions.CompanionFragment
 import com.app.arejaybee.character_sheet.fragments.select_character.SelectCharacterFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 
@@ -55,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         when(view.id) {
             R.id.navbtn_description -> navigateToFragment(DescriptionFragment.TAG)
             R.id.navbtn_abilities -> navigateToFragment(AbilitiesFragment.TAG)
+            R.id.navbtn_companion -> navigateToFragment(CompanionFragment.TAG)
             else -> Toast.makeText(this, "TODO!", Toast.LENGTH_LONG).show()
         }
     }
@@ -65,7 +68,13 @@ class MainActivity : AppCompatActivity() {
             for(i in 0..supportFragmentManager.backStackEntryCount) {
                 supportFragmentManager.popBackStack()
             }
-            navigateToFragment(SelectCharacterFragment.TAG)
+            if(rob is CompanionCharacter) {
+                rob = (rob as CompanionCharacter).owner
+                navigateToFragment(CompanionFragment.TAG)
+            }
+            else {
+                navigateToFragment(SelectCharacterFragment.TAG)
+            }
         }
     }
 
@@ -82,6 +91,7 @@ class MainActivity : AppCompatActivity() {
             SelectCharacterFragment.TAG -> SelectCharacterFragment()
             DescriptionFragment.TAG -> DescriptionFragment()
             AbilitiesFragment.TAG -> AbilitiesFragment()
+            CompanionFragment.TAG -> CompanionFragment()
             else -> RobFragment()
         }
         if(fragment.javaClass != getCurrentFragment()?.javaClass) {
@@ -105,6 +115,7 @@ class MainActivity : AppCompatActivity() {
         when(tag) {
             DescriptionFragment.TAG -> findViewById<View>(R.id.navbtn_description).isSelected = true
             AbilitiesFragment.TAG -> findViewById<View>(R.id.navbtn_abilities).isSelected = true
+            CompanionFragment.TAG -> findViewById<View>(R.id.navbtn_companion).isSelected = true
         }
     }
 
