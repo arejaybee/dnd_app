@@ -10,10 +10,12 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Ability
 
-class AbilityAdapter(private val dataSet: Array<ArrayList<Ability>>, val activity: MainActivity) :
+class AbilityAdapter(var dataSet: Array<ArrayList<Ability>>, val activity: MainActivity) :
         RecyclerView.Adapter<AbilityAdapter.ViewHolder>() {
-    var selectedIndex: Int = -1
+    companion object {
+        var selectedAbility: Ability? = null
 
+    }
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).

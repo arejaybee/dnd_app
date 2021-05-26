@@ -37,17 +37,16 @@ class CharacterSelectAdapter(private val dataSet: MutableList<PlayerCharacter>, 
         val text = rob.name + if(rob.level.isNotEmpty()) " - Lvl "+rob.level + " "+rob.characterClass else ""
         viewHolder.textView.text = text
         viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
-            if(focus) {
+            selectedIndex = if(focus) {
                 activity.showMenuItem(R.id.toolbar_edit_btn)
                 activity.showMenuItem(R.id.toolbar_delete_btn)
                 activity.showMenuItem(R.id.toolbar_email_btn)
-                selectedIndex = position
-            }
-            else {
+                position
+            } else {
                 activity.hideMenuItem(R.id.toolbar_edit_btn)
                 activity.hideMenuItem(R.id.toolbar_delete_btn)
                 activity.hideMenuItem(R.id.toolbar_email_btn)
-                selectedIndex = -1
+                -1
             }
         }
     }

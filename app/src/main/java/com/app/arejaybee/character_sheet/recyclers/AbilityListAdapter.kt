@@ -11,6 +11,8 @@ import com.app.arejaybee.character_sheet.data_objects.Ability
 
 class AbilityListAdapter(private val dataSet: ArrayList<Ability>, val activity: MainActivity) :
         RecyclerView.Adapter<AbilityListAdapter.ViewHolder>() {
+    var selectedIndex: Int = -1
+
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
@@ -32,6 +34,19 @@ class AbilityListAdapter(private val dataSet: ArrayList<Ability>, val activity: 
         val ability = dataSet[position]
         viewHolder.nameView.text = ability.title
         viewHolder.descriptionView.text = ability.description
+        viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
+            selectedIndex = if (focus) {
+                activity.showMenuItem(R.id.toolbar_edit_btn)
+                activity.showMenuItem(R.id.toolbar_delete_btn)
+                AbilityAdapter.selectedAbility = ability
+                position
+            } else {
+                activity.hideMenuItem(R.id.toolbar_edit_btn)
+                activity.hideMenuItem(R.id.toolbar_delete_btn)
+                AbilityAdapter.selectedAbility = null
+                -1
+            }
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -10,6 +10,7 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Ability
 import com.app.arejaybee.character_sheet.recyclers.AbilityAdapter
+import com.app.arejaybee.character_sheet.recyclers.CharacterSelectAdapter
 
 class AbilitiesFragment : RobFragment() {
     companion object {
@@ -39,6 +40,27 @@ class AbilitiesFragment : RobFragment() {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = AbilityAdapter(it, activity as MainActivity)
         }
+    }
+
+    override fun onClickEdit() {
+        super.onClickEdit()
+    }
+
+    override fun onClickDelete() {
+        val adapter = view?.findViewById<RecyclerView>(R.id.ability_list_recycler)?.adapter
+        AbilityAdapter.selectedAbility?.let {
+            activity?.rob?.abilities?.let { array ->
+                array.map { list ->
+                    list.remove(it)
+                }
+                (adapter as AbilityAdapter).dataSet = array
+            }
+            adapter?.notifyDataSetChanged()
+        }
+    }
+
+    override fun onClickAdd() {
+        super.onClickAdd()
     }
 
     private fun setupToolbar() {
