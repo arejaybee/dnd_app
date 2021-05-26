@@ -34,6 +34,11 @@ class SkillsAdapter(private val dataSet: ArrayList<Skill>, val activity: MainAct
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val skill = dataSet[position]
+        if(skill.proficiency.ordinal > 1) {
+            activity.runOnUiThread {
+                viewHolder.view.setBackgroundResource(R.drawable.selection_background_enabled)
+            }
+        }
         viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
             selectedIndex = if(focus) {
                 activity.showMenuItem(R.id.toolbar_edit_btn)

@@ -31,7 +31,7 @@
                     android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:layout_columnWeight="100"
                     android:id="@+id/fspet_name"/>
                 <TextView
@@ -43,7 +43,7 @@
                     android:paddingEnd="5dp"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:layout_columnWeight="100"
                     android:id="@+id/fspet_description"/>
 

@@ -62,7 +62,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:gravity="center"
                         android:textSize="24dp"
                         android:textColor="@color/black"
@@ -72,7 +72,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:gravity="center"
                         android:textSize="24dp"
                         android:id="@+id/spet_spellDC"
@@ -165,13 +165,13 @@
                                 android:text="Cast"/>
                             <EditText
                                 android:layout_columnWeight="1"
-                                android:background="@drawable/edit_text_border"
+                                android:background="@android:drawable/edit_text"
                                 android:text="0"
                                 android:id="@+id/spet_per0"
                                 android:gravity="center"/>
                             <EditText
                                 android:layout_columnWeight="1"
-                                android:background="@drawable/edit_text_border"
+                                android:background="@android:drawable/edit_text"
                                 android:text="0"
                                 android:id="@+id/spet_cast0"
                                 android:gravity="center"/>
@@ -251,13 +251,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per1"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast1"
                                     android:gravity="center"/>
@@ -337,13 +337,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per2"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast2"
                                     android:gravity="center"/>
@@ -423,13 +423,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per3"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast3"
                                     android:gravity="center"/>
@@ -509,13 +509,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per4"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast4"
                                     android:gravity="center"/>
@@ -595,13 +595,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per5"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast5"
                                     android:gravity="center"/>
@@ -681,13 +681,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per6"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast6"
                                     android:gravity="center"/>
@@ -767,13 +767,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per7"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast7"
                                     android:gravity="center"/>
@@ -853,13 +853,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per8"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast8"
                                     android:gravity="center"/>
@@ -939,13 +939,13 @@
                                     android:text="Cast"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_per9"
                                     android:gravity="center"/>
                                 <EditText
                                     android:layout_columnWeight="1"
-                                    android:background="@drawable/edit_text_border"
+                                    android:background="@android:drawable/edit_text"
                                     android:text="0"
                                     android:id="@+id/spet_cast9"
                                     android:gravity="center"/>

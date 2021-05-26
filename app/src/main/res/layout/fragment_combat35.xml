@@ -70,13 +70,13 @@
                             android:layout_columnWeight="1"
                             android:id="@+id/c35tv_consave"
                             android:gravity="center"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:textColor="@color/black"
                             android:text="0"/>
                         <TextView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:id="@+id/c35tv_dexsave"
                             android:gravity="center"
@@ -86,7 +86,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:gravity="center"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:id="@+id/c35tv_wissave"
                             android:textColor="@color/black"
@@ -111,7 +111,7 @@
                             android:paddingStart="5dp"
                             android:textSize="20dp"
                             android:id="@+id/c35et_conditionalSaves"
-                            android:background="@drawable/edit_text_border" />
+                            android:background="@android:drawable/edit_text" />
                         </LinearLayout>
                 </LinearLayout>
                 <View
@@ -165,7 +165,7 @@
                         android:text="0"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c35tv_ac"
                         android:onClick="onClickArmor"
                         android:layout_columnWeight="1" />
@@ -200,7 +200,7 @@
                         android:text="0"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c35tv_initiative"
                         android:onClick="onClickInitiative"
                         android:layout_columnWeight="1"/>
@@ -211,7 +211,7 @@
                         android:inputType="number"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c35et_bab"
                         android:layout_columnWeight="1"/>
                     <TextView android:layout_width="wrap_content"
@@ -220,7 +220,7 @@
                         android:text="0"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c35tv_grapple"
                         android:onClick="onClickGrapple"
                         android:layout_columnWeight="1"/>
@@ -241,7 +241,7 @@
                         android:inputType="number"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c35tv_speed"
                         android:layout_columnWeight="1"/>
                     <TextView android:layout_columnWeight="1"/>
@@ -273,7 +273,7 @@
                             android:gravity="center"
                             android:inputType="number"
                             android:text="0"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:id="@+id/c35et_curHP"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -292,7 +292,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:inputType="number"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:text="0"
                             android:id="@+id/c35et_maxHP"/>
                     </LinearLayout>

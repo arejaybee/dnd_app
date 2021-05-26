@@ -23,7 +23,7 @@
                     android:text="@string/ability_dialog_title_field"/>
                 <EditText
                     android:layout_columnWeight="1"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:paddingTop="5dp"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
@@ -35,7 +35,7 @@
                     android:text="@string/ability_dialog_description_field"/>
                 <EditText
                     android:layout_columnWeight="1"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:paddingTop="5dp"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"

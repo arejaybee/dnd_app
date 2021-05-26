@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:inputType="numberSigned"
                     android:maxLength="3"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:id="@+id/fcset_classVal"
                     android:layout_columnWeight="1"/>
                 <TextView android:layout_columnWeight="1"/>
@@ -68,7 +68,7 @@
                     android:gravity="center"
                     android:inputType="numberSigned"
                     android:maxLength="3"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:id="@+id/fcset_bonus"
                     android:layout_columnWeight="1"/>
             </GridLayout>

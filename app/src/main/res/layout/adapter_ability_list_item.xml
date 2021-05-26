@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:background="@drawable/character_border"
+    android:background="@drawable/selection_background"
     android:orientation="horizontal">
 
     <LinearLayout

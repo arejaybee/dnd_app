@@ -71,7 +71,7 @@
                         <TextView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:gravity="center"
                             android:id="@+id/c5etv_strsave"
@@ -80,7 +80,7 @@
                         <TextView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:id="@+id/c5etv_dexsave"
                             android:gravity="center"
@@ -92,7 +92,7 @@
                             android:layout_columnWeight="1"
                             android:id="@+id/c5etv_consave"
                             android:gravity="center"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:textColor="@color/black"
                             android:text="0"/>
                         <TextView
@@ -117,7 +117,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:gravity="center"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:id="@+id/c5etv_intsave"
                             android:textColor="@color/black"
@@ -126,7 +126,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:gravity="center"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:id="@+id/c5etv_wissave"
                             android:textColor="@color/black"
@@ -135,7 +135,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:gravity="center"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:layout_columnWeight="1"
                             android:id="@+id/c5etv_chasave"
                             android:textColor="@color/black"
@@ -160,7 +160,7 @@
                             android:paddingStart="5dp"
                             android:textSize="20dp"
                             android:id="@+id/c5eet_conditionalSaves"
-                            android:background="@drawable/edit_text_border" />
+                            android:background="@android:drawable/edit_text" />
                         </LinearLayout>
                     <TextView
                         android:layout_marginStart="5dp"
@@ -234,7 +234,7 @@
                         android:textSize="16dp"
                         android:id="@+id/c5etv_ac"
                         android:onClick="onClickArmor"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:layout_columnWeight="1"/>
 
                     <EditText android:layout_width="wrap_content"
@@ -245,7 +245,7 @@
                         android:textSize="16dp"
                         android:paddingEnd="5dp"
                         android:paddingStart="5dp"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:gravity="center"
                         android:id="@+id/c5eet_proficiency"
                         android:layout_columnWeight="1"/>
@@ -267,7 +267,7 @@
                         android:text="0"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c5etv_initiative"
                         android:onClick="onClickInitiative"
                         android:layout_columnWeight="1"/>
@@ -279,7 +279,7 @@
                         android:inputType="number"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:background="@drawable/edit_text_border"
+                        android:background="@android:drawable/edit_text"
                         android:id="@+id/c5etv_speed"
                         android:layout_columnWeight="1"/>
 
@@ -308,7 +308,7 @@
                             android:gravity="center"
                             android:inputType="number"
                             android:text="0"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:id="@+id/c5eet_curHP"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -327,7 +327,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:inputType="number"
-                            android:background="@drawable/edit_text_border"
+                            android:background="@android:drawable/edit_text"
                             android:text="0"
                             android:id="@+id/c5eet_maxHP"/>
                     </LinearLayout>

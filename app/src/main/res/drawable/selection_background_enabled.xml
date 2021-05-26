@@ -1,6 +1,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true"
-        android:drawable="@drawable/selected_character_border_active"/>
+        android:drawable="@drawable/selection_enabled_active" />
     <item android:state_focused="false"
-        android:drawable="@drawable/selected_character_border_deactive"/>
+        android:drawable="@drawable/selection_enabled_deactive"/>
 </selector>

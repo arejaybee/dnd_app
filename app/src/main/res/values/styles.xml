@@ -28,6 +28,6 @@
     <style name="EditBox" parent="AppTheme">
         <item name ="android:paddingEnd">5sp</item>
         <item name ="android:paddingStart">5sp</item>
-        <item name ="android:background">@drawable/edit_text_border</item>
+        <item name ="android:background">@android:drawable/edit_text</item>
     </style>
 </resources>

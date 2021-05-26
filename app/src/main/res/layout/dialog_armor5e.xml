@@ -64,7 +64,7 @@
                     android:inputType="numberSigned"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:id="@+id/fiet_armor"
                     android:layout_columnWeight="1"/>
                 <EditText
@@ -73,7 +73,7 @@
                     android:inputType="numberSigned"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:id="@+id/fiet_shield"
                     android:layout_columnWeight="1"/>
                 <EditText
@@ -82,7 +82,7 @@
                     android:inputType="numberSigned"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:id="@+id/fiet_bonus"
                     android:layout_columnWeight="1"/>
             </GridLayout>

@@ -55,7 +55,7 @@
                         android:paddingEnd="5dp"
                         android:layout_columnWeight="1"
                         android:layout_rowWeight="1"
-                        android:background="@drawable/edit_text_border" />
+                        android:background="@android:drawable/edit_text" />
                     <TextView
                         android:text="0"
                         android:textSize="24dp"

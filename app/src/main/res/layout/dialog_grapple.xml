@@ -68,7 +68,7 @@
                     android:inputType="numberSigned"
                     android:maxLength="3"
                     android:textSize="20dp"
-                    android:background="@drawable/edit_text_border"
+                    android:background="@android:drawable/edit_text"
                     android:id="@+id/fget_bonus"
                     android:layout_columnWeight="1"/>
             </GridLayout>
