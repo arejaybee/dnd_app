@@ -39,9 +39,6 @@ class AbilitiesFragment : RobFragment() {
 
 
         abilities?.let {
-            val ability = Ability()
-            ability.title = "WORKS"
-            abilities[0]?.add(ability)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = AbilityAdapter(it, activity as MainActivity)
         }
@@ -61,10 +58,11 @@ class AbilitiesFragment : RobFragment() {
                 (adapter as AbilityAdapter).dataSet = array
             }
             adapter?.notifyDataSetChanged()
+            activity?.rob?.saveCharacter()
         }
     }
 
-    fun showAbilityDialog(isEdit: Boolean) {
+    private fun showAbilityDialog(isEdit: Boolean) {
         val inflater = activity?.layoutInflater
         val dialogView = inflater?.inflate(R.layout.dialog_ability, null)
         dialogView?.let {
@@ -116,6 +114,7 @@ class AbilitiesFragment : RobFragment() {
                             activity?.rob?.abilities?.get(index)?.add(ability!!)
                         }
                         view?.findViewById<RecyclerView>(R.id.ability_list_recycler)?.adapter?.notifyDataSetChanged()
+                        activity?.rob?.saveCharacter()
                     }
                     .setNegativeButton(R.string.dialog_creation_negative) { dialog: DialogInterface, index: Int ->
                         dialog.dismiss()
@@ -125,7 +124,7 @@ class AbilitiesFragment : RobFragment() {
         }
     }
 
-    fun buildDialogTypeSpinner(spinner: Spinner) {
+    private fun buildDialogTypeSpinner(spinner: Spinner) {
         ArrayAdapter.createFromResource(
                 requireContext(),
                 R.array.abilityTypes,

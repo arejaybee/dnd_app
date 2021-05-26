@@ -54,7 +54,6 @@ class SelectCharacterFragment : RobFragment() {
                 }
                 .setNegativeButton(R.string.select_character_alert_negative) { dialog: DialogInterface, index: Int ->
                     activity?.rob = PlayerCharacter(EnumHelper.EDITION.FIFTH)
-                    activity?.rob?.name = "Robert"
                     activity?.navigateToFragment(DescriptionFragment.TAG)
                 }
                 .create()
