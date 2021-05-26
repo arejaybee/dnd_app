@@ -1,18 +1,18 @@
 package com.app.arejaybee.character_sheet.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
-import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
-import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.RobFragment
+import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
 import com.app.arejaybee.character_sheet.fragments.companions.CompanionFragment
+import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.select_character.SelectCharacterFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 
@@ -22,10 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         SharedPreferenceUtil.setInstance(this)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.activity_fragment_layout, SelectCharacterFragment(), SelectCharacterFragment.TAG)
-                .addToBackStack(SelectCharacterFragment.TAG)
-                .commit()
+        navigateToFragment(SelectCharacterFragment.TAG)
     }
 
 
@@ -40,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickMenu(view: View) {
         val currentFragment = getCurrentFragment()
-        if(currentFragment is RobFragment) {
+        if (currentFragment is RobFragment) {
             when (view.id) {
                 R.id.toolbar_add_btn -> currentFragment.onClickAdd()
                 R.id.toolbar_edit_btn -> currentFragment.onClickEdit()
@@ -54,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickNavigation(view: View) {
-        when(view.id) {
+        when (view.id) {
             R.id.navbtn_description -> navigateToFragment(DescriptionFragment.TAG)
             R.id.navbtn_abilities -> navigateToFragment(AbilitiesFragment.TAG)
             R.id.navbtn_companion -> navigateToFragment(CompanionFragment.TAG)
@@ -64,15 +61,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val currentFragment = getCurrentFragment()
-        if(currentFragment is RobFragment && currentFragment !is SelectCharacterFragment) {
-            for(i in 0..supportFragmentManager.backStackEntryCount) {
+        if (currentFragment is RobFragment && currentFragment !is SelectCharacterFragment) {
+            for (i in 0..supportFragmentManager.backStackEntryCount) {
                 supportFragmentManager.popBackStack()
             }
-            if(rob is CompanionCharacter) {
+            if (rob is CompanionCharacter) {
                 rob = (rob as CompanionCharacter).owner
-                navigateToFragment(CompanionFragment.TAG)
-            }
-            else {
+                navigateToFragment(CompanionFragment.TAG, true)
+            } else {
                 navigateToFragment(SelectCharacterFragment.TAG)
             }
         }
@@ -86,20 +82,30 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(id).visibility = View.GONE
     }
 
-    fun navigateToFragment(tag: String) {
-        val fragment = when(tag) {
+    fun navigateToFragment(tag: String, forceNavigate: Boolean = false) {
+        val fragment = when (tag) {
             SelectCharacterFragment.TAG -> SelectCharacterFragment()
             DescriptionFragment.TAG -> DescriptionFragment()
             AbilitiesFragment.TAG -> AbilitiesFragment()
             CompanionFragment.TAG -> CompanionFragment()
             else -> RobFragment()
         }
-        if(fragment.javaClass != getCurrentFragment()?.javaClass) {
+        if (fragment.javaClass != getCurrentFragment()?.javaClass) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.activity_fragment_layout, fragment, tag)
+                    .addToBackStack(tag)
+                    .commit()
+        } else if (forceNavigate) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.activity_fragment_layout, DescriptionFragment(), tag)
+                    .commit()
+
             supportFragmentManager.beginTransaction()
                     .replace(R.id.activity_fragment_layout, fragment, tag)
                     .addToBackStack(tag)
                     .commit()
         }
+        updateToolbarTitle()
     }
 
     fun showNavigation(tag: String) {
@@ -112,7 +118,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.navbtn_notes).isSelected = false
         findViewById<View>(R.id.navbtn_skills).isSelected = false
         findViewById<View>(R.id.navbtn_spells).isSelected = false
-        when(tag) {
+        when (tag) {
             DescriptionFragment.TAG -> findViewById<View>(R.id.navbtn_description).isSelected = true
             AbilitiesFragment.TAG -> findViewById<View>(R.id.navbtn_abilities).isSelected = true
             CompanionFragment.TAG -> findViewById<View>(R.id.navbtn_companion).isSelected = true
@@ -123,16 +129,28 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.activity_navigation).visibility = View.GONE
     }
 
-    private fun getCurrentFragment() : Fragment?{
+    private fun getCurrentFragment(): Fragment? {
         val index = supportFragmentManager.backStackEntryCount - 1
+        if(index < 0) {
+            return null
+        }
         val backStackEntry = supportFragmentManager.getBackStackEntryAt(index)
         return supportFragmentManager.findFragmentByTag(backStackEntry.name)
     }
 
     fun onClickStatField(view: View) {
         val curFrag = getCurrentFragment()
-        if(curFrag is DescriptionFragment) {
+        if (curFrag is DescriptionFragment) {
             curFrag.onClickStatField(view)
+        }
+    }
+
+    private fun updateToolbarTitle() {
+        if (this::rob.isInitialized && rob is CompanionCharacter) {
+            setTitleText("Companion of " + (rob as CompanionCharacter).owner.name)
+        }
+        else {
+            setTitleText(R.string.app_name)
         }
     }
 }

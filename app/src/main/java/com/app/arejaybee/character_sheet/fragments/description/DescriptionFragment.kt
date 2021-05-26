@@ -35,7 +35,6 @@ class DescriptionFragment : RobFragment() {
         super.onResume()
         setupToolbar()
         activity?.showNavigation(TAG)
-        activity?.rob?.saveCharacter()
     }
 
     fun onClickStatField(view: View) {
@@ -67,11 +66,5 @@ class DescriptionFragment : RobFragment() {
         activity?.hideMenuItem(R.id.toolbar_save_btn)
 
         activity?.showMenuItem(R.id.toolbar_home_btn)
-
-        activity?.rob?.let {
-            if(it is CompanionCharacter) {
-                activity?.setTitleText("Companion of "+it.owner.name)
-            }
-        }
     }
 }

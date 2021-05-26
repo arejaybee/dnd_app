@@ -6,101 +6,113 @@ package com.app.arejaybee.character_sheet.data_objects
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import androidx.databinding.library.baseAdapters.BR
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 import com.app.arejaybee.character_sheet.utils.Strings
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import java.io.*
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.floor
-import androidx.databinding.library.baseAdapters.BR
 
 @kotlinx.serialization.Serializable
-open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
+open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservable() {
 
     companion object {
-        fun loadCharacter(key:String) : PlayerCharacter {
+        fun loadCharacter(key: String): PlayerCharacter {
             val json = SharedPreferenceUtil.instance.getString(key)
             return Json.decodeFromString(json)
         }
     }
 
     val characterID = UUID.randomUUID().toString()
+
     @Bindable
     var name = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var race = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var characterClass = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var level = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var alignment = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var gender = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var height = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var weight = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var size = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var exp = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var speed: String = ""
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var strScore: Int = 10
-    set(value) {
-        field = value
-        saveCharacter()
-        notifyPropertyChanged(BR.strScore)
-    }
+        set(value) {
+            field = value
+            saveCharacter()
+            notifyPropertyChanged(BR.strScore)
+        }
+
     @Bindable
     var dexScore: Int = 10
         set(value) {
@@ -108,6 +120,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.dexScore)
         }
+
     @Bindable
     var conScore: Int = 10
         set(value) {
@@ -115,6 +128,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.conScore)
         }
+
     @Bindable
     var intScore: Int = 10
         set(value) {
@@ -122,6 +136,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.intScore)
         }
+
     @Bindable
     var wisScore: Int = 10
         set(value) {
@@ -129,6 +144,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.wisScore)
         }
+
     @Bindable
     var charScore: Int = 10
         set(value) {
@@ -136,6 +152,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.charScore)
         }
+
     @Bindable
     var strScoreBonus: Int = 0
         set(value) {
@@ -143,6 +160,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.strScoreBonus)
         }
+
     @Bindable
     var dexScoreBonus: Int = 0
         set(value) {
@@ -150,6 +168,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.dexScoreBonus)
         }
+
     @Bindable
     var conScoreBonus: Int = 0
         set(value) {
@@ -157,6 +176,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.conScoreBonus)
         }
+
     @Bindable
     var intScoreBonus: Int = 0
         set(value) {
@@ -164,6 +184,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.intScoreBonus)
         }
+
     @Bindable
     var wisScoreBonus: Int = 0
         set(value) {
@@ -171,6 +192,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
             notifyPropertyChanged(BR.wisScoreBonus)
         }
+
     @Bindable
     var charScoreBonus: Int = 0
         set(value) {
@@ -199,6 +221,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         get() = floor((charScore + charScoreBonus - 10) / 2.0).toInt()
     val skills = ArrayList<Skill>()
     var saves = ArrayList<SavingThrow>()
+
     @Bindable
     var conditionalSavingThrowMods = ""
         set(value) {
@@ -206,30 +229,35 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
         }
     var armorClass = ArmorClass()
+
     @Bindable
     var initiativeBonus = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var attackBonus = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var grappleBonus = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var currentHp = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var maxHp = 0
         set(value) {
@@ -237,18 +265,21 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
         }
     var weapons = ArrayList<Weapon>()
+
     @Bindable
     var rebukeTimes = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var rebukeCheck = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var rebukeDamage = "0d0 + 0"
         set(value) {
@@ -256,6 +287,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
         }
     var spellLists = ArrayList<SpellList>()
+
     @Bindable
     var currency = "0gp"
         set(value) {
@@ -263,15 +295,17 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
             saveCharacter()
         }
     var items = ArrayList<InventoryItem>()
-    var companions = ArrayList<PlayerCharacter>()
+    var companions = ArrayList<CompanionCharacter>()
     var abilities = arrayOfNulls<ArrayList<Ability>>(3)
     var notes = ArrayList<Note>()
+
     @Bindable
     var proficiency = 0
         set(value) {
             field = value
             saveCharacter()
         }
+
     @Bindable
     var spellAbility = ""
         set(value) {
@@ -280,28 +314,31 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         }
 
     init {
-        if(spellLists.isEmpty()) {
+        if (spellLists.isEmpty()) {
             for (i in 0..9) {
                 spellLists.add(SpellList(i))
             }
         }
         for (i in 0..2) {
-            if(abilities[i].isNullOrEmpty()) {
+            if (abilities[i].isNullOrEmpty()) {
                 abilities[i] = ArrayList()
             }
         }
-        if(notes.isNullOrEmpty()) {
+        if (notes.isNullOrEmpty()) {
             notes = ArrayList()
         }
-        if(skills.isNullOrEmpty()) {
+        if (skills.isNullOrEmpty()) {
             generateSkills(edition)
         }
-        if(saves.isNullOrEmpty()) {
+        if (saves.isNullOrEmpty()) {
             generateSaves(edition)
+        }
+        companions.map {
+            it.owner = this
         }
     }
 
-    private fun toJson() : String {
+    private fun toJson(): String {
         return Json.encodeToString(this)
     }
 
@@ -311,7 +348,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         pref.setString(characterID, json)
 
         val uuidList = pref.getUUIDList()
-        if(!uuidList.contains(characterID)) {
+        if (!uuidList.contains(characterID)) {
             uuidList.add(characterID)
             SharedPreferenceUtil.instance.setString(Strings.UUID_LIST_KEY, uuidList.joinToString(","))
         }
@@ -425,9 +462,9 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         updateSkills()
     }
 
-    fun getSkillMod(s: String) : Int{
+    fun getSkillMod(s: String): Int {
         val skill = skills.find { it.name == s }
-        skill?.let{
+        skill?.let {
             it.mod + getAbilityMod(it.ability)
         }
         return 0
@@ -532,7 +569,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
     }
 
     override fun equals(other: Any?): Boolean {
-        if(other is PlayerCharacter) {
+        if (other is PlayerCharacter) {
             return other.characterID == this.characterID
         }
         return super.equals(other)

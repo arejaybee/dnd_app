@@ -33,7 +33,6 @@ class SelectCharacterFragment : RobFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.setTitleText(R.string.app_name)
         val recyclerView = view.findViewById<RecyclerView>(R.id.character_select_recycler)
         val players = getPlayerList()
         toggleVisibility(players.isNotEmpty())
@@ -73,10 +72,10 @@ class SelectCharacterFragment : RobFragment() {
         activity?.navigateToFragment(DescriptionFragment.TAG)
     }
 
-    fun getPlayerList() : MutableList<PlayerCharacter> {
+    fun getPlayerList() : ArrayList<PlayerCharacter> {
         val pref = SharedPreferenceUtil.instance
         val idList = pref.getUUIDList()
-        val players = mutableListOf<PlayerCharacter>()
+        val players = arrayListOf<PlayerCharacter>()
         idList.map {
             if(it.isNotEmpty()) {
                 players.add(PlayerCharacter.loadCharacter(it))

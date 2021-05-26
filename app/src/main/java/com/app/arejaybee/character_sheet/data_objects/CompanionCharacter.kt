@@ -1,13 +1,20 @@
 package com.app.arejaybee.character_sheet.data_objects
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 @Serializable
-class CompanionCharacter(var owner: PlayerCharacter, var index: Int) : PlayerCharacter(owner.edition) {
+class CompanionCharacter(var index: Int, var companionEdition: EnumHelper.EDITION) : PlayerCharacter(companionEdition) {
+    @Transient
+    lateinit var owner: PlayerCharacter
     override fun saveCharacter() {
-        owner.let {
-            it.companions[index] = this
-            it.saveCharacter()
+        if(this::owner.isInitialized) {
+            owner.let {
+                if (it.companions.size < index) {
+                    it.companions[index] = this
+                }
+                it.saveCharacter()
+            }
         }
     }
 }

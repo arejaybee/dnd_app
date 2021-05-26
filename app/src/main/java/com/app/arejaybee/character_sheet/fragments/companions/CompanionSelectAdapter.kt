@@ -13,8 +13,8 @@ import com.app.arejaybee.character_sheet.fragments.companions.CompanionFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 import com.app.arejaybee.character_sheet.utils.Strings
 
-class CharacterSelectAdapter(private val dataSet: ArrayList<PlayerCharacter>, val activity: MainActivity) :
-        RecyclerView.Adapter<CharacterSelectAdapter.ViewHolder>() {
+class CompanionSelectAdapter(private val dataSet: ArrayList<CompanionCharacter>, val activity: MainActivity) :
+        RecyclerView.Adapter<CompanionSelectAdapter.ViewHolder>() {
     var selectedIndex: Int = -1
 
     /**
@@ -42,12 +42,10 @@ class CharacterSelectAdapter(private val dataSet: ArrayList<PlayerCharacter>, va
             selectedIndex = if(focus) {
                 activity.showMenuItem(R.id.toolbar_edit_btn)
                 activity.showMenuItem(R.id.toolbar_delete_btn)
-                activity.showMenuItem(R.id.toolbar_email_btn)
                 position
             } else {
                 activity.hideMenuItem(R.id.toolbar_edit_btn)
                 activity.hideMenuItem(R.id.toolbar_delete_btn)
-                activity.hideMenuItem(R.id.toolbar_email_btn)
                 -1
             }
         }
@@ -56,19 +54,12 @@ class CharacterSelectAdapter(private val dataSet: ArrayList<PlayerCharacter>, va
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
-    fun getCharacter() : PlayerCharacter {
+    fun getCharacter() : CompanionCharacter {
         return dataSet[selectedIndex]
     }
-
-    fun deleteSelectedPlayer() {
-        //delete character
-        val uuid = dataSet[selectedIndex].characterID
-        SharedPreferenceUtil.instance.removeString(uuid)
-        //delete id from list
-        val uuidList = SharedPreferenceUtil.instance.getUUIDList()
-        uuidList.remove(uuid)
-        SharedPreferenceUtil.instance.setString(Strings.UUID_LIST_KEY, uuidList.joinToString(","))
-        //remove character from list
-        dataSet.removeAt(selectedIndex)
+    fun deleteSelectedCompanion() {
+        val companion = dataSet[selectedIndex] as CompanionCharacter
+        companion.owner.companions.remove(companion)
+        companion.owner.saveCharacter()
     }
 }

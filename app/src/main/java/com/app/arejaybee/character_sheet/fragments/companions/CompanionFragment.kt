@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
+import com.app.arejaybee.character_sheet.fragments.select_character.CharacterSelectAdapter
+import com.app.arejaybee.character_sheet.fragments.select_character.CompanionSelectAdapter
 
 class CompanionFragment : RobFragment() {
     companion object {
@@ -18,6 +22,15 @@ class CompanionFragment : RobFragment() {
         return inflater.inflate(R.layout.fragment_companion, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.companion_recycler)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        activity?.let {
+            recyclerView.adapter = CompanionSelectAdapter(activity?.rob!!.companions, it)
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         setupToolbar()
@@ -26,7 +39,8 @@ class CompanionFragment : RobFragment() {
 
     override fun onClickAdd() {
         activity?.rob?.let {
-            val companion = CompanionCharacter(it, it.companions.size)
+            val companion = CompanionCharacter(it.companions.size, it.edition)
+            companion.owner = it
             it.companions.add(companion)
             activity?.rob = companion
             companion.saveCharacter()
@@ -35,11 +49,22 @@ class CompanionFragment : RobFragment() {
     }
 
     override fun onClickEdit() {
+        val adapter = view?.findViewById<RecyclerView>(R.id.companion_recycler)?.adapter as CompanionSelectAdapter
+        val companion = adapter.getCharacter()
 
+        activity?.rob?.let {
+            companion.owner = it
+            it.companions.add(companion)
+            activity?.rob = companion
+            companion.saveCharacter()
+            activity?.navigateToFragment(DescriptionFragment.TAG)
+        }
     }
 
     override fun onClickDelete() {
-        
+        val adapter = view?.findViewById<RecyclerView>(R.id.companion_recycler)?.adapter as CompanionSelectAdapter
+        adapter.deleteSelectedCompanion()
+        adapter.notifyDataSetChanged()
     }
 
     private fun setupToolbar() {
