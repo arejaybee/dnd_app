@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
+import com.app.arejaybee.character_sheet.fragments.AbilitiesFragment
 import com.app.arejaybee.character_sheet.fragments.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.SelectCharacterFragment
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
     fun onClickNavigation(view: View) {
         when(view.id) {
             R.id.navbtn_description -> navigateToFragment(DescriptionFragment.TAG)
+            R.id.navbtn_abilities -> navigateToFragment(AbilitiesFragment.TAG)
             else -> Toast.makeText(this, "TODO!", Toast.LENGTH_LONG).show()
         }
     }
@@ -81,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         val fragment = when(tag) {
             SelectCharacterFragment.TAG -> SelectCharacterFragment()
             DescriptionFragment.TAG -> DescriptionFragment()
+            AbilitiesFragment.TAG -> AbilitiesFragment()
             else -> RobFragment()
         }
         if(fragment.javaClass != getCurrentFragment()?.javaClass) {
@@ -103,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.navbtn_spells).isSelected = false
         when(tag) {
             DescriptionFragment.TAG -> findViewById<View>(R.id.navbtn_description).isSelected = true
+            AbilitiesFragment.TAG -> findViewById<View>(R.id.navbtn_abilities).isSelected = true
         }
     }
 

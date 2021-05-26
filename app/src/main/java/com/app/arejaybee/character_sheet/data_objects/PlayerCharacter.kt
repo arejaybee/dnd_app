@@ -264,7 +264,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         }
     var items = ArrayList<InventoryItem>()
     var companions = ArrayList<PlayerCharacter>()
-    var abilities = arrayOfNulls<ArrayList<Ability>>(4)
+    var abilities : Array<ArrayList<Ability>> = arrayOf()
     var notes = ArrayList<Note>()
     @Bindable
     var proficiency = 0
@@ -284,7 +284,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         for (i in 0..9) {
             spellLists.add(SpellList(i))
         }
-        for (i in abilities.indices) {
+        for (i in 0..2) {
             abilities[i] = ArrayList()
         }
         notes = ArrayList()
