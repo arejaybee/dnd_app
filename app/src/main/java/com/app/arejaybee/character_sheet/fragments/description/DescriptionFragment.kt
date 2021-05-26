@@ -54,7 +54,8 @@ class DescriptionFragment : RobFragment() {
             R.id.det_charBonus -> "CHA Bonus"
             else -> ""
         }
-        NumberPickerDialog.build(requireActivity(), title, tv).show()
+        val min = if(title.contains("Score")) 0 else -99
+        NumberPickerDialog.build(requireActivity(), title, tv, min).show()
     }
 
     private fun setupToolbar() {

@@ -280,16 +280,25 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         }
 
     init {
-        weapons.add(Weapon())
-        for (i in 0..9) {
-            spellLists.add(SpellList(i))
+        if(spellLists.isEmpty()) {
+            for (i in 0..9) {
+                spellLists.add(SpellList(i))
+            }
         }
         for (i in 0..2) {
-            abilities[i] = ArrayList()
+            if(abilities[i].isNullOrEmpty()) {
+                abilities[i] = ArrayList()
+            }
         }
-        notes = ArrayList()
-        generateSkills(edition)
-        generateSaves(edition)
+        if(notes.isNullOrEmpty()) {
+            notes = ArrayList()
+        }
+        if(skills.isNullOrEmpty()) {
+            generateSkills(edition)
+        }
+        if(saves.isNullOrEmpty()) {
+            generateSaves(edition)
+        }
     }
 
     private fun toJson() : String {

@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.app.arejaybee.character_sheet.R
 
 object NumberPickerDialog {
-    fun build(context: Activity, title: String, textView: TextView) : AlertDialog{
+    fun build(context: Activity, title: String, textView: TextView, min: Int) : AlertDialog{
         val dialog = AlertDialog.Builder(context)
         val inflater = context.layoutInflater
         val view = inflater.inflate(R.layout.dialog_number_picker, null)
@@ -22,7 +22,6 @@ object NumberPickerDialog {
         dialog.setCustomTitle(tvTitle)
         val numberPicker = view.findViewById<NumberPicker>(R.id.dialog_number_picker)
         val max = 99
-        val min = -99
         val curValue = textView.text.toString().toInt()
         numberPicker.maxValue = max - min
         numberPicker.minValue = 0
