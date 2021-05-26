@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.activity.MainActivity
 
 open class RobFragment : Fragment() {
-  val activity
+    val activity
         get() = if (getActivity() == null) null else getActivity() as MainActivity
 
     companion object {
@@ -36,6 +36,6 @@ open class RobFragment : Fragment() {
     }
 
     open fun onClickHome() {
-
+        activity?.onBackPressed()
     }
 }

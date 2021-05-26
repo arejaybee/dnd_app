@@ -7,16 +7,9 @@
     <string name="select_character_alert_message">Open a blank character sheet, or use the creation tool?</string>
     <string name="select_character_alert_positive">Create</string>
     <string name="select_character_alert_negative">Blank</string>
-
-
-
-
-
-    <string name="title_activity_companion">Companion</string>
-    <string name="title_activity_ability">Ability</string>
-    <string name="title_activity_inventory">Inventory</string>
-    <string name="title_activity_combat_">Combat</string>
     <string name="character_select_empty">Click the + button in the toolbar to get started!</string>
+
+    <!--Description-->
     <string name="exp">Exp:</string>
     <string name="size">Size:</string>
     <string name="weight">Weight:</string>
@@ -39,4 +32,17 @@
     <string name="modifier">Modifier</string>
     <string name="ability">Ability</string>
     <string name="ability_scores">Ability Scores</string>
+
+    <!--Abilities-->
+    <string name="feat">Feat</string>
+    <string name="class_feature">Class Feature</string>
+    <string name="racial_trait">Racial Trait</string>
+
+    <!--Alert Dialog Standard-->
+    <string name="dialog_creation_positive">OK</string>
+    <string name="dialog_creation_negative">Cancel</string>
+    <string name="ability_dialog_title_field">Title:</string>
+    <string name="ability_dialog_description_field">Description:</string>
+    <string name="ability_dialog_type_field">Type:</string>
+
 </resources>

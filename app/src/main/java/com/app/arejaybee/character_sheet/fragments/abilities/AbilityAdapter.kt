@@ -1,6 +1,5 @@
-package com.app.arejaybee.character_sheet.recyclers
+package com.app.arejaybee.character_sheet.fragments.abilities
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Ability
 
-class AbilityAdapter(var dataSet: Array<ArrayList<Ability>>, val activity: MainActivity) :
+class AbilityAdapter(var dataSet: Array<ArrayList<Ability>?>, val activity: MainActivity) :
         RecyclerView.Adapter<AbilityAdapter.ViewHolder>() {
     companion object {
         var selectedAbility: Ability? = null
@@ -40,14 +39,15 @@ class AbilityAdapter(var dataSet: Array<ArrayList<Ability>>, val activity: MainA
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val abilityList = dataSet[position]
         viewHolder.textView.text = when(position) {
-            0 -> "Feats"
-            1 -> "Class Features"
-            2 -> "Racial Traits"
+            0 -> activity.getString(R.string.feat)
+            1 -> activity.getString(R.string.class_feature)
+            2 -> activity.getString(R.string.racial_trait)
             else -> ""
         }
         abilityList?.let {
             viewHolder.recyclerView.layoutManager = LinearLayoutManager(activity)
             viewHolder.recyclerView.adapter = AbilityListAdapter(it, activity)
+            viewHolder.dropdownBtn.visibility = if(it.isEmpty()) View.GONE else View.VISIBLE
         }
 
         viewHolder.dropdownBtn.setOnClickListener {

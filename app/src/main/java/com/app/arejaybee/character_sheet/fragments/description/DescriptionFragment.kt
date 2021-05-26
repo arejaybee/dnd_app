@@ -1,14 +1,14 @@
-package com.app.arejaybee.character_sheet.fragments
+package com.app.arejaybee.character_sheet.fragments.description
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.NumberPicker
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
+import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.utils.NumberPickerDialog
 
 
@@ -35,11 +35,6 @@ class DescriptionFragment : RobFragment() {
         setupToolbar()
         activity?.showNavigation(TAG)
         activity?.rob?.saveCharacter()
-    }
-
-    override fun onClickHome() {
-        super.onClickHome()
-        activity?.onBackPressed()
     }
 
     fun onClickStatField(view: View) {

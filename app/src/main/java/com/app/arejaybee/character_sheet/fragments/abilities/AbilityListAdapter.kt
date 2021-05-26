@@ -1,4 +1,4 @@
-package com.app.arejaybee.character_sheet.recyclers
+package com.app.arejaybee.character_sheet.fragments.abilities
 
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +49,7 @@ class AbilityListAdapter(private val dataSet: ArrayList<Ability>, val activity: 
                 -1
             }
         }
+        viewHolder.dropdownBtn.visibility = if(ability.description.isEmpty()) View.GONE else View.VISIBLE
 
         viewHolder.dropdownBtn.setOnClickListener {
             it.rotation += 180

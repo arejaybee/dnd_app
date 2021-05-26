@@ -1,19 +1,17 @@
 package com.app.arejaybee.character_sheet.activity
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
-import com.app.arejaybee.character_sheet.fragments.AbilitiesFragment
-import com.app.arejaybee.character_sheet.fragments.DescriptionFragment
+import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
+import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.RobFragment
-import com.app.arejaybee.character_sheet.fragments.SelectCharacterFragment
+import com.app.arejaybee.character_sheet.fragments.select_character.SelectCharacterFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 
 class MainActivity : AppCompatActivity() {

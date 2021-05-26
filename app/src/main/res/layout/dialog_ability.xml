@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -23,7 +19,8 @@
                 android:layout_marginBottom="10dp">
                 <TextView
                     android:layout_columnWeight="1"
-                    android:text="Title:"/>
+                    android:textSize="@dimen/text_field_header"
+                    android:text="@string/ability_dialog_title_field"/>
                 <EditText
                     android:layout_columnWeight="1"
                     android:background="@drawable/edit_text_border"
@@ -31,10 +28,11 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/faet_title"/>
+                    android:id="@+id/ability_dialog_title_edittext"/>
                 <TextView
                     android:layout_columnWeight="1"
-                    android:text="Description:"/>
+                    android:textSize="@dimen/text_field_header"
+                    android:text="@string/ability_dialog_description_field"/>
                 <EditText
                     android:layout_columnWeight="1"
                     android:background="@drawable/edit_text_border"
@@ -42,50 +40,18 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:paddingBottom="5dp"
-                    android:id="@+id/faet_description"/>
+                    android:id="@+id/ability_dialog_description_edittext"/>
                 <TextView
                     android:layout_columnWeight="1"
-                    android:text="Type: "/>
+                    android:textSize="@dimen/text_field_header"
+                    android:text="@string/ability_dialog_type_field"/>
                 <Spinner
                     android:layout_height="20dp"
                     android:layout_columnWeight="1"
                     android:layout_width="200dp"
                     android:spinnerMode="dropdown"
-                    android:id="@+id/faet_type"/>
+                    android:id="@+id/ability_dialog_type_spinner"/>
 
             </GridLayout>
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_alignParentEnd="true"
-                    android:paddingEnd="20dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CONTINUE"
-                        android:textStyle="bold"
-                        android:textSize="15dp"
-                        android:textColor="@color/colorAccent"
-                        android:id="@+id/fnbtn_save"/>
-                    <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="0dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CANCEL"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorAccent"
-                        android:id="@+id/fnbtn_cancel"/>
-                </LinearLayout>
-            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
-</android.support.constraint.ConstraintLayout>

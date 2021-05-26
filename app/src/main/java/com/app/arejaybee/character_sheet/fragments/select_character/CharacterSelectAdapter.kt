@@ -1,4 +1,4 @@
-package com.app.arejaybee.character_sheet.recyclers
+package com.app.arejaybee.character_sheet.fragments.select_character
 
 import android.view.LayoutInflater
 import android.view.View

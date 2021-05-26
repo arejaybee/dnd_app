@@ -9,4 +9,5 @@
     <dimen name="text_item_title">18sp</dimen>
     <dimen name="text_item_description">12sp</dimen>
     <dimen name="text_column_name">18sp</dimen>
+    <dimen name="text_field_header">16sp</dimen>
 </resources>

@@ -8,10 +8,9 @@
         <item>CHA</item>
     </string-array>
     <string-array name="abilityTypes">
-        <item>FEAT</item>
-        <item>CLASS FEATURE</item>
-        <item>RACIAL TRAIT</item>
-        <item>LANGUAGE</item>
+        <item>Feat</item>
+        <item>Class Feature</item>
+        <item>Racial Trait</item>
     </string-array>
     <string-array name="editions">
         <item>DND 3.5</item>

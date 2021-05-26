@@ -1,4 +1,4 @@
-package com.app.arejaybee.character_sheet.fragments
+package com.app.arejaybee.character_sheet.fragments.select_character
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
-import com.app.arejaybee.character_sheet.recyclers.CharacterSelectAdapter
+import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
+import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
-import com.app.arejaybee.character_sheet.utils.Strings
 
 class SelectCharacterFragment : RobFragment() {
     companion object {

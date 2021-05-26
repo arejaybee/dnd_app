@@ -264,7 +264,7 @@ open class PlayerCharacter(val edition: EnumHelper.EDITION) : BaseObservable() {
         }
     var items = ArrayList<InventoryItem>()
     var companions = ArrayList<PlayerCharacter>()
-    var abilities : Array<ArrayList<Ability>> = arrayOf()
+    var abilities = arrayOfNulls<ArrayList<Ability>>(3)
     var notes = ArrayList<Note>()
     @Bindable
     var proficiency = 0
