@@ -462,12 +462,15 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         updateSkills()
     }
 
-    fun getSkillMod(s: String): Int {
-        val skill = skills.find { it.name == s }
-        skill?.let {
-            it.mod + getAbilityMod(it.ability)
+    fun getSkillMod(s: Skill): Int {
+        val skill = skills[skills.indexOf(s)]
+        val prof = when(skill.proficiency) {
+            EnumHelper.PROFICIENCY.NONE -> 0
+            EnumHelper.PROFICIENCY.NORMAL -> proficiency
+            EnumHelper.PROFICIENCY.DOUBLE -> proficiency * 2
+            EnumHelper.PROFICIENCY.HALF -> floor(proficiency/2.0).toInt()
         }
-        return 0
+        return skill.mod + getAbilityMod(skill.ability) + prof
     }
 
     fun sortSkills() {

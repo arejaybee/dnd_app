@@ -1,69 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
-
-    <ScrollView
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
+        android:padding="5dp"
+        android:columnCount="3">
+        <TextView
+            android:ems="10"
+            android:gravity="start"
+            android:textSize="@dimen/text_column_name"
+            android:text="@string/skill_name" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:orientation="vertical">
+        <TextView
+            android:gravity="center_horizontal"
+            android:ems="3"
+            android:textSize="@dimen/text_column_name"
+            android:text="@string/ability" />
 
-            <GridLayout
-                android:id="@+id/skgl_skillListGrid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="4">
+        <TextView
+            android:ems="5"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/text_column_name"
+            android:text="@string/skill_mod" />
+    </GridLayout>
 
-                <ImageButton
-                    android:id="@+id/imageButton1"
-                    android:layout_width="0dp"
-                    android:layout_columnWeight="0.5"
-                    android:background="@android:color/transparent"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:onClick="onClickNew"
-                    app:srcCompat="@android:drawable/ic_menu_add" />
-
-                <TextView android:layout_columnWeight="1" />
-
-                <TextView android:layout_columnWeight="1" />
-
-                <TextView
-                    android:id="@+id/sktv_ranks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:text="Ranks: 000" />
-
-                <TextView android:layout_columnWeight="0.25" />
-
-                <TextView
-                    android:layout_columnWeight="1"
-                    android:text="Skill Name" />
-
-                <TextView
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="center"
-                    android:text="Ability" />
-
-                <TextView
-                    android:layout_columnWeight="0.001"
-                    android:layout_gravity="center"
-                    android:text="Skill Mod" />
-            </GridLayout>
-        </LinearLayout>
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/skills_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

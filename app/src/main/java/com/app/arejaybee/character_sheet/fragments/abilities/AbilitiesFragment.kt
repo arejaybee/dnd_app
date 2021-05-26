@@ -79,6 +79,7 @@ class AbilitiesFragment : RobFragment() {
             }
             AlertDialog.Builder(requireContext())
                     .setView(it)
+                    .setCancelable(false)
                     .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
                         val ability = if(isEdit) AbilityAdapter.selectedAbility else Ability()
                         ability?.title = title.text.toString()

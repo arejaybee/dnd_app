@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/character_border"
+    android:padding="10dp"
+    android:layout_marginVertical="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:columnCount="3">
+    <TextView
+        android:id="@+id/skill_item_name"
+        android:gravity="start"
+        android:ems="10"
+        android:textSize="@dimen/text_item_title" />
+
+    <TextView
+        android:id="@+id/skill_item_ability"
+        android:ems="3"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/text_item_title" />
+
+    <TextView
+        android:id="@+id/skill_item_mod"
+        android:ems="5"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/text_item_title" />
+</GridLayout>

@@ -46,6 +46,7 @@ class SelectCharacterFragment : RobFragment() {
         val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
         //Create a character here
         AlertDialog.Builder(requireContext())
+                .setCancelable(false)
                 .setTitle(R.string.select_character_alert_title)
                 .setMessage(R.string.select_character_alert_message)
                 .setPositiveButton(R.string.select_character_alert_positive){ dialog: DialogInterface, i: Int ->

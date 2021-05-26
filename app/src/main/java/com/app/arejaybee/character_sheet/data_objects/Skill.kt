@@ -22,10 +22,11 @@ class Skill(val skillName: String, var ability: String, private val edition: EDI
         }
         field = String.format("%-" + 30 + "." + 30 + "s", newName)
     }
+    var proficiency: PROFICIENCY = PROFICIENCY.NONE
 
     fun Equals(s: Any?): Boolean {
         return if (s is Skill) {
-            s.name == name && s.ability == ability
+            s.name == name
         } else false
     }
 

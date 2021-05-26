@@ -68,12 +68,12 @@ class CompanionFragment : RobFragment() {
     }
 
     private fun setupToolbar() {
-        activity?.showMenuItem(R.id.toolbar_add_btn)
         activity?.hideMenuItem(R.id.toolbar_delete_btn)
         activity?.hideMenuItem(R.id.toolbar_edit_btn)
         activity?.hideMenuItem(R.id.toolbar_email_btn)
         activity?.hideMenuItem(R.id.toolbar_save_btn)
 
+        activity?.showMenuItem(R.id.toolbar_add_btn)
         activity?.showMenuItem(R.id.toolbar_home_btn)
     }
 }

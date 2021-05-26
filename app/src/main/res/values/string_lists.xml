@@ -17,6 +17,12 @@
         <item>DND 5.0</item>
         <!--<item>Pathfinder</item>--> <!--Add this in after 3.5 and 5e are working.-->
     </string-array>
+    <string-array name="proficiencies">
+        <item>None</item>
+        <item>Half Proficiency</item>
+        <item>Proficient</item>
+        <item>Double Proficiency</item>
+    </string-array>
     <string-array name="itemSlots">
         <item>NONE</item>
         <item>BELT</item>
