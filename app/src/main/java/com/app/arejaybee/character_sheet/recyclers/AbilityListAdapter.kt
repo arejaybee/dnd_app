@@ -3,6 +3,7 @@ package com.app.arejaybee.character_sheet.recyclers
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
@@ -20,6 +21,7 @@ class AbilityListAdapter(private val dataSet: ArrayList<Ability>, val activity: 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val nameView: TextView = view.findViewById(R.id.ability_list_item_name)
         val descriptionView: TextView = view.findViewById(R.id.ability_list_item_description)
+        val dropdownBtn: ImageButton = view.findViewById(R.id.ability_list_item_dropdown_btn)
     }
 
     // Create new views (invoked by the layout manager)
@@ -46,6 +48,12 @@ class AbilityListAdapter(private val dataSet: ArrayList<Ability>, val activity: 
                 AbilityAdapter.selectedAbility = null
                 -1
             }
+        }
+
+        viewHolder.dropdownBtn.setOnClickListener {
+            it.rotation += 180
+            it.rotation %= 360
+            viewHolder.descriptionView.visibility = if(it.rotation == 0F) View.GONE else View.VISIBLE
         }
     }
 

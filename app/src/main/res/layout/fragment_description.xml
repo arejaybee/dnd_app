@@ -23,41 +23,41 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:text="Ability Scores"
+                    android:textSize="@dimen/text_header"
+                    android:text="@string/ability_scores"
                     android:textColor="@color/black"/>
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:columnCount="4">
                     <TextView
-                        android:text="Ability"
+                        android:text="@string/ability"
                         android:layout_columnWeight="1" />
                     <TextView
-                        android:text="Modifier"
+                        android:text="@string/modifier"
                         android:gravity="center"
                         android:layout_columnWeight="1" />
                     <TextView
-                        android:text="Score"
+                        android:text="@string/score"
                         android:gravity="center"
                         android:layout_columnWeight="1" />
                     <TextView
-                        android:text="Bonus"
+                        android:text="@string/bonus"
                         android:gravity="center"
                         android:layout_columnWeight="1" />
 
                     <TextView
-                        android:text="STR"
+                        android:text="@string/str"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/text_subHeader"/>
 
                     <TextView
                         android:id="@+id/dtv_strMod"
                         android:layout_columnWeight="1"
                         android:ems="3"
                         android:gravity="center"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_column_name"
                         android:text="@{`` +rob.strMod}"/>
 
                     <TextView
@@ -81,16 +81,16 @@
                         android:text="@={`` +rob.strScoreBonus}"/>
 
                     <TextView
-                        android:text="DEX"
+                        android:text="@string/dex"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/text_subHeader"/>
 
                     <TextView
                         android:id="@+id/dtv_dexMod"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_column_name"
                         android:gravity="center"
                         android:text="@{``+rob.dexMod}"/>
 
@@ -115,17 +115,17 @@
                         android:text="@={``+rob.dexScoreBonus}"/>
 
                     <TextView
-                        android:text="CON"
+                        android:text="@string/con"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/text_subHeader"/>
 
                     <TextView
                         android:id="@+id/dtv_conMod"
                         android:layout_columnWeight="1"
                         android:ems="3"
                         android:gravity="center"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_column_name"
                         android:text="@{``+rob.conMod}"/>
 
                     <TextView
@@ -149,16 +149,16 @@
                         android:text="@={``+rob.conScoreBonus}"/>
 
                     <TextView
-                        android:text="INT"
+                        android:text="@string/int_mod_name"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/text_subHeader"/>
 
                     <TextView
                         android:id="@+id/dtv_intMod"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_column_name"
                         android:gravity="center"
                         android:text="@{``+rob.intMod}"/>
 
@@ -183,16 +183,16 @@
                         android:text="@={``+rob.intScoreBonus}"/>
 
                     <TextView
-                        android:text="WIS"
+                        android:text="@string/wis"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/text_subHeader"/>
 
                     <TextView
                         android:id="@+id/dtv_wisMod"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_column_name"
                         android:gravity="center"
                         android:text="@{``+rob.wisMod}"/>
 
@@ -217,17 +217,17 @@
                         android:text="@={``+rob.wisScoreBonus}"/>
 
                     <TextView
-                        android:text="CHA"
+                        android:text="@string/cha"
                         android:layout_columnWeight="1"
                         android:ems="3"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/text_subHeader"/>
 
                     <TextView
                         android:id="@+id/dtv_charMod"
                         android:layout_columnWeight="1"
                         android:ems="3"
                         android:gravity="center"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_column_name"
                         android:text="@{``+rob.charMod}"/>
 
                     <TextView
@@ -262,8 +262,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:text="Details"
+                    android:textSize="@dimen/text_header"
+                    android:text="@string/details"
                     android:textColor="@color/black"/>
                 <GridLayout
                     android:layout_width="match_parent"
@@ -271,7 +271,8 @@
 
                     android:columnCount="2">
                     <TextView
-                        android:text="Name:"
+                        android:text="@string/name"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_name"
@@ -281,7 +282,8 @@
                         android:text="@={rob.name}"/>
 
                     <TextView
-                        android:text="Race:"
+                        android:text="@string/race"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_race"
@@ -291,7 +293,8 @@
                         android:text="@={rob.race}"/>
 
                     <TextView
-                        android:text="Class:"
+                        android:text="@string/character_class"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1" />
                     <EditText
                         android:id="@+id/det_class"
@@ -301,7 +304,8 @@
                         android:text="@={rob.characterClass}"/>
 
                     <TextView
-                        android:text="Level:"
+                        android:text="@string/level"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_level"
@@ -311,7 +315,8 @@
                         android:text="@={rob.level}"/>
 
                     <TextView
-                        android:text="Alignment:"
+                        android:text="@string/alignment"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_alignment"
@@ -321,7 +326,8 @@
                         android:text="@={rob.alignment}"/>
 
                     <TextView
-                        android:text="Gender:"
+                        android:text="@string/gender"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_gender"
@@ -331,7 +337,8 @@
                         android:text="@={rob.gender}"/>
 
                     <TextView
-                        android:text="Height:"
+                        android:text="@string/height"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_height"
@@ -341,7 +348,8 @@
                         android:text="@={rob.height}"/>
 
                     <TextView
-                        android:text="Weight:"
+                        android:text="@string/weight"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_weight"
@@ -351,7 +359,8 @@
                         android:text="@={rob.weight}"/>
 
                     <TextView
-                        android:text="Size:"
+                        android:text="@string/size"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1" />
                     <EditText
                         android:id="@+id/det_size"
@@ -361,7 +370,8 @@
                         android:text="@={rob.size}"/>
 
                     <TextView
-                        android:text="Exp:"
+                        android:text="@string/exp"
+                        android:textSize="@dimen/text_column_name"
                         android:layout_columnWeight="1"/>
                     <EditText
                         android:id="@+id/det_exp"

@@ -1,8 +1,10 @@
 package com.app.arejaybee.character_sheet.recyclers
 
+import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,7 @@ class AbilityAdapter(var dataSet: Array<ArrayList<Ability>>, val activity: MainA
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.ability_list_title)
         val recyclerView: RecyclerView = view.findViewById(R.id.ability_list_items_recycler)
+        val dropdownBtn: ImageButton = view.findViewById(R.id.ability_list_dropdown_btn)
     }
 
     // Create new views (invoked by the layout manager)
@@ -45,6 +48,12 @@ class AbilityAdapter(var dataSet: Array<ArrayList<Ability>>, val activity: MainA
         abilityList?.let {
             viewHolder.recyclerView.layoutManager = LinearLayoutManager(activity)
             viewHolder.recyclerView.adapter = AbilityListAdapter(it, activity)
+        }
+
+        viewHolder.dropdownBtn.setOnClickListener {
+            it.rotation += 180
+            it.rotation %= 360
+            viewHolder.recyclerView.visibility = if(it.rotation == 0F) View.GONE else View.VISIBLE
         }
     }
 

@@ -17,4 +17,26 @@
     <string name="title_activity_inventory">Inventory</string>
     <string name="title_activity_combat_">Combat</string>
     <string name="character_select_empty">Click the + button in the toolbar to get started!</string>
+    <string name="exp">Exp:</string>
+    <string name="size">Size:</string>
+    <string name="weight">Weight:</string>
+    <string name="height">Height:</string>
+    <string name="gender">Gender:</string>
+    <string name="alignment">Alignment:</string>
+    <string name="level">Level:</string>
+    <string name="character_class">Class:</string>
+    <string name="race">Race:</string>
+    <string name="name">Name:</string>
+    <string name="details">Details</string>
+    <string name="cha">CHA</string>
+    <string name="wis">WIS</string>
+    <string name="int_mod_name">INT</string>
+    <string name="con">CON</string>
+    <string name="dex">DEX</string>
+    <string name="str">STR</string>
+    <string name="bonus">Bonus</string>
+    <string name="score">Score</string>
+    <string name="modifier">Modifier</string>
+    <string name="ability">Ability</string>
+    <string name="ability_scores">Ability Scores</string>
 </resources>
