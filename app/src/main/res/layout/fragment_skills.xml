@@ -6,29 +6,39 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical">
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:orientation="horizontal"
         android:columnCount="3">
         <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="5"
             android:ems="10"
             android:gravity="start"
-            android:textSize="@dimen/text_column_name"
+            android:textSize="@dimen/text_field_header"
             android:text="@string/skill_name" />
 
         <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:gravity="center_horizontal"
             android:ems="3"
-            android:textSize="@dimen/text_column_name"
+            android:textSize="@dimen/text_field_header"
             android:text="@string/ability" />
 
         <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:ems="5"
             android:gravity="center_horizontal"
-            android:textSize="@dimen/text_column_name"
+            android:textSize="@dimen/text_field_header"
             android:text="@string/skill_mod" />
-    </GridLayout>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/skills_recycler"

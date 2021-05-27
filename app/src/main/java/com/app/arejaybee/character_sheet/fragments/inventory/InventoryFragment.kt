@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
@@ -15,14 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.InventoryItem
-import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
 import com.app.arejaybee.character_sheet.databinding.FragmentInventoryBinding
-import com.app.arejaybee.character_sheet.databinding.FragmentInventoryBindingImpl
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.items.InventoryAdapter
 import com.app.arejaybee.character_sheet.utils.Util
-import kotlin.math.cos
-
 
 class InventoryFragment : RobFragment() {
     companion object {
@@ -104,7 +99,7 @@ class InventoryFragment : RobFragment() {
                         val item = if(isEdit) InventoryAdapter.selectedInventory else InventoryItem()
                         item?.name = name.text.toString()
                         item?.description = description.text.toString()
-                        item?.weight = weight.text.toString().toInt()
+                        item?.weight = if(weight.text.toString().isEmpty()) 0 else weight.text.toString().toInt()
                         item?.cost = cost.text.toString()
                         val slotValue = InventoryItem.SlotEnum.values().find { sVal -> sVal.name == slot.selectedItem.toString() }
                         item?.slot = slotValue ?: InventoryItem.SlotEnum.None

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/selection_background"
@@ -9,28 +9,31 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:columnCount="3">
+    android:orientation="horizontal">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="5"
         android:layout_height="wrap_content"
         android:id="@+id/skill_item_name"
         android:gravity="start"
         android:ems="10"
-        android:textSize="@dimen/text_item_title" />
+        android:textSize="@dimen/text_field_header" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:id="@+id/skill_item_ability"
         android:ems="3"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/text_item_title" />
+        android:textSize="@dimen/text_field_header" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:id="@+id/skill_item_mod"
         android:ems="5"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/text_item_title" />
-</GridLayout>
+        android:textSize="@dimen/text_field_header" />
+</LinearLayout>
