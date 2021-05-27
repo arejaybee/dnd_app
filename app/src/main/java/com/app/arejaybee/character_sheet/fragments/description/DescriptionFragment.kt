@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.app.arejaybee.character_sheet.R
-import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
-import com.app.arejaybee.character_sheet.utils.NumberPickerDialog
+import com.app.arejaybee.character_sheet.utils.Util
 
 
 class DescriptionFragment : RobFragment() {
@@ -55,7 +54,7 @@ class DescriptionFragment : RobFragment() {
             else -> ""
         }
         val min = if(title.contains("Score")) 0 else -99
-        NumberPickerDialog.build(requireActivity(), title, tv, min).show()
+        Util.buildNumberSpinner(requireActivity(), title, tv, min).show()
     }
 
     private fun setupToolbar() {

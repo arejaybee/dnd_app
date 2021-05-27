@@ -13,11 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.fragments.RobFragment
-import com.app.arejaybee.character_sheet.fragments.abilities.AbilityAdapter
-import com.app.arejaybee.character_sheet.fragments.select_character.CompanionSelectAdapter
-import com.app.arejaybee.character_sheet.utils.NumberPickerDialog
 import com.app.arejaybee.character_sheet.utils.Util
-import kotlin.time.measureTimedValue
 
 class SkillsFragment : RobFragment() {
     companion object {
@@ -97,17 +93,12 @@ class SkillsFragment : RobFragment() {
                 }
             }
 
-            bonus.setOnClickListener {
-                val tv = it as TextView
-                val numDia = NumberPickerDialog.build(requireActivity(), "Skill Bonus", tv, -99)
-                numDia.setOnDismissListener {
-                    skill.bonus = tv.text.toString().toInt()
-                    rob.skills[rob.skills.indexOf(skill)] = skill //indexOf finds the skill by name, then we replace with the updated object
+            Util.addNumberSpinnerToView(requireActivity(), "Skill Bonus", bonus, -99) {
+                skill.bonus = bonus.text.toString().toInt()
+                rob.skills[rob.skills.indexOf(skill)] = skill //indexOf finds the skill by name, then we replace with the updated object
 
-                    total.text = rob.getSkillMod(skill).toString()
-                    rob.saveCharacter()
-                }
-                numDia.show()
+                total.text = rob.getSkillMod(skill).toString()
+                rob.saveCharacter()
             }
 
             AlertDialog.Builder(requireContext())

@@ -99,7 +99,7 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         }
 
     @Bindable
-    var speed: String = ""
+    var speed: String = "0"
         set(value) {
             field = value
             saveCharacter()

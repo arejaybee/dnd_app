@@ -54,5 +54,12 @@
     <string name="inventory_dialog_weight_field">Weight:</string>
     <string name="inventory_dialog_name_field">Name:</string>
     <string name="inventory_dialog_cost_field">Cost:</string>
+    <string name="attacks">Attacks</string>
+    <string name="health_separator">/</string>
+    <string name="health">Health</string>
+    <string name="initiative">Initiative</string>
+    <string name="speed">Speed</string>
+    <string name="armor_class">Armor Class</string>
+    <string name="stats">Stats</string>
 
 </resources>

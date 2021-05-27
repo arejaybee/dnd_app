@@ -11,6 +11,7 @@ import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
+import com.app.arejaybee.character_sheet.fragments.combat.CombatFragment
 import com.app.arejaybee.character_sheet.fragments.companions.CompanionFragment
 import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.inventory.InventoryFragment
@@ -61,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navbtn_skills -> navigateToFragment(SkillsFragment.TAG)
             R.id.navbtn_notes -> navigateToFragment(NoteFragment.TAG)
             R.id.navbtn_inventory -> navigateToFragment(InventoryFragment.TAG)
+            R.id.navbtn_combat -> navigateToFragment(CombatFragment.TAG)
             else -> Toast.makeText(this, "TODO!", Toast.LENGTH_LONG).show()
         }
     }
@@ -97,6 +99,7 @@ class MainActivity : AppCompatActivity() {
             SkillsFragment.TAG -> SkillsFragment()
             NoteFragment.TAG -> NoteFragment()
             InventoryFragment.TAG -> InventoryFragment()
+            CombatFragment.TAG -> CombatFragment()
             else -> RobFragment()
         }
         if (fragment.javaClass != getCurrentFragment()?.javaClass) {
@@ -134,6 +137,7 @@ class MainActivity : AppCompatActivity() {
             SkillsFragment.TAG -> findViewById<View>(R.id.navbtn_skills).isSelected = true
             NoteFragment.TAG -> findViewById<View>(R.id.navbtn_notes).isSelected = true
             InventoryFragment.TAG -> findViewById<View>(R.id.navbtn_inventory).isSelected = true
+            CombatFragment.TAG -> findViewById<View>(R.id.navbtn_combat).isSelected = true
         }
     }
 

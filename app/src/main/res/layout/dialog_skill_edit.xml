@@ -12,7 +12,7 @@
 
         <TextView
             android:layout_height="wrap_content"
-            android:layout_width="80dp"
+            android:layout_width="90dp"
             android:text="@string/proficiency"
             android:textSize="@dimen/text_field_header" />
 
@@ -33,7 +33,7 @@
 
         <TextView
             android:layout_height="wrap_content"
-            android:layout_width="80dp"
+            android:layout_width="90dp"
             android:text="@string/ability"
             android:textSize="@dimen/text_field_header" />
 
@@ -54,7 +54,7 @@
 
         <TextView
             android:layout_height="wrap_content"
-            android:layout_width="80dp"
+            android:layout_width="90dp"
             android:text="@string/bonus"
             android:textSize="@dimen/text_field_header" />
 
@@ -75,7 +75,7 @@
 
         <TextView
             android:layout_height="wrap_content"
-            android:layout_width="80dp"
+            android:layout_width="90dp"
             android:text="@string/skill_mod"
             android:textSize="@dimen/text_field_header" />
 

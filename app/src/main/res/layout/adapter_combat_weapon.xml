@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/selection_background"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/adapter_weapon_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:textSize="@dimen/text_item_title"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <!-- Add weapon stuff -->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/adapter_weapon_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginHorizontal="10dp"
+            android:textSize="@dimen/text_item_description"
+            android:visibility="gone"/>
+
+
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/adapter_weapon_dropdown_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@android:color/transparent"
+        android:foregroundGravity="right"
+        app:srcCompat="@android:drawable/ic_menu_more" />
+</LinearLayout>

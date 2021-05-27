@@ -4,6 +4,7 @@
     <dimen name="navigation_btn_height">40dp</dimen>
     <dimen name="navigation_btn_width">90dp</dimen>
 
+    <dimen name="text_health_split">60sp</dimen>
     <dimen name="text_header">30sp</dimen>
     <dimen name="text_subHeader">24sp</dimen>
     <dimen name="text_item_title">18sp</dimen>
