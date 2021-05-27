@@ -34,7 +34,6 @@ class AbilitiesFragment : RobFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.setTitleText(R.string.app_name)
         val recyclerView = view.findViewById<RecyclerView>(R.id.ability_list_recycler)
         val abilities = activity?.rob?.abilities
 
