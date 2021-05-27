@@ -24,18 +24,19 @@
         <item>Double Proficiency</item>
     </string-array>
     <string-array name="itemSlots">
-        <item>NONE</item>
-        <item>BELT</item>
-        <item>BODY</item>
-        <item>CHEST</item>
-        <item>EYES</item>
-        <item>FEET</item>
-        <item>HANDS</item>
-        <item>HEAD</item>
-        <item>HEADBAND</item>
-        <item>NECK</item>
-        <item>RING</item>
-        <item>SHIELD</item>
-        <item>SHOULDERS</item>
+        <item>None</item>
+        <item>Belt</item>
+        <item>Body</item>
+        <item>Chest</item>
+        <item>Eyes</item>
+        <item>Feet</item>
+        <item>Hands</item>
+        <item>Head</item>
+        <item>Headband</item>
+        <item>Neck</item>
+        <item>Ring</item>
+        <item>Shield</item>
+        <item>Shoulders</item>
+        <item>Weapon</item>
     </string-array>
 </resources>

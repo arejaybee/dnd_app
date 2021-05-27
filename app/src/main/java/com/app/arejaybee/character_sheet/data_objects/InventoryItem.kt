@@ -4,11 +4,11 @@ package com.app.arejaybee.character_sheet.data_objects
 class InventoryItem  {
     var name: String = ""
     var description: String = ""
-    var slot: SlotEnum = SlotEnum.NONE
+    var slot: SlotEnum = SlotEnum.None
     var weight = 0
     var cost: String = ""
 
     enum class SlotEnum {
-        NONE, BELT, BODY, CHEST, EYES, FEET, HANDS, HEAD, HEADBAND, NECK, RING, SHIELD, SHOULDERS
+        None, Belt, Body, Chest, Eyes, Feet, Hands, Head, Headband, Neck, Ring, Shield, Shoulders, Weapon
     }
 }

@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +20,7 @@ import com.app.arejaybee.character_sheet.databinding.FragmentInventoryBinding
 import com.app.arejaybee.character_sheet.databinding.FragmentInventoryBindingImpl
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.items.InventoryAdapter
+import com.app.arejaybee.character_sheet.utils.Util
 import kotlin.math.cos
 
 
@@ -48,6 +51,7 @@ class InventoryFragment : RobFragment() {
         super.onResume()
         setupToolbar()
         activity?.showNavigation(TAG)
+        view?.findViewById<TextView>(R.id.inventory_weight)?.text = activity?.rob?.inventoryWeight.toString()
     }
 
     override fun onClickAdd() { showNoteDialog(false) }
@@ -58,6 +62,7 @@ class InventoryFragment : RobFragment() {
         val adapter = view?.findViewById<RecyclerView>(R.id.inventory_recycler)?.adapter as InventoryAdapter
         adapter.deleteInventory()
         adapter.notifyDataSetChanged()
+        view?.findViewById<TextView>(R.id.inventory_weight)?.text = activity?.rob?.inventoryWeight.toString()
     }
 
     private fun setupToolbar() {
@@ -72,6 +77,7 @@ class InventoryFragment : RobFragment() {
 
 
     private fun showNoteDialog(isEdit: Boolean) {
+        val item = InventoryAdapter.selectedInventory
         val inflater = activity?.layoutInflater
         val dialogView = inflater?.inflate(R.layout.dialog_inventory_item, null)
         dialogView?.let {
@@ -79,12 +85,18 @@ class InventoryFragment : RobFragment() {
             val description = it.findViewById<EditText>(R.id.inventory_dialog_description)
             val weight = it.findViewById<EditText>(R.id.inventory_dialog_weight)
             val cost = it.findViewById<EditText>(R.id.inventory_dialog_cost)
+            val slot = it.findViewById<Spinner>(R.id.inventory_dialog_slot)
+            Util.buildDialogTypeSpinner(requireContext(), slot, R.array.itemSlots)
             if(isEdit) {
-                name.setText(InventoryAdapter.selectedInventory?.name)
-                description.setText(InventoryAdapter.selectedInventory?.description)
-                weight.setText(InventoryAdapter.selectedInventory?.weight.toString())
-                cost.setText(InventoryAdapter.selectedInventory?.cost)
+                name.setText(item?.name)
+                description.setText(item?.description)
+                weight.setText(item?.weight.toString())
+                cost.setText(item?.cost)
             }
+
+            val index = if(item?.slot == null) 0 else item.slot.ordinal
+            slot.setSelection(index, true)
+
             AlertDialog.Builder(requireContext())
                     .setView(it)
                     .setCancelable(false)
@@ -94,6 +106,8 @@ class InventoryFragment : RobFragment() {
                         item?.description = description.text.toString()
                         item?.weight = weight.text.toString().toInt()
                         item?.cost = cost.text.toString()
+                        val slotValue = InventoryItem.SlotEnum.values().find { sVal -> sVal.name == slot.selectedItem.toString() }
+                        item?.slot = slotValue ?: InventoryItem.SlotEnum.None
                         if(isEdit) {
                             item?.let{ editItem ->
                                 val rob = activity?.rob
@@ -108,6 +122,8 @@ class InventoryFragment : RobFragment() {
                         }
                         view?.findViewById<RecyclerView>(R.id.inventory_recycler)?.adapter?.notifyDataSetChanged()
                         activity?.rob?.saveCharacter()
+
+                        view?.findViewById<TextView>(R.id.inventory_weight)?.text = activity?.rob?.inventoryWeight.toString()
                     }
                     .setNegativeButton(R.string.dialog_creation_negative) { dialog: DialogInterface, index: Int ->
                         dialog.dismiss()

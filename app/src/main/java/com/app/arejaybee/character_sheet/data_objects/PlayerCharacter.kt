@@ -294,9 +294,7 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             saveCharacter()
         }
-    @Bindable
     var items = ArrayList<InventoryItem>()
-
     var companions = ArrayList<CompanionCharacter>()
     var abilities = arrayOfNulls<ArrayList<Ability>>(3)
     var notes = ArrayList<Note>()
@@ -506,7 +504,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         }
 
     val inventoryWeight: Int
-        @Bindable(value = ["items"])
         get() {
             var w = 0
             items.map {

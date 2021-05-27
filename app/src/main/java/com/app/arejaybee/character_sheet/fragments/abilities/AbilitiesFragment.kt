@@ -15,6 +15,7 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Ability
 import com.app.arejaybee.character_sheet.fragments.RobFragment
+import com.app.arejaybee.character_sheet.utils.Util
 
 class AbilitiesFragment : RobFragment() {
     companion object {
@@ -69,7 +70,7 @@ class AbilitiesFragment : RobFragment() {
             val title = it.findViewById<EditText>(R.id.ability_dialog_title_edittext)
             val description = it.findViewById<EditText>(R.id.ability_dialog_description_edittext)
             val type = it.findViewById<Spinner>(R.id.ability_dialog_type_spinner)
-            buildDialogTypeSpinner(type)
+            Util.buildDialogTypeSpinner(requireContext(), type, R.array.abilityTypes)
             if(isEdit) {
                 title.setText(AbilityAdapter.selectedAbility?.title)
                 description.setText(AbilityAdapter.selectedAbility?.description)
@@ -122,19 +123,6 @@ class AbilitiesFragment : RobFragment() {
                     }
                     .create()
                     .show()
-        }
-    }
-
-    private fun buildDialogTypeSpinner(spinner: Spinner) {
-        ArrayAdapter.createFromResource(
-                requireContext(),
-                R.array.abilityTypes,
-                android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
         }
     }
 
