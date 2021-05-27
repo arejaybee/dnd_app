@@ -49,5 +49,6 @@
     <string name="proficiency">Proficiency</string>
     <string name="skill_mod">Skill Mod</string>
     <string name="notes">Notes:</string>
+    <string name="money">Money</string>
 
 </resources>
