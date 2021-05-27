@@ -48,5 +48,6 @@
     <string name="ranks">Ranks:</string>
     <string name="proficiency">Proficiency</string>
     <string name="skill_mod">Skill Mod</string>
+    <string name="notes">Notes:</string>
 
 </resources>
