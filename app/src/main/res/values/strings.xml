@@ -61,5 +61,11 @@
     <string name="speed">Speed</string>
     <string name="armor_class">Armor Class</string>
     <string name="stats">Stats</string>
+    <string name="damage_dice">Damage Dice</string>
+    <string name="type">Type</string>
+    <string name="attack_bonus">Attack Bonus</string>
+    <string name="damage_bonus">Damage Bonus</string>
+    <string name="attack_range">Attack Range</string>
+    <string name="attack_stat">Attack Stat</string>
 
 </resources>

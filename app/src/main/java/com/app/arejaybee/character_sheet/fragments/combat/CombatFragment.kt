@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.app.arejaybee.character_sheet.databinding.FragmentCombat5eBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.notes.CombatWeaponAdapter
 import com.app.arejaybee.character_sheet.utils.Util
+import kotlin.math.abs
 
 class CombatFragment : RobFragment() {
     companion object {
@@ -45,7 +47,7 @@ class CombatFragment : RobFragment() {
         val curHp = view.findViewById<TextView>(R.id.combat_current_health)
         val maxHp = view.findViewById<TextView>(R.id.combat_max_health)
 
-        Util.addNumberSpinnerToView(requireActivity(), "Proficiency", proficiency, 0)
+        Util.addNumberSpinnerToView(requireActivity(), getString(R.string.proficiency), proficiency, 0)
         Util.addNumberSpinnerToView(requireActivity(), "Current Health", curHp, -99)
         Util.addNumberSpinnerToView(requireActivity(), "Max Health", maxHp, 0)
     }
@@ -60,37 +62,74 @@ class CombatFragment : RobFragment() {
         activity?.showNavigation(TAG)
     }
 
+    override fun onClickDelete() {
+        val adapter = view?.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter as CombatWeaponAdapter
+        adapter.deleteWeapon()
+        adapter.notifyDataSetChanged()
+    }
+
     private fun showWeaponDialog(isEdit: Boolean) {
         val inflater = activity?.layoutInflater
         val dialogView = inflater?.inflate(R.layout.dialog_weapon, null)
         dialogView?.let {
             val name = it.findViewById<EditText>(R.id.weapon_dialog_title_edittext)
             val notes = it.findViewById<EditText>(R.id.weapon_dialog_description_edittext)
+            val type = it.findViewById<EditText>(R.id.weapon_dialog_type)
+            val damageDice = it.findViewById<EditText>(R.id.weapon_dialog_damage_roll)
+            val range = it.findViewById<EditText>(R.id.weapon_dialog_attack_range)
+            val attackBonus = it.findViewById<TextView>(R.id.weapon_dialog_attack_bonus)
+            val damageBonus = it.findViewById<TextView>(R.id.weapon_dialog_damage_bonus)
+            val abilityType = it.findViewById<Spinner>(R.id.weapon_dialog_stat_type)
+
+            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.attack_bonus), attackBonus, -99)
+            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.damage_bonus), damageBonus, -99)
+
+            Util.buildDialogTypeSpinner(requireContext(), abilityType, R.array.abilities)
+
+            val selectionArray = resources.getStringArray(R.array.abilities)
+            val index = if(selectionArray.toList().indexOf(CombatWeaponAdapter.selectedWeapon?.abilityType) < 0) 0
+            else selectionArray.toList().indexOf(CombatWeaponAdapter.selectedWeapon?.abilityType)
+            abilityType.setSelection(index, true)
             if(isEdit) {
-                name.setText(CombatWeaponAdapter.selectedWeapon?.name)
-                notes.setText(CombatWeaponAdapter.selectedWeapon?.notes)
+                val weapon = CombatWeaponAdapter.selectedWeapon!!
+                name.setText(weapon.name)
+                notes.setText(weapon.notes)
+                type.setText(weapon.type)
+                damageDice.setText(weapon.damage)
+                range.setText(weapon.range)
+                attackBonus.text = weapon.toHit
+                damageBonus.text = weapon.damageBonus
             }
             AlertDialog.Builder(requireContext())
                     .setView(it)
                     .setCancelable(false)
                     .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
-                        val ability = if(isEdit) CombatWeaponAdapter.selectedWeapon else Weapon()
-                        ability?.name = name.text.toString()
-                        ability?.notes = notes.text.toString()
+                        val weapon = if(isEdit) CombatWeaponAdapter.selectedWeapon else Weapon()
+                        weapon?.name = name.text.toString()
+                        weapon?.notes = notes.text.toString()
+                        weapon?.type = type.text.toString()
+                        weapon?.damage = damageDice.text.toString()
+                        weapon?.range = range.text.toString()
+                        weapon?.toHit = attackBonus.text.toString()
+                        weapon?.damageBonus = damageBonus.text.toString()
+                        weapon?.abilityType = abilityType.selectedItem.toString()
+
                         if(isEdit) {
-                            ability?.let{ editAbility ->
+                            weapon?.let{ editWeapon ->
                                 val rob = activity?.rob
                                 if(rob != null) {
                                     val aIndex = rob.weapons.indexOf(CombatWeaponAdapter.selectedWeapon)
-                                    rob.weapons[aIndex] = editAbility
+                                    rob.weapons[aIndex] = editWeapon
                                 }
                             }
                         }
                         else {
-                            activity?.rob?.weapons?.add(ability!!)
+                            activity?.rob?.weapons?.add(weapon!!)
                         }
-                        view?.findViewById<RecyclerView>(R.id.ability_list_recycler)?.adapter?.notifyDataSetChanged()
+                        //val adapter = view?.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter as CombatWeaponAdapter
                         activity?.rob?.saveCharacter()
+                        //adapter.updateWeapon(weapon!!)
+                        view?.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter?.notifyDataSetChanged()
                     }
                     .setNegativeButton(R.string.dialog_creation_negative) { dialog: DialogInterface, index: Int ->
                         dialog.dismiss()

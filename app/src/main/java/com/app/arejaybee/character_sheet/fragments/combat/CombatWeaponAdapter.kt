@@ -24,6 +24,8 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById(R.id.adapter_weapon_name)
         val notes: TextView = view.findViewById(R.id.adapter_weapon_notes)
+        val attack: TextView = view.findViewById(R.id.adapter_weapon_attack)
+        val damage: TextView = view.findViewById(R.id.adapter_weapon_damage)
         val dropdownBtn: ImageButton = view.findViewById(R.id.adapter_weapon_dropdown_btn)
     }
 
@@ -40,6 +42,13 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
         val weapon = dataSet[position]
         viewHolder.name.text = weapon.name
         viewHolder.notes.text = weapon.notes
+
+        val toHit = (weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType))
+        val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType)
+        val damageRoll = weapon.damage + (if(d >= 0) "+$d" else "-$d")
+        viewHolder.attack.text = if(toHit >= 0) "+$toHit" else "-$toHit"
+        viewHolder.damage.text = damageRoll
+
         viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
             selectedWeapon = if(focus) {
                 activity.showMenuItem(R.id.toolbar_edit_btn)
@@ -63,7 +72,10 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 
-    fun deleteNote() {
+    fun updateWeapon(weapon: Weapon) {
+        dataSet[dataSet.indexOf(weapon)] = weapon
+    }
+    fun deleteWeapon() {
         activity.rob.weapons.remove(selectedWeapon)
         activity.rob.saveCharacter()
     }

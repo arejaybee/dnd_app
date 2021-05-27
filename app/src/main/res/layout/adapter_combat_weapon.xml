@@ -17,35 +17,60 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/adapter_weapon_name"
-            android:layout_width="wrap_content"
+        <GridLayout
+            android:id="@+id/adapter_combat_visible"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
             android:layout_marginHorizontal="10dp"
-            android:textSize="@dimen/text_item_title"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:columnCount="3"
             android:orientation="horizontal">
-            <!-- Add weapon stuff -->
-        </LinearLayout>
+
+            <TextView android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Name"/>
+            <TextView android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Attack"/>
+            <TextView android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Damage"/>
+
+            <TextView android:layout_columnWeight="1"
+                android:id="@+id/adapter_weapon_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_item_title"/>
+            <TextView android:layout_columnWeight="1"
+                android:id="@+id/adapter_weapon_attack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_item_title"/>
+            <TextView android:layout_columnWeight="1"
+                android:id="@+id/adapter_weapon_damage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="@dimen/text_item_title"/>
+        </GridLayout>
 
         <TextView
             android:id="@+id/adapter_weapon_notes"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:layout_marginBottom="5dp"
             android:layout_marginHorizontal="10dp"
             android:textSize="@dimen/text_item_description"
             android:visibility="gone"/>
-
-
     </LinearLayout>
     <ImageButton
         android:id="@+id/adapter_weapon_dropdown_btn"
