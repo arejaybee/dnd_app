@@ -20,7 +20,10 @@ class InventoryAdapter(private val dataSet: ArrayList<InventoryItem>, val activi
      * (custom ViewHolder).
      */
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.adapter_inventory_item_name)
+        val name: TextView = view.findViewById(R.id.adapter_inventory_item_name)
+        val description: TextView = view.findViewById(R.id.adapter_inventory_item_description)
+        val weight: TextView = view.findViewById(R.id.adapter_inventory_weight)
+        val cost: TextView = view.findViewById(R.id.adapter_inventory_cost)
     }
 
     // Create new views (invoked by the layout manager)
@@ -34,7 +37,13 @@ class InventoryAdapter(private val dataSet: ArrayList<InventoryItem>, val activi
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val item = dataSet[position]
-        viewHolder.textView.text = item.name
+        viewHolder.name.text = item.name
+        viewHolder.description.text = item.description
+        val weightString = "Weight: " + item.weight
+        val costString = "Cost: " + item.cost
+        viewHolder.weight.text = weightString
+        viewHolder.cost.text = costString
+
         viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
             selectedInventory = if(focus) {
                 activity.showMenuItem(R.id.toolbar_edit_btn)

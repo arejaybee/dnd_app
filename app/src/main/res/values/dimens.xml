@@ -10,4 +10,5 @@
     <dimen name="text_item_description">12sp</dimen>
     <dimen name="text_column_name">18sp</dimen>
     <dimen name="text_field_header">16sp</dimen>
+    <dimen name="inventory_sub_header">14sp</dimen>
 </resources>

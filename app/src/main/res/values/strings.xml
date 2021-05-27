@@ -50,5 +50,9 @@
     <string name="skill_mod">Skill Mod</string>
     <string name="notes">Notes:</string>
     <string name="money">Money</string>
+    <string name="slot">Slot:</string>
+    <string name="inventory_dialog_weight_field">Weight:</string>
+    <string name="inventory_dialog_name_field">Name:</string>
+    <string name="inventory_dialog_cost_field">Cost:</string>
 
 </resources>
