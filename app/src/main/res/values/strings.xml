@@ -46,7 +46,6 @@
     <string name="skill_name">Skill Name</string>
     <string name="ability">Ability</string>
     <string name="ranks">Ranks:</string>
-    <string name="proficiency">Proficiency</string>
     <string name="skill_mod">Skill Mod</string>
     <string name="notes">Notes:</string>
     <string name="money">Money</string>
@@ -68,5 +67,9 @@
     <string name="attack_range">Attack Range</string>
     <string name="attack_stat">Attack Stat</string>
     <string name="proficient">Proficient</string>
+    <string name="total">Total:</string>
+    <string name="dex_mod">Dex Mod</string>
+    <string name="add_proficiency">Add Proficiency</string>
+    <string name="proficiency">Proficiency</string>
 
 </resources>

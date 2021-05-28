@@ -238,6 +238,13 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         }
 
     @Bindable
+    var initiativeProficiency: EnumHelper.PROFICIENCY = EnumHelper.PROFICIENCY.NONE
+        set(value) {
+            field = value
+            saveCharacter()
+        }
+
+    @Bindable
     var attackBonus = 0
         set(value) {
             field = value

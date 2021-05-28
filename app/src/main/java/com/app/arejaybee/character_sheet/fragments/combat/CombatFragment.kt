@@ -15,12 +15,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
+import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.data_objects.Weapon
 import com.app.arejaybee.character_sheet.databinding.FragmentCombat5eBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.notes.CombatWeaponAdapter
 import com.app.arejaybee.character_sheet.utils.Util
 import kotlin.math.abs
+import kotlin.math.floor
 
 class CombatFragment : RobFragment() {
     companion object {
@@ -55,6 +57,10 @@ class CombatFragment : RobFragment() {
         }
         Util.addNumberSpinnerToView(requireActivity(), "Current Health", curHp, -99)
         Util.addNumberSpinnerToView(requireActivity(), "Max Health", maxHp, 0)
+
+        view?.findViewById<TextView>(R.id.combat_initiative_field).setOnClickListener {
+            showInitiativeDialog()
+        }
     }
 
     override fun onClickAdd() { showWeaponDialog(false) }
@@ -64,7 +70,10 @@ class CombatFragment : RobFragment() {
     override fun onResume() {
         super.onResume()
         setupToolbar()
-        activity?.showNavigation(TAG)
+        activity?.let {
+            it.showNavigation(TAG)
+            updateInitiativeField()
+        }
     }
 
     override fun onClickDelete() {
@@ -77,6 +86,7 @@ class CombatFragment : RobFragment() {
         val inflater = activity?.layoutInflater
         val dialogView = inflater?.inflate(R.layout.dialog_weapon, null)
         dialogView?.let {
+            //Grab items from the view
             val name = it.findViewById<EditText>(R.id.weapon_dialog_title_edittext)
             val notes = it.findViewById<EditText>(R.id.weapon_dialog_description_edittext)
             val type = it.findViewById<EditText>(R.id.weapon_dialog_type)
@@ -87,15 +97,18 @@ class CombatFragment : RobFragment() {
             val abilityType = it.findViewById<Spinner>(R.id.weapon_dialog_stat_type)
             val prof: CheckBox = it.findViewById(R.id.weapon_dialog_proficient)
 
+            //Initialize spinners
             Util.addNumberSpinnerToView(requireActivity(), getString(R.string.attack_bonus), attackBonus, -99)
             Util.addNumberSpinnerToView(requireActivity(), getString(R.string.damage_bonus), damageBonus, -99)
-
             Util.buildDialogTypeSpinner(requireContext(), abilityType, R.array.abilities)
 
+            //Set a default selection for spinners
             val selectionArray = resources.getStringArray(R.array.abilities)
             val index = if(selectionArray.toList().indexOf(CombatWeaponAdapter.selectedWeapon?.abilityType) < 0) 0
             else selectionArray.toList().indexOf(CombatWeaponAdapter.selectedWeapon?.abilityType)
             abilityType.setSelection(index, true)
+
+            //create the object if isEdit
             if(isEdit) {
                 val weapon = CombatWeaponAdapter.selectedWeapon!!
                 name.setText(weapon.name)
@@ -107,10 +120,12 @@ class CombatFragment : RobFragment() {
                 damageBonus.text = weapon.damageBonus
                 prof.isChecked = weapon.isProficient
             }
+
             AlertDialog.Builder(requireContext())
                     .setView(it)
                     .setCancelable(false)
                     .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
+                        //Set the object to the values in the dialog
                         val weapon = if(isEdit) CombatWeaponAdapter.selectedWeapon else Weapon()
                         weapon?.name = name.text.toString()
                         weapon?.notes = notes.text.toString()
@@ -121,6 +136,8 @@ class CombatFragment : RobFragment() {
                         weapon?.damageBonus = damageBonus.text.toString()
                         weapon?.abilityType = abilityType.selectedItem.toString()
                         weapon?.isProficient = prof.isChecked
+
+                        //update the object on Rob
                         if(isEdit) {
                             weapon?.let{ editWeapon ->
                                 val rob = activity?.rob
@@ -133,9 +150,9 @@ class CombatFragment : RobFragment() {
                         else {
                             activity?.rob?.weapons?.add(weapon!!)
                         }
-                        //val adapter = view?.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter as CombatWeaponAdapter
+
+                        //save rob, update the recycler
                         activity?.rob?.saveCharacter()
-                        //adapter.updateWeapon(weapon!!)
                         view?.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter?.notifyDataSetChanged()
                     }
                     .setNegativeButton(R.string.dialog_creation_negative) { dialog: DialogInterface, index: Int ->
@@ -144,6 +161,58 @@ class CombatFragment : RobFragment() {
                     .create()
                     .show()
         }
+    }
+
+    private fun showInitiativeDialog() {
+        val inflater = activity?.layoutInflater
+        val dialogView = inflater?.inflate(R.layout.dialog_initiative, null)
+        dialogView?.let {
+            //Grab items from the view
+            val bonus = it.findViewById<TextView>(R.id.initiative_dialog_bonus)
+            val dex = it.findViewById<TextView>(R.id.initiative_dialog_dex)
+            val prof = it.findViewById<Spinner>(R.id.initiative_dialog_proficiency)
+
+            //Initialize spinners
+            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.bonus), bonus, -99)
+            Util.buildDialogTypeSpinner(requireContext(), prof, R.array.proficiencies)
+
+            //Set a default selection for spinners
+            prof.setSelection(activity?.rob?.initiativeProficiency?.ordinal!!, true)
+
+            bonus.text = activity?.rob?.initiativeBonus.toString()
+            dex.text = activity?.rob?.dexMod.toString()
+
+            AlertDialog.Builder(requireContext())
+                    .setView(it)
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
+                        //Set the object to the values in the dialog
+                        val rob = activity?.rob
+                        rob?.initiativeBonus = bonus.text.toString().toInt()
+                        rob?.initiativeProficiency = EnumHelper.PROFICIENCY.values()[prof.selectedItemPosition]
+
+                        //save rob, update the recycler
+                        activity?.rob?.saveCharacter()
+                        updateInitiativeField()
+                    }
+                    .setNegativeButton(R.string.dialog_creation_negative) { dialog: DialogInterface, i: Int ->
+                        dialog.dismiss()
+                    }
+                    .create()
+                    .show()
+        }
+    }
+
+    private fun updateInitiativeField() {
+        val rob = activity?.rob!!
+        val profValue = when(rob.initiativeProficiency) {
+            EnumHelper.PROFICIENCY.HALF -> floor(rob.proficiency/2.0).toInt()
+            EnumHelper.PROFICIENCY.NORMAL -> rob.proficiency
+            EnumHelper.PROFICIENCY.DOUBLE -> rob.proficiency * 2
+            else -> 0
+        }
+        val init = rob.dexMod + rob.initiativeBonus + profValue
+        view?.findViewById<TextView>(R.id.combat_initiative_field)?.text = init.toString()
     }
 
     private fun setupToolbar() {

@@ -141,7 +141,7 @@
                     android:textSize="@dimen/text_field_header"
                     android:gravity="center"
                     android:background="@android:drawable/edit_text"
-                    android:id="@+id/c5etv_initiative"
+                    android:id="@+id/combat_initiative_field"
                     android:layout_columnWeight="1"/>
 
                 <EditText
