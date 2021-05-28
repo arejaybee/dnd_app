@@ -4,18 +4,26 @@
  */
 package com.app.arejaybee.character_sheet.data_objects
 
+import kotlin.math.floor
+
 @kotlinx.serialization.Serializable
-class ArmorClass {
+class ArmorClass(var dexScore: Int) {
     var armor = 0
     var shield = 0
-    var misc = 0
+    var bonus = 0
+    var type = ArmorType.None
 
-    init {
-        armor = 0
-        shield = 0
-        misc = 0
+    val maxDexMod
+    get() = when(type) {
+        ArmorType.Medium -> {
+            val dexMod = floor((dexScore - 10) / 2.0).toInt()
+            if(dexMod > 2) 2 else dexMod
+        }
+        ArmorType.Heavy -> 0
+        else -> floor((dexScore - 10) / 2.0).toInt()
     }
+     enum class ArmorType {None, Light, Medium, Heavy}
 
     val mod: Int
-        get() = armor + shield + misc
+        get() = armor + shield + bonus + maxDexMod
 }

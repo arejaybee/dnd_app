@@ -93,13 +93,13 @@ class SkillsFragment : RobFragment() {
                 }
             }
 
-            Util.addNumberSpinnerToView(requireActivity(), "Skill Bonus", bonus, -99) {
+            Util.addNumberSpinnerToView(requireActivity(), "Skill Bonus", bonus, -99,  {
                 skill.bonus = bonus.text.toString().toInt()
                 rob.skills[rob.skills.indexOf(skill)] = skill //indexOf finds the skill by name, then we replace with the updated object
 
                 total.text = rob.getSkillMod(skill).toString()
                 rob.saveCharacter()
-            }
+            })
 
             AlertDialog.Builder(requireContext())
                     .setCancelable(false)

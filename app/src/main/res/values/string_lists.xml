@@ -23,6 +23,12 @@
         <item>Proficient</item>
         <item>Double Proficiency</item>
     </string-array>
+    <string-array name="armor_types">
+        <item>None</item>
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Heavy</item>
+    </string-array>
     <string-array name="itemSlots">
         <item>None</item>
         <item>Belt</item>

@@ -25,17 +25,14 @@ object Util {
         }
     }
 
-    fun addNumberSpinnerToView(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null) {
+    fun addNumberSpinnerToView(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null, max: Int = 99) {
         textView.setOnClickListener {
-            val dialog = buildNumberSpinner(context, title, textView, min)
-            if(onDimiss != null) {
-                dialog.setOnDismissListener(onDimiss)
-            }
+            val dialog = buildNumberSpinner(context, title, textView, min, onDimiss, max)
             dialog.show()
         }
     }
 
-    fun buildNumberSpinner(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null) : AlertDialog {
+    fun buildNumberSpinner(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null, max: Int = 99) : AlertDialog {
         val dialog = AlertDialog.Builder(context)
         val inflater = context.layoutInflater
         val view = inflater.inflate(R.layout.dialog_number_picker, null)
@@ -45,7 +42,6 @@ object Util {
         tvTitle.textSize = 20F
         dialog.setCustomTitle(tvTitle)
         val numberPicker = view.findViewById<NumberPicker>(R.id.dialog_number_picker)
-        val max = 99
         val curValue = if(textView.text.toString().isEmpty()) 0 else textView.text.toString().toInt()
         numberPicker.maxValue = max - min
         numberPicker.minValue = 0

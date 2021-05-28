@@ -71,5 +71,9 @@
     <string name="dex_mod">Dex Mod</string>
     <string name="add_proficiency">Add Proficiency</string>
     <string name="proficiency">Proficiency</string>
+    <string name="armor_type">Armor Type</string>
+    <string name="max_dex">Max Dex</string>
+    <string name="armor_bonus">Armor</string>
+    <string name="shield_bonus">Shield</string>
 
 </resources>

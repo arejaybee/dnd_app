@@ -117,6 +117,7 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
     var dexScore: Int = 10
         set(value) {
             field = value
+            armorClass.dexScore = value + dexScoreBonus
             saveCharacter()
             notifyPropertyChanged(BR.dexScore)
         }
@@ -165,6 +166,7 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
     var dexScoreBonus: Int = 0
         set(value) {
             field = value
+            armorClass.dexScore = value + dexScore
             saveCharacter()
             notifyPropertyChanged(BR.dexScoreBonus)
         }
@@ -219,8 +221,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
     val charMod: Int
         @Bindable(value = ["charScore", "charScoreBonus"])
         get() = floor((charScore + charScoreBonus - 10) / 2.0).toInt()
-    val skills = ArrayList<Skill>()
-    var saves = ArrayList<SavingThrow>()
 
     @Bindable
     var conditionalSavingThrowMods = ""
@@ -228,7 +228,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             saveCharacter()
         }
-    var armorClass = ArmorClass()
 
     @Bindable
     var initiativeBonus = 0
@@ -271,7 +270,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             saveCharacter()
         }
-    var weapons = ArrayList<Weapon>()
 
     @Bindable
     var rebukeTimes = 0
@@ -301,10 +299,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             saveCharacter()
         }
-    var items = ArrayList<InventoryItem>()
-    var companions = ArrayList<CompanionCharacter>()
-    var abilities = arrayOfNulls<ArrayList<Ability>>(3)
-    var notes = ArrayList<Note>()
 
     @Bindable
     var proficiency = 0
@@ -319,6 +313,16 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             saveCharacter()
         }
+
+    val skills = ArrayList<Skill>()
+
+    var items = ArrayList<InventoryItem>()
+    var companions = ArrayList<CompanionCharacter>()
+    var abilities = arrayOfNulls<ArrayList<Ability>>(3)
+    var notes = ArrayList<Note>()
+    var saves = ArrayList<SavingThrow>()
+    var weapons = ArrayList<Weapon>()
+    var armorClass = ArmorClass(dexScore+dexScoreBonus)
 
     init {
         if (spellLists.isEmpty()) {

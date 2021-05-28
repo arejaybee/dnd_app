@@ -44,8 +44,8 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
         viewHolder.name.text = weapon.name
         viewHolder.notes.text = weapon.notes
 
-        val toHit = (weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType))
-        val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType) + if(weapon.isProficient) activity.rob.proficiency else 0
+        val toHit = weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType) + if(weapon.isProficient) activity.rob.proficiency else 0
+        val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType)
         val damageRoll = weapon.damage + (if(d >= 0) "+$d" else "-$d")
         viewHolder.attack.text = if(toHit >= 0) "+$toHit" else "-$toHit"
         viewHolder.damage.text = damageRoll
