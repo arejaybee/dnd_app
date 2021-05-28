@@ -67,5 +67,6 @@
     <string name="damage_bonus">Damage Bonus</string>
     <string name="attack_range">Attack Range</string>
     <string name="attack_stat">Attack Stat</string>
+    <string name="proficient">Proficient</string>
 
 </resources>

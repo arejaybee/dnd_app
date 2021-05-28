@@ -14,4 +14,5 @@ class Weapon {
     var range: String = "0ft"
     var notes: String = ""
     var abilityType: String = ""
+    var isProficient: Boolean = false
 }

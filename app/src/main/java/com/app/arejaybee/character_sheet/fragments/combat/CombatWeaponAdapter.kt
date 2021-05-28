@@ -3,6 +3,7 @@ package com.app.arejaybee.character_sheet.fragments.notes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -44,7 +45,7 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
         viewHolder.notes.text = weapon.notes
 
         val toHit = (weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType))
-        val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType)
+        val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType) + if(weapon.isProficient) activity.rob.proficiency else 0
         val damageRoll = weapon.damage + (if(d >= 0) "+$d" else "-$d")
         viewHolder.attack.text = if(toHit >= 0) "+$toHit" else "-$toHit"
         viewHolder.damage.text = damageRoll

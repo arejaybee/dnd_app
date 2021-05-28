@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -48,6 +50,9 @@ class CombatFragment : RobFragment() {
         val maxHp = view.findViewById<TextView>(R.id.combat_max_health)
 
         Util.addNumberSpinnerToView(requireActivity(), getString(R.string.proficiency), proficiency, 0)
+        proficiency.addTextChangedListener {
+            view.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter?.notifyDataSetChanged()
+        }
         Util.addNumberSpinnerToView(requireActivity(), "Current Health", curHp, -99)
         Util.addNumberSpinnerToView(requireActivity(), "Max Health", maxHp, 0)
     }
@@ -80,6 +85,7 @@ class CombatFragment : RobFragment() {
             val attackBonus = it.findViewById<TextView>(R.id.weapon_dialog_attack_bonus)
             val damageBonus = it.findViewById<TextView>(R.id.weapon_dialog_damage_bonus)
             val abilityType = it.findViewById<Spinner>(R.id.weapon_dialog_stat_type)
+            val prof: CheckBox = it.findViewById(R.id.weapon_dialog_proficient)
 
             Util.addNumberSpinnerToView(requireActivity(), getString(R.string.attack_bonus), attackBonus, -99)
             Util.addNumberSpinnerToView(requireActivity(), getString(R.string.damage_bonus), damageBonus, -99)
@@ -99,6 +105,7 @@ class CombatFragment : RobFragment() {
                 range.setText(weapon.range)
                 attackBonus.text = weapon.toHit
                 damageBonus.text = weapon.damageBonus
+                prof.isChecked = weapon.isProficient
             }
             AlertDialog.Builder(requireContext())
                     .setView(it)
@@ -113,7 +120,7 @@ class CombatFragment : RobFragment() {
                         weapon?.toHit = attackBonus.text.toString()
                         weapon?.damageBonus = damageBonus.text.toString()
                         weapon?.abilityType = abilityType.selectedItem.toString()
-
+                        weapon?.isProficient = prof.isChecked
                         if(isEdit) {
                             weapon?.let{ editWeapon ->
                                 val rob = activity?.rob
