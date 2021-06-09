@@ -8,6 +8,16 @@ class SavingThrow(val name: String, private val edition: EnumHelper.EDITION) {
     var bonus = 0
     var classBonus = 0
     var proficiency: PROFICIENCY = PROFICIENCY.NONE
+    var ability = ""
+
+    init {
+        when(edition) {
+            EnumHelper.EDITION.FIFTH -> ability = name
+            else -> {
+                ability = "" //Need to tie abilities to names
+            }
+        }
+    }
 
     override fun equals(other: Any?): Boolean {
         return if (other is SavingThrow) {

@@ -75,5 +75,6 @@
     <string name="max_dex">Max Dex</string>
     <string name="armor_bonus">Armor</string>
     <string name="shield_bonus">Shield</string>
+    <string name="conditional_mods">Conditional Mods</string>
 
 </resources>

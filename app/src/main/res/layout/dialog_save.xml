@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:text="@string/proficiency"
+            android:textSize="@dimen/text_field_header" />
+
+        <Spinner
+            android:id="@+id/save_dialog_proficiency"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:text="@string/ability"
+            android:textSize="@dimen/text_field_header" />
+
+        <Spinner
+            android:id="@+id/save_dialog_ability"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:gravity="center" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:text="@string/bonus"
+            android:textSize="@dimen/text_field_header" />
+
+        <TextView
+            android:id="@+id/save_dialog_bonus"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@android:drawable/edit_text"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>

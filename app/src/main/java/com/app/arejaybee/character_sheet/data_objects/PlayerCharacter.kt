@@ -475,13 +475,17 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
 
     fun getSkillMod(s: Skill): Int {
         val skill = skills[skills.indexOf(s)]
-        val prof = when(skill.proficiency) {
+        val prof = calculateProficiency(skill.proficiency)
+        return skill.mod + getAbilityMod(skill.ability) + prof
+    }
+
+    fun calculateProficiency(prof: EnumHelper.PROFICIENCY) : Int {
+        return when(prof) {
             EnumHelper.PROFICIENCY.NONE -> 0
             EnumHelper.PROFICIENCY.NORMAL -> proficiency
             EnumHelper.PROFICIENCY.DOUBLE -> proficiency * 2
             EnumHelper.PROFICIENCY.HALF -> floor(proficiency/2.0).toInt()
         }
-        return skill.mod + getAbilityMod(skill.ability) + prof
     }
 
     fun sortSkills() {
@@ -502,6 +506,11 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
 
     fun getSave(n: String): SavingThrow {
         return getSave(SavingThrow(n, edition))
+    }
+
+    fun getSaveMod(name: String): Int {
+        val save = getSave(name)
+        return save.total + calculateProficiency(save.proficiency) + getAbilityMod(save.ability)
     }
 
     val grapple: Int

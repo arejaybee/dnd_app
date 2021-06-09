@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
@@ -17,6 +18,7 @@ import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.data_objects.Weapon
 import com.app.arejaybee.character_sheet.databinding.FragmentCombat5eBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
+import com.app.arejaybee.character_sheet.fragments.notes.CombatSavesAdapter
 import com.app.arejaybee.character_sheet.fragments.notes.CombatWeaponAdapter
 import com.app.arejaybee.character_sheet.utils.Util
 import kotlin.math.abs
@@ -39,10 +41,13 @@ class CombatFragment : RobFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.combat_attack_recycler)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val attackRecyclerView = view.findViewById<RecyclerView>(R.id.combat_attack_recycler)
+        val savesRecyclerView = view.findViewById<RecyclerView>(R.id.combat_saves_recycler)
+        attackRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        savesRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
         activity?.let {
-            recyclerView.adapter = CombatWeaponAdapter(it.rob.weapons, it)
+            attackRecyclerView.adapter = CombatWeaponAdapter(it.rob.weapons, it)
+            savesRecyclerView.adapter = CombatSavesAdapter(it.rob.saves, it)
         }
 
         val proficiency = view.findViewById<TextView>(R.id.combat_proficiency)
@@ -51,7 +56,8 @@ class CombatFragment : RobFragment() {
 
         Util.addNumberSpinnerToView(requireActivity(), getString(R.string.proficiency), proficiency, 0)
         proficiency.addTextChangedListener {
-            view.findViewById<RecyclerView>(R.id.combat_attack_recycler)?.adapter?.notifyDataSetChanged()
+            attackRecyclerView.adapter?.notifyDataSetChanged()
+            savesRecyclerView.adapter?.notifyDataSetChanged()
         }
         Util.addNumberSpinnerToView(requireActivity(), "Current Health", curHp, -99)
         Util.addNumberSpinnerToView(requireActivity(), "Max Health", maxHp, 0)
@@ -61,6 +67,12 @@ class CombatFragment : RobFragment() {
         }
         view.findViewById<TextView>(R.id.combat_armor_field).setOnClickListener {
             showArmorDialog()
+        }
+        view.findViewById<ImageButton>(R.id.combat_saves_toggle_btn).setOnClickListener {
+            it.rotation += 180
+            it.rotation %= 360
+            val enabled = if(it.rotation == 0F) View.GONE else View.VISIBLE
+            view.findViewById<View>(R.id.combat_save_section).visibility = enabled
         }
     }
 
