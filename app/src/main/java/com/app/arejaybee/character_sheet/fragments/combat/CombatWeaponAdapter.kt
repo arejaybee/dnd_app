@@ -11,6 +11,7 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Note
 import com.app.arejaybee.character_sheet.data_objects.Weapon
+import com.app.arejaybee.character_sheet.utils.Util
 
 class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: MainActivity) :
         RecyclerView.Adapter<CombatWeaponAdapter.ViewHolder>() {
@@ -44,14 +45,19 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
         viewHolder.name.text = weapon.name
         viewHolder.notes.text = weapon.notes
 
-        val toHit = weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType) + if(weapon.isProficient) activity.rob.proficiency else 0
-        val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType)
-        val damageRoll = weapon.damage + (if(d >= 0) "+$d" else "-$d")
-        viewHolder.attack.text = if(toHit >= 0) "+$toHit" else "-$toHit"
-        viewHolder.damage.text = damageRoll
+        if(weapon.toHit.isNotEmpty()) {
+            val toHit = weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType) + if (weapon.isProficient) activity.rob.proficiency else 0
+            viewHolder.attack.text = if (toHit >= 0) "+$toHit" else "-$toHit"
+        }
+
+        if(weapon.damageBonus.isNotEmpty()) {
+            val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType)
+            val damageRoll = weapon.damage + (if (d >= 0) "+$d" else "-$d")
+            viewHolder.damage.text = damageRoll
+        }
 
         viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
-            selectedWeapon = if(focus) {
+            selectedWeapon = if (focus) {
                 activity.showMenuItem(R.id.toolbar_edit_btn)
                 activity.showMenuItem(R.id.toolbar_delete_btn)
                 weapon

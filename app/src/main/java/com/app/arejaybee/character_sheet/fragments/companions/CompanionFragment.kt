@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
@@ -28,6 +29,9 @@ class CompanionFragment : RobFragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         activity?.let {
             recyclerView.adapter = CompanionSelectAdapter(activity?.rob!!.companions, it)
+            if(it.rob.companions.isEmpty()) {
+                view.findViewById<TextView>(R.id.companion_empty).visibility = View.VISIBLE
+            }
         }
     }
 

@@ -32,6 +32,14 @@ object Util {
         }
     }
 
+    fun showErrorDialog(context: Activity, title: String, description: String) {
+        val dialog = AlertDialog.Builder(context)
+        dialog.setTitle(title)
+        dialog.setMessage(description)
+        dialog.setPositiveButton("OK"){d: DialogInterface, index: Int -> d.dismiss()}
+        dialog.create()
+    }
+
     fun buildNumberSpinner(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null, max: Int = 99) : AlertDialog {
         val dialog = AlertDialog.Builder(context)
         val inflater = context.layoutInflater

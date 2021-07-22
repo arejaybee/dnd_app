@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.EditText
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
@@ -30,6 +31,9 @@ class NoteFragment : RobFragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         activity?.let {
             recyclerView.adapter = NotesAdapter(it.rob.notes, it)
+            if(it.rob.notes.isEmpty()) {
+                view.findViewById<TextView>(R.id.notes_empty).visibility = View.VISIBLE
+            }
         }
     }
 

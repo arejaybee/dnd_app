@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:android="http://schemas.android.com/apk/res/android" >
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/companion_recycler"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_centerInParent="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/companion_recycler"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/companion_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/companions_empty_text"
+        android:textSize="@dimen/inventory_sub_header"
+        android:visibility="gone"/>
+
+</RelativeLayout>
+

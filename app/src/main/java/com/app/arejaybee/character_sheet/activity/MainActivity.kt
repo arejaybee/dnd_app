@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
+import com.app.arejaybee.character_sheet.data_objects.Spell
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
 import com.app.arejaybee.character_sheet.fragments.combat.CombatFragment
@@ -18,6 +19,7 @@ import com.app.arejaybee.character_sheet.fragments.inventory.InventoryFragment
 import com.app.arejaybee.character_sheet.fragments.notes.NoteFragment
 import com.app.arejaybee.character_sheet.fragments.select_character.SelectCharacterFragment
 import com.app.arejaybee.character_sheet.fragments.skills.SkillsFragment
+import com.app.arejaybee.character_sheet.fragments.spells.SpellsFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 
 class MainActivity : AppCompatActivity() {
@@ -63,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             R.id.navbtn_notes -> navigateToFragment(NoteFragment.TAG)
             R.id.navbtn_inventory -> navigateToFragment(InventoryFragment.TAG)
             R.id.navbtn_combat -> navigateToFragment(CombatFragment.TAG)
+            R.id.navbtn_spells -> navigateToFragment(SpellsFragment.TAG)
             else -> Toast.makeText(this, "TODO!", Toast.LENGTH_LONG).show()
         }
     }
@@ -100,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             NoteFragment.TAG -> NoteFragment()
             InventoryFragment.TAG -> InventoryFragment()
             CombatFragment.TAG -> CombatFragment()
+            SpellsFragment.TAG -> SpellsFragment()
             else -> RobFragment()
         }
         if (fragment.javaClass != getCurrentFragment()?.javaClass) {
@@ -138,6 +142,7 @@ class MainActivity : AppCompatActivity() {
             NoteFragment.TAG -> findViewById<View>(R.id.navbtn_notes).isSelected = true
             InventoryFragment.TAG -> findViewById<View>(R.id.navbtn_inventory).isSelected = true
             CombatFragment.TAG -> findViewById<View>(R.id.navbtn_combat).isSelected = true
+            SpellsFragment.TAG -> findViewById<View>(R.id.navbtn_spells).isSelected = true
         }
     }
 

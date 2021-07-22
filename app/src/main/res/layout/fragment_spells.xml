@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/activity_main">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:textColor="@color/black"
+                    android:text="Casting"/>
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:useDefaultMargins="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spell Attack"
+                        android:id="@+id/sptv_attack"
+                        android:layout_columnWeight="1"/>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_columnWeight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Spell DC"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=" (+spell level)"
+                            android:layout_gravity="bottom"
+                            android:gravity="bottom"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spell Modifier"
+                        android:layout_columnWeight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/edit_text"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:textColor="@color/black"
+                        android:id="@+id/spet_spellAttack"
+                        android:text="0"
+                        android:layout_columnWeight="1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/edit_text"
+                        android:gravity="center"
+                        android:textSize="24dp"
+                        android:id="@+id/spet_spellDC"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:layout_columnWeight="1"/>
+
+                    <Spinner
+                        android:layout_height="32dp"
+                        android:layout_columnWeight="1"
+                        android:spinnerMode="dropdown"
+                        android:id="@+id/spsp_modifier" />
+                </GridLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="?android:attr/listDivider" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spell_list_recycler"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>

@@ -43,6 +43,9 @@
     <string name="ability_dialog_title_field">Title:</string>
     <string name="ability_dialog_description_field">Description:</string>
     <string name="ability_dialog_type_field">Type:</string>
+    <string name="spell_dialog_title_field">Name:</string>
+    <string name="spell_dialog_description_field">Description:</string>
+    <string name="spell_dialog_type_field">Level:</string>
     <string name="skill_name">Skill Name</string>
     <string name="ability">Ability</string>
     <string name="ranks">Ranks:</string>
@@ -76,5 +79,11 @@
     <string name="armor_bonus">Armor</string>
     <string name="shield_bonus">Shield</string>
     <string name="conditional_mods">Conditional Mods</string>
+    <string name="cantrips">Cantrips</string>
+    <string name="spell_level">Level</string>
+    <string name="cast">Cast</string>
+    <string name="per_day">Per Day</string>
+    <string name="notes_empty_text">No notes to display. Click \'+\' button to add a note</string>
+    <string name="companions_empty_text">No companions to display. Click \'+\' button to add a companion</string>
 
 </resources>
