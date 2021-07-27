@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
+import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Spell
 import com.app.arejaybee.character_sheet.databinding.DialogSpellAttackBinding
 import com.app.arejaybee.character_sheet.databinding.DialogSpellDcBinding
@@ -73,7 +74,6 @@ class SpellsFragment : RobFragment() {
         view.findViewById<View>(R.id.spet_spellDC).setOnClickListener {
             showSpellDCDialog()
         }
-
 
         view.findViewById<TextView>(R.id.spet_spellAttack).text = calculateSpellAttack()
         view.findViewById<TextView>(R.id.spet_spellDC).text = calculateSpellDC()

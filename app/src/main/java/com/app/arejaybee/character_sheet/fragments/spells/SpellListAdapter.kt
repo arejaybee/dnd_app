@@ -62,6 +62,10 @@ class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActi
             casts.text = spellList.used.toString()
             daily.text = spellList.daily.toString()
         }
+
+        if(spellList.level == 0) {
+            viewHolder.spellListBtn.performClick()
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
