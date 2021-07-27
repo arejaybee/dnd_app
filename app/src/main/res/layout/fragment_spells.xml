@@ -92,10 +92,51 @@
                     android:layout_marginBottom="3dp"
                     android:layout_marginTop="3dp"
                     android:background="?android:attr/listDivider" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spell_list_recycler"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="?android:attr/listDivider" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:useDefaultMargins="true"
+                    android:id="@+id/adapter_spell_list_grid"
+                    android:columnCount="2">
+                    <TextView
+                        android:layout_columnWeight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/per_day"/>
+                    <TextView
+                        android:layout_columnWeight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cast"/>
+                    <EditText
+                        android:layout_columnWeight="1"
+                        android:background="@android:drawable/edit_text"
+                        android:text="0"
+                        android:id="@+id/adapter_spell_list_daily"
+                        android:gravity="center"/>
+                    <EditText
+                        android:layout_columnWeight="1"
+                        android:background="@android:drawable/edit_text"
+                        android:text="0"
+                        android:id="@+id/adapter_spell_list_cast"
+                        android:gravity="center"/>
+                </GridLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/spell_recycler"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

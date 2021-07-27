@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
@@ -29,9 +30,11 @@ class SpellsFragment : RobFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = view.findViewById<RecyclerView>(R.id.spell_list_recycler)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val spellRecycler = view.findViewById<RecyclerView>(R.id.spell_recycler)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 5)
+        spellRecycler.layoutManager = LinearLayoutManager(requireContext())
         activity?.let {
-            recyclerView.adapter = SpellListAdapter(it.rob.spellLists, it)
+            recyclerView.adapter = SpellListAdapter(it.rob.spellLists, it, view)
         }
     }
 

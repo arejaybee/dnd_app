@@ -3,30 +3,25 @@ package com.app.arejaybee.character_sheet.fragments.spells
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.SpellList
 
-class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActivity) :
+class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActivity, val parent: View) :
         RecyclerView.Adapter<SpellListAdapter.ViewHolder>() {
     lateinit var viewHolder: ViewHolder
-
+    companion object {
+        var selectedButton: Button? = null
+    }
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val spellName: TextView = view.findViewById(R.id.adapter_spell_list_name)
-        val spellsCast: TextView = view.findViewById(R.id.adapter_spell_list_cast)
-        val spellsDaily: TextView = view.findViewById(R.id.adapter_spell_list_daily)
-        val grid: GridLayout = view.findViewById(R.id.adapter_spell_list_grid)
-        val dropdownBtn: ImageButton = view.findViewById(R.id.adapter_spell_list_toggle)
-        val recycler: RecyclerView = view.findViewById(R.id.spell_recycler)
+        val spellListBtn: Button = view.findViewById(R.id.adapter_spell_list_button)
     }
 
     // Create new views (invoked by the layout manager)
@@ -42,19 +37,17 @@ class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActi
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val spellList = dataSet[position]
 
-        viewHolder.spellName.text = if(spellList.level == 0) activity.getString(R.string.cantrips) else "Level ${spellList.level}"
-        viewHolder.spellsCast.text = spellList.used.toString()
-        viewHolder.spellsDaily.text = spellList.daily.toString()
+        viewHolder.spellListBtn.text = if(spellList.level == 0) activity.getString(R.string.cantrips) else "Level ${spellList.level}"
 
-        viewHolder.recycler.layoutManager = LinearLayoutManager(activity)
-        viewHolder.recycler.adapter = SpellAdapter(spellList.spells, activity)
+        viewHolder.spellListBtn.setOnClickListener { l ->
+            selectedButton?.isSelected = false
+            viewHolder.spellListBtn.isSelected = true
+            selectedButton = viewHolder.spellListBtn
+            val spellList = dataSet[position]
 
-        viewHolder.dropdownBtn.setOnClickListener {
-            it.rotation += 180
-            it.rotation %= 360
-            val enabled = if(it.rotation == 0F) View.GONE else View.VISIBLE
-            viewHolder.recycler.visibility = enabled
-            viewHolder.grid.visibility = enabled
+            parent.findViewById<RecyclerView>(R.id.spell_recycler).swapAdapter(SpellAdapter(spellList.spells, activity), true)
+            parent.findViewById<EditText>(R.id.adapter_spell_list_cast).setText(spellList.used.toString())
+            parent.findViewById<EditText>(R.id.adapter_spell_list_daily).setText(spellList.daily.toString())
         }
     }
 
