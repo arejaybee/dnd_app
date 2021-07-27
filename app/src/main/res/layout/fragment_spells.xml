@@ -118,18 +118,32 @@
                         android:layout_columnWeight="1"
                         android:layout_height="wrap_content"
                         android:text="@string/cast"/>
-                    <EditText
-                        android:layout_columnWeight="1"
-                        android:background="@android:drawable/edit_text"
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:textColor="@color/black"
                         android:text="0"
-                        android:id="@+id/adapter_spell_list_daily"
-                        android:gravity="center"/>
-                    <EditText
-                        android:layout_columnWeight="1"
+                        android:textSize="@dimen/text_field_header"
                         android:background="@android:drawable/edit_text"
+                        android:gravity="center"
+                        android:id="@+id/spell_daily"
+                        android:layout_columnWeight="1"/>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:textColor="@color/black"
                         android:text="0"
-                        android:id="@+id/adapter_spell_list_cast"
-                        android:gravity="center"/>
+                        android:textSize="@dimen/text_field_header"
+                        android:background="@android:drawable/edit_text"
+                        android:gravity="center"
+                        android:id="@+id/spell_used"
+                        android:layout_columnWeight="1"/>
                 </GridLayout>
 
                 <androidx.recyclerview.widget.RecyclerView

@@ -1,5 +1,7 @@
 <Button
     android:id="@+id/adapter_spell_list_button"
+    android:padding="5dp"
+    android:textSize="12sp"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:background="@drawable/navigation_button"
