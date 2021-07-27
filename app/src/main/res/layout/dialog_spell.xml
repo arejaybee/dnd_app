@@ -17,8 +17,9 @@
             android:textSize="@dimen/text_field_header"
             android:text="@string/spell_dialog_type_field"/>
         <Spinner
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
+            android:gravity="center"
             android:layout_width="200dp"
             android:spinnerMode="dropdown"
             android:id="@+id/spell_dialog_type_spinner"/>
