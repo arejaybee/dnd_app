@@ -314,6 +314,20 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             saveCharacter()
         }
 
+    @Bindable
+    var spellAttackBonus = 0
+    set(value){
+        field = value
+        saveCharacter()
+    }
+
+    @Bindable
+    var spellDCBonus = 0
+    set(value){
+        field = value
+        saveCharacter()
+    }
+
     val skills = ArrayList<Skill>()
 
     var items = ArrayList<InventoryItem>()

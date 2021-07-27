@@ -81,10 +81,13 @@
     <string name="conditional_mods">Conditional Mods</string>
     <string name="cantrips">Cantrips</string>
     <string name="spell_level">Level</string>
-    <string name="cast">Cast</string>
+    <string name="cast">Used</string>
     <string name="per_day">Per Day</string>
     <string name="notes_empty_text">No notes to display. Click \'+\' button to add a note</string>
     <string name="companions_empty_text">No companions to display. Click \'+\' button to add a companion</string>
     <string name="spells_known">Spells Known</string>
     <string name="spells_cast">Spells Cast</string>
+    <string name="spell_mod_label">Spell Mod</string>
+    <string name="spell_attack">Spell Attack</string>
+    <string name="spell_dc">Spell DC</string>
 </resources>

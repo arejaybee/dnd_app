@@ -6,17 +6,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
+import androidx.core.widget.doOnTextChanged
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.Spell
+import com.app.arejaybee.character_sheet.databinding.DialogSpellAttackBinding
+import com.app.arejaybee.character_sheet.databinding.DialogSpellDcBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
-import com.app.arejaybee.character_sheet.fragments.abilities.AbilityAdapter
-import com.app.arejaybee.character_sheet.fragments.notes.CombatWeaponAdapter
 import com.app.arejaybee.character_sheet.utils.Util
+import org.w3c.dom.Text
 
 class SpellsFragment : RobFragment() {
     companion object {
@@ -36,6 +41,42 @@ class SpellsFragment : RobFragment() {
         activity?.let {
             recyclerView.adapter = SpellListAdapter(it.rob.spellLists, it, view)
         }
+
+        val rob = activity?.rob
+
+        val ability = view.findViewById<Spinner>(R.id.spell_ability_spinner)
+        val spellAttack = view.findViewById<TextView>(R.id.spet_spellAttack)
+        val spellDC = view.findViewById<TextView>(R.id.spet_spellDC)
+
+        Util.buildDialogTypeSpinner(requireContext(), ability, R.array.abilities)
+
+        val selectionArray = resources.getStringArray(R.array.abilities)
+        val index = if(selectionArray.toList().indexOf(activity?.rob?.spellAbility) < 0) 0
+                    else selectionArray.toList().indexOf(activity?.rob?.spellAbility)
+        ability.setSelection(index, true)
+        ability.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                rob?.spellAbility = selectionArray[position]
+                rob?.saveCharacter()
+                spellAttack.text = calculateSpellAttack()
+                spellDC.text = calculateSpellDC()
+            }
+        }
+
+        view.findViewById<View>(R.id.spet_spellAttack).setOnClickListener {
+            showSpellAttackDialog()
+        }
+        view.findViewById<View>(R.id.spet_spellDC).setOnClickListener {
+            showSpellDCDialog()
+        }
+
+
+        view.findViewById<TextView>(R.id.spet_spellAttack).text = calculateSpellAttack()
+        view.findViewById<TextView>(R.id.spet_spellDC).text = calculateSpellDC()
     }
 
     override fun onResume() {
@@ -107,6 +148,88 @@ class SpellsFragment : RobFragment() {
                     .create()
                     .show()
         }
+    }
+
+    private fun showSpellAttackDialog() {
+        val binding: DialogSpellAttackBinding = DataBindingUtil.inflate(
+                layoutInflater, R.layout.dialog_spell_attack, null, false)
+        val dialogView: View = binding.root
+        binding.rob = activity?.rob
+
+        dialogView?.findViewById<EditText>(R.id.dialog_spell_attack_bonus).doOnTextChanged { text, start, count, after ->
+            if (text.isNullOrEmpty()) {
+                activity?.rob?.spellAttackBonus = 0
+            }
+            else {
+                activity?.rob?.spellAttackBonus = text.toString().toInt()
+            }
+        }
+
+        dialogView?.let {
+
+            AlertDialog.Builder(requireContext())
+                    .setView(it)
+                    .setTitle(getString(R.string.spell_attack))
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
+                        this.view?.findViewById<TextView>(R.id.spet_spellAttack)?.text = calculateSpellAttack()
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton(R.string.dialog_creation_negative){ dialog: DialogInterface, i:Int ->
+                        dialog.dismiss()
+                    }
+                    .show()
+
+        }
+    }
+
+    private fun showSpellDCDialog() {
+        val binding: DialogSpellDcBinding = DataBindingUtil.inflate(
+                layoutInflater, R.layout.dialog_spell_dc, null, false)
+        val dialogView: View = binding.root
+        binding.rob = activity?.rob
+
+        dialogView?.findViewById<EditText>(R.id.dialog_spell_dc_bonus).doOnTextChanged { text, start, count, after ->
+            if (text.isNullOrEmpty()) {
+                activity?.rob?.spellDCBonus = 0
+            }
+            else {
+                activity?.rob?.spellDCBonus = text.toString().toInt()
+            }
+        }
+
+        dialogView?.let {
+
+            AlertDialog.Builder(requireContext())
+                    .setView(it)
+                    .setTitle(getString(R.string.spell_dc))
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
+                        this.view?.findViewById<TextView>(R.id.spet_spellDC)?.text = calculateSpellDC()
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton(R.string.dialog_creation_negative){ dialog: DialogInterface, i:Int ->
+                        dialog.dismiss()
+                    }
+                    .show()
+
+        }
+    }
+
+    private fun calculateSpellAttack(): String {
+        val rob = activity?.rob
+        rob?.let {
+            return (rob.getModifier(rob.spellAbility) + rob.proficiency + rob.spellAttackBonus).toString()
+        }
+        return "0"
+    }
+
+    private fun calculateSpellDC(): String {
+        val rob = activity?.rob
+        rob?.let {
+            return (rob.getModifier(rob.spellAbility) + rob.proficiency + rob.spellDCBonus).toString()
+        }
+        return "0"
     }
 
     override fun onClickDelete() {
