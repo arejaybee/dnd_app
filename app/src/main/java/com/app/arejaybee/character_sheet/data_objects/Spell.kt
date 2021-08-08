@@ -6,7 +6,29 @@ package com.app.arejaybee.character_sheet.data_objects
 
 @kotlinx.serialization.Serializable
 class Spell(var level: Int) {
+
+    companion object {
+        enum class SPELL_SCHOOL {
+            Abjuration,
+            Conjuration,
+            Divination,
+            Enchantment,
+            Evocation,
+            Illusion,
+            Necromancy,
+            Transmutation,
+            OTHER
+        }
+    }
     var name: String = ""
     var description: String = ""
-    var prep = 0
+    var school: SPELL_SCHOOL = SPELL_SCHOOL.OTHER
+    var castingTime: String = ""
+    var range: String = ""
+    var duration: String = ""
+    var isSemantic: Boolean = false
+    var isVerbal: Boolean = false
+    var isMaterial: Boolean = false
+    var component: String = ""
+
 }

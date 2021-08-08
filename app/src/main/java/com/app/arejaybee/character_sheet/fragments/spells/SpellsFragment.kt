@@ -16,13 +16,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
-import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.Spell
 import com.app.arejaybee.character_sheet.databinding.DialogSpellAttackBinding
 import com.app.arejaybee.character_sheet.databinding.DialogSpellDcBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.utils.Util
-import org.w3c.dom.Text
 
 class SpellsFragment : RobFragment() {
     companion object {
@@ -93,16 +91,15 @@ class SpellsFragment : RobFragment() {
         val inflater = activity?.layoutInflater
         val dialogView = inflater?.inflate(R.layout.dialog_spell, null)
         dialogView?.let {
-            val title = it.findViewById<EditText>(R.id.spell_dialog_title_edittext)
-            val description = it.findViewById<EditText>(R.id.spell_dialog_description_edittext)
-            val type = it.findViewById<Spinner>(R.id.spell_dialog_type_spinner)
-            Util.buildDialogTypeSpinner(requireContext(), type, R.array.spellLevels)
+            val level = it.findViewById<Spinner>(R.id.spell_dialog_type_spinner)
+            val school = it.findViewById<Spinner>(R.id.spell_dialog_school_spinner)
+            Util.buildDialogTypeSpinner(requireContext(), level, R.array.spell_levels)
+            Util.buildDialogTypeSpinner(requireContext(), school, R.array.spell_schools)
 
             if(isEdit && SpellAdapter.selectedSpell != null) {
-                title.setText(SpellAdapter.selectedSpell?.name)
-                description.setText(SpellAdapter.selectedSpell?.description)
                 val index = if(SpellAdapter.selectedSpell!!.level < 0) 0 else SpellAdapter.selectedSpell!!.level
-                type.setSelection(index, true)
+                level.setSelection(index, true)
+                school.setSelection(SpellAdapter.selectedSpell!!.school.ordinal, true)
             }
 
             AlertDialog.Builder(requireContext())
@@ -110,9 +107,7 @@ class SpellsFragment : RobFragment() {
                     .setCancelable(false)
                     .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
                         val spell = if(isEdit) SpellAdapter.selectedSpell else Spell(0)
-                        spell?.name = title.text.toString()
-                        spell?.description = description.text.toString()
-                        val spellType = type.selectedItem.toString()
+                        val spellType = level.selectedItem.toString()
                         spell?.level = if(spellType == getString(R.string.cantrips)) 0
                                         else spellType.replace(getString(R.string.spell_level),"").trim().toInt()
                         val index = spell?.level

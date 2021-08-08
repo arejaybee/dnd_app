@@ -45,7 +45,7 @@
     <string name="ability_dialog_type_field">Type:</string>
     <string name="spell_dialog_title_field">Name:</string>
     <string name="spell_dialog_description_field">Description:</string>
-    <string name="spell_dialog_type_field">Spell Level:</string>
+    <string name="spell_dialog_type_field">Level:</string>
     <string name="skill_name">Skill Name</string>
     <string name="ability">Ability</string>
     <string name="ranks">Ranks:</string>
@@ -90,4 +90,12 @@
     <string name="spell_mod_label">Spell Mod</string>
     <string name="spell_attack">Spell Attack</string>
     <string name="spell_dc">Spell DC</string>
+    <string name="school">School</string>
+    <string name="spell_range_field">Range</string>
+    <string name="spell_casting_time_field">Casting Time</string>
+    <string name="spell_dialog_components">Components</string>
+    <string name="spell_dialog_duration">Duration</string>
+    <string name="spell_dialog_spell_effect">Spell Effect</string>
+    <string name="spell_dialog_ritual">Ritual</string>
+    <string name="spell_dialog_spell_title">SPELL</string>
 </resources>

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -69,11 +68,11 @@ class AbilitiesFragment : RobFragment() {
             val title = it.findViewById<EditText>(R.id.ability_dialog_title_edittext)
             val description = it.findViewById<EditText>(R.id.ability_dialog_description_edittext)
             val type = it.findViewById<Spinner>(R.id.ability_dialog_type_spinner)
-            Util.buildDialogTypeSpinner(requireContext(), type, R.array.abilityTypes)
+            Util.buildDialogTypeSpinner(requireContext(), type, R.array.ability_types)
             if(isEdit) {
                 title.setText(AbilityAdapter.selectedAbility?.title)
                 description.setText(AbilityAdapter.selectedAbility?.description)
-                val selectionArray = resources.getStringArray(R.array.abilityTypes)
+                val selectionArray = resources.getStringArray(R.array.ability_types)
                 val index = if(selectionArray.toList().indexOf(AbilityAdapter.selectedAbility?.type) < 0) 0 else selectionArray.toList().indexOf(AbilityAdapter.selectedAbility?.type)
                 type.setSelection(index, true)
             }

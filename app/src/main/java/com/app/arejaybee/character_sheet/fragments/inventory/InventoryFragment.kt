@@ -81,7 +81,7 @@ class InventoryFragment : RobFragment() {
             val weight = it.findViewById<EditText>(R.id.inventory_dialog_weight)
             val cost = it.findViewById<EditText>(R.id.inventory_dialog_cost)
             val slot = it.findViewById<Spinner>(R.id.inventory_dialog_slot)
-            Util.buildDialogTypeSpinner(requireContext(), slot, R.array.itemSlots)
+            Util.buildDialogTypeSpinner(requireContext(), slot, R.array.item_slots)
             if(isEdit) {
                 name.setText(item?.name)
                 description.setText(item?.description)

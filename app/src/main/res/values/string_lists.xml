@@ -7,12 +7,12 @@
         <item>WIS</item>
         <item>CHA</item>
     </string-array>
-    <string-array name="abilityTypes">
+    <string-array name="ability_types">
         <item>Feat</item>
         <item>Class Feature</item>
         <item>Racial Trait</item>
     </string-array>
-    <string-array name="spellLevels">
+    <string-array name="spell_levels">
         <item>Cantrips</item>
         <item>Level 1</item>
         <item>Level 2</item>
@@ -23,6 +23,17 @@
         <item>Level 7</item>
         <item>Level 8</item>
         <item>Level 9</item>
+    </string-array>
+    <string-array name="spell_schools">
+        <item>Abjuration</item>
+        <item>Conjuration</item>
+        <item>Divination</item>
+        <item>Enchantment</item>
+        <item>Evocation</item>
+        <item>Illusion</item>
+        <item>Necromancy</item>
+        <item>Transmutation</item>
+        <item>Other</item>
     </string-array>
     <string-array name="editions">
         <item>DND 3.5</item>
@@ -41,7 +52,7 @@
         <item>Medium</item>
         <item>Heavy</item>
     </string-array>
-    <string-array name="itemSlots">
+    <string-array name="item_slots">
         <item>None</item>
         <item>Belt</item>
         <item>Body</item>
