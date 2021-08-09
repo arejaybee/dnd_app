@@ -97,5 +97,7 @@
     <string name="spell_dialog_duration">Duration</string>
     <string name="spell_dialog_spell_effect">Spell Effect</string>
     <string name="spell_dialog_ritual">Ritual</string>
-    <string name="spell_dialog_spell_title">SPELL</string>
+    <string name="spell_dialog_spell_title">Spell</string>
+    <string name="spell_dialog_notes">Notes</string>
+    <string name="spell_dialog_name">Name</string>
 </resources>

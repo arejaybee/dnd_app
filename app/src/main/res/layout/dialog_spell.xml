@@ -21,13 +21,34 @@
             android:textSize="@dimen/text_item_title"
             android:text="@string/spell_dialog_spell_title" />
 
+        <TextView
+            android:id="@+id/spell_dialog_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textSize="@dimen/text_field_header"
+            android:text="@string/spell_dialog_name"
+            android:gravity="center"
+            android:paddingEnd="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_title"
+            app:layout_constraintBottom_toBottomOf="@id/spell_dialog_name"/>
+        <EditText
+            android:id="@+id/spell_dialog_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            android:textSize="@dimen/text_field_header"
+            app:layout_constraintStart_toEndOf="@id/spell_dialog_name_label"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_title"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
-            android:id="@+id/spell_dialog_level_layout"
+            android:id="@+id/spell_dialog_school_layout"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spell_dialog_title"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_name_label"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/spell_dialog_type_label"
@@ -44,13 +65,14 @@
                 android:spinnerMode="dropdown"/>
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
-            android:id="@+id/spell_dialog_school_layout"
+            android:id="@+id/spell_dialog_school_layout2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spell_dialog_level_layout"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_school_layout"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/spell_dialog_school_label"
@@ -69,18 +91,6 @@
                 android:layout_columnWeight="1"
                 android:gravity="center"
                 android:spinnerMode="dropdown"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spell_dialog_ritual_label"
-                android:text="@string/spell_dialog_ritual"
-                android:gravity="center"
-                android:textSize="@dimen/text_field_header"/>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spell_dialog_ritual_checkbox"/>
         </LinearLayout>
 
         <TextView
@@ -92,7 +102,7 @@
             android:gravity="center"
             android:paddingEnd="5dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spell_dialog_school_layout"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_school_layout2"
             app:layout_constraintBottom_toBottomOf="@id/spell_dialog_casting_time"/>
         <EditText
             android:id="@+id/spell_dialog_casting_time"
@@ -101,7 +111,7 @@
             android:background="@android:drawable/edit_text"
             android:textSize="@dimen/text_field_header"
             app:layout_constraintStart_toEndOf="@id/spell_dialog_casting_label"
-            app:layout_constraintTop_toBottomOf="@id/spell_dialog_school_layout"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_school_layout2"
             app:layout_constraintBottom_toTopOf="@id/spell_dialog_range_label"
             app:layout_constraintEnd_toEndOf="parent"/>
         <TextView
@@ -124,7 +134,7 @@
             app:layout_constraintTop_toBottomOf="@id/spell_dialog_casting_time"
             app:layout_constraintEnd_toEndOf="parent"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/spell_dialog_component_field"
             android:text="@string/spell_dialog_components"
@@ -134,49 +144,53 @@
             app:layout_constraintTop_toBottomOf="@id/spell_dialog_range_label"
             app:layout_constraintBottom_toBottomOf="@id/spell_dialog_component_grid"/>
         <GridLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:columnCount="3"
             android:id="@+id/spell_dialog_component_grid"
             app:layout_constraintStart_toEndOf="@id/spell_dialog_component_field"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spell_dialog_range_label">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="M"/>
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="V" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
                 android:layout_gravity="center"
                 android:text="S"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_columnWeight="20"
+                android:gravity="center"
                 android:layout_gravity="center"
-                android:text="V"/>
+                android:text="M"/>
             <CheckBox
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:id="@+id/spell_dialog_material_checkbox"/>
-            <CheckBox
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:id="@+id/spell_dialog_semantic_checkbox"/>
-            <CheckBox
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
                 android:id="@+id/spell_dialog_verbal_checkbox"/>
+            <CheckBox
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:id="@+id/spell_dialog_semantic_checkbox"/>
+            <EditText
+                android:id="@+id/spell_Dialog_component_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="20"
+                android:background="@android:drawable/edit_text"/>
         </GridLayout>
-        <EditText
-            android:id="@+id/spell_Dialog_component_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/edit_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spell_dialog_component_grid"/>
         <TextView
             android:id="@+id/spell_dialog_duration_label"
             android:layout_width="wrap_content"
@@ -187,7 +201,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@id/spell_dialog_duration"
-            app:layout_constraintTop_toBottomOf="@id/spell_Dialog_component_text"/>
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_component_grid"/>
         <EditText
             android:id="@+id/spell_dialog_duration"
             android:layout_width="0dp"
@@ -195,7 +209,7 @@
             android:background="@android:drawable/edit_text"
             android:textSize="@dimen/text_field_header"
             app:layout_constraintStart_toEndOf="@id/spell_dialog_duration_label"
-            app:layout_constraintTop_toBottomOf="@id/spell_Dialog_component_text"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_component_grid"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
@@ -206,8 +220,7 @@
             android:text="@string/spell_dialog_spell_effect"
             app:layout_constraintStart_toStartOf="parent"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@id/spell_dialog_effect"
-            app:layout_constraintTop_toBottomOf="@id/spell_Dialog_component_text"/>
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_duration"/>
         <EditText
             android:id="@+id/spell_dialog_effect"
             android:layout_width="0dp"
@@ -216,6 +229,24 @@
             android:textSize="@dimen/text_field_header"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spell_dialog_effect_label"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/spell_dialog_notes_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_field_header"
+            android:text="@string/spell_dialog_notes"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_effect"/>
+        <EditText
+            android:id="@+id/spell_notes_effect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            android:textSize="@dimen/text_field_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spell_dialog_notes_label"
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

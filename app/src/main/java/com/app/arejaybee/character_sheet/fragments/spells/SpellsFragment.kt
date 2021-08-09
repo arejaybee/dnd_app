@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -93,13 +90,35 @@ class SpellsFragment : RobFragment() {
         dialogView?.let {
             val level = it.findViewById<Spinner>(R.id.spell_dialog_type_spinner)
             val school = it.findViewById<Spinner>(R.id.spell_dialog_school_spinner)
+            val casting_time = it.findViewById<EditText>(R.id.spell_dialog_casting_time)
+            val range = it.findViewById<EditText>(R.id.spell_dialog_range)
+            val verbalCheckBox = it.findViewById<CheckBox>(R.id.spell_dialog_verbal_checkbox)
+            val semanticCheckBox = it.findViewById<CheckBox>(R.id.spell_dialog_semantic_checkbox)
+            val materialComponents = it.findViewById<EditText>(R.id.spell_Dialog_component_text)
+            val duration = it.findViewById<EditText>(R.id.spell_dialog_duration)
+            val effect = it.findViewById<EditText>(R.id.spell_dialog_effect)
+            val notes = it.findViewById<EditText>(R.id.spell_notes_effect)
+            val name = it.findViewById<EditText>(R.id.spell_dialog_name)
+
             Util.buildDialogTypeSpinner(requireContext(), level, R.array.spell_levels)
             Util.buildDialogTypeSpinner(requireContext(), school, R.array.spell_schools)
 
-            if(isEdit && SpellAdapter.selectedSpell != null) {
-                val index = if(SpellAdapter.selectedSpell!!.level < 0) 0 else SpellAdapter.selectedSpell!!.level
-                level.setSelection(index, true)
-                school.setSelection(SpellAdapter.selectedSpell!!.school.ordinal, true)
+            if(isEdit) {
+                SpellAdapter.selectedSpell?.let { selected ->
+                    val index = if (selected.level < 0) 0 else selected.level
+                    level.setSelection(index, true)
+                    school.setSelection(selected.school.ordinal, true)
+
+                    casting_time.setText(selected.castingTime)
+                    range.setText(selected.range)
+                    verbalCheckBox.isChecked = selected.isVerbal
+                    semanticCheckBox.isChecked = selected.isSemantic
+                    materialComponents.setText(selected.materialComponent)
+                    duration.setText(selected.duration)
+                    effect.setText(selected.effect)
+                    notes.setText(selected.notes)
+                    name.setText(selected.name)
+                }
             }
 
             AlertDialog.Builder(requireContext())
@@ -110,7 +129,18 @@ class SpellsFragment : RobFragment() {
                         val spellType = level.selectedItem.toString()
                         spell?.level = if(spellType == getString(R.string.cantrips)) 0
                                         else spellType.replace(getString(R.string.spell_level),"").trim().toInt()
+                        spell?.school = Spell.Companion.SPELL_SCHOOL.values()[school.selectedItemPosition]
                         val index = spell?.level
+
+                        spell?.name = name.text.toString()
+                        spell?.castingTime = casting_time.text.toString()
+                        spell?.range = range.text.toString()
+                        spell?.materialComponent = materialComponents.text.toString()
+                        spell?.duration = duration.text.toString()
+                        spell?.effect = effect.text.toString()
+                        spell?.notes = notes.text.toString()
+                        spell?.isSemantic = semanticCheckBox.isChecked
+                        spell?.isVerbal = verbalCheckBox.isChecked
 
                         if(isEdit && index != null) {
                             spell.let{ editSpell ->

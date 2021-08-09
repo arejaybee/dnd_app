@@ -21,14 +21,14 @@ class Spell(var level: Int) {
         }
     }
     var name: String = ""
-    var description: String = ""
+    var effect: String = ""
     var school: SPELL_SCHOOL = SPELL_SCHOOL.OTHER
     var castingTime: String = ""
     var range: String = ""
     var duration: String = ""
     var isSemantic: Boolean = false
     var isVerbal: Boolean = false
-    var isMaterial: Boolean = false
-    var component: String = ""
+    var materialComponent: String = ""
+    var notes: String = ""
 
 }
