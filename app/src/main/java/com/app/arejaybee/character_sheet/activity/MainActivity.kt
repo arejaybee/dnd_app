@@ -1,5 +1,6 @@
 package com.app.arejaybee.character_sheet.activity
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -21,6 +22,7 @@ import com.app.arejaybee.character_sheet.fragments.select_character.SelectCharac
 import com.app.arejaybee.character_sheet.fragments.skills.SkillsFragment
 import com.app.arejaybee.character_sheet.fragments.spells.SpellsFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     lateinit var rob: PlayerCharacter
@@ -28,9 +30,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         SharedPreferenceUtil.setInstance(this)
         setContentView(R.layout.activity_main)
-        navigateToFragment(SelectCharacterFragment.TAG)
-    }
 
+        val data = intent.extras?.get("characterJson")
+        data?.let {
+            try {
+                rob = PlayerCharacter.createFromJson(it.toString())
+                navigateToFragment(DescriptionFragment.TAG)
+            } catch(err: Exception) {
+                navigateToFragment(SelectCharacterFragment.TAG)
+                Toast.makeText(this, "Failed to load the character",Toast.LENGTH_LONG).show()
+            }
+        } ?: navigateToFragment(SelectCharacterFragment.TAG)
+    }
 
     fun setTitleText(title: Int) {
         setTitleText(getString(title))

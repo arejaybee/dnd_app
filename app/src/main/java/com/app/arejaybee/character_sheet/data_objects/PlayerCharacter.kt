@@ -21,7 +21,9 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
 
     companion object {
         fun loadCharacter(key: String): PlayerCharacter {
-            val json = SharedPreferenceUtil.instance.getString(key)
+            return createFromJson(SharedPreferenceUtil.instance.getString(key))
+        }
+        fun createFromJson(json: String): PlayerCharacter {
             return Json.decodeFromString(json)
         }
     }
@@ -363,7 +365,7 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         }
     }
 
-    private fun toJson(): String {
+    fun toJson(): String {
         return Json.encodeToString(this)
     }
 

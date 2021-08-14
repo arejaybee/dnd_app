@@ -104,4 +104,7 @@
     <string name="spell_dialog_spell_title">Spell</string>
     <string name="spell_dialog_notes">Notes</string>
     <string name="spell_dialog_name">Name</string>
+    <string name="casting">Casting</string>
+    <string name="spell_level_bonus">(+spell level)</string>
+    <string name="spell_modifier">Spell Modifier</string>
 </resources>

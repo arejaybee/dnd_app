@@ -25,7 +25,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="30dp"
                     android:textColor="@color/black"
-                    android:text="Casting"/>
+                    android:text="@string/casting"/>
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text=" (+spell level)"
+                            android:text="@string/spell_level_bonus"
                             android:layout_gravity="bottom"
                             android:gravity="bottom"/>
 
@@ -57,7 +57,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Spell Modifier"
+                        android:text="@string/spell_modifier"
                         android:layout_columnWeight="1"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -116,25 +116,12 @@
                         android:layout_columnWeight="1"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/per_day"/>
+                        android:text="@string/cast"/>
                     <TextView
                         android:layout_columnWeight="1"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/cast"/>
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="5dp"
-                        android:textColor="@color/black"
-                        android:text="0"
-                        android:textSize="@dimen/text_field_header"
-                        android:background="@android:drawable/edit_text"
-                        android:gravity="center"
-                        android:id="@+id/spell_daily"
-                        android:layout_columnWeight="1"/>
+                        android:text="@string/per_day"/>
 
                     <TextView
                         android:layout_weight="1"
@@ -147,6 +134,19 @@
                         android:background="@android:drawable/edit_text"
                         android:gravity="center"
                         android:id="@+id/spell_used"
+                        android:layout_columnWeight="1"/>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:textColor="@color/black"
+                        android:text="0"
+                        android:textSize="@dimen/text_field_header"
+                        android:background="@android:drawable/edit_text"
+                        android:gravity="center"
+                        android:id="@+id/spell_daily"
                         android:layout_columnWeight="1"/>
                 </GridLayout>
 

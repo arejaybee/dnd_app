@@ -43,7 +43,7 @@ class SelectCharacterFragment : RobFragment() {
     }
 
     override fun onClickAdd() {
-        val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
+        //val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
         //Create a character here
         activity?.rob = PlayerCharacter(EnumHelper.EDITION.FIFTH)
         activity?.navigateToFragment(DescriptionFragment.TAG)
@@ -62,6 +62,12 @@ class SelectCharacterFragment : RobFragment() {
                 .create()
                 .show()
          */
+    }
+
+    override fun onClickEmail() {
+        val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
+        activity?.rob = (adapter as CharacterSelectAdapter).getCharacter()
+        super.onClickEmail()
     }
 
     override fun onClickDelete() {
@@ -89,7 +95,7 @@ class SelectCharacterFragment : RobFragment() {
         activity?.navigateToFragment(DescriptionFragment.TAG)
     }
 
-    fun getPlayerList() : ArrayList<PlayerCharacter> {
+    private fun getPlayerList() : ArrayList<PlayerCharacter> {
         val pref = SharedPreferenceUtil.instance
         val idList = pref.getUUIDList()
         val players = arrayListOf<PlayerCharacter>()
