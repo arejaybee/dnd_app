@@ -45,6 +45,9 @@ class SelectCharacterFragment : RobFragment() {
     override fun onClickAdd() {
         val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
         //Create a character here
+        activity?.rob = PlayerCharacter(EnumHelper.EDITION.FIFTH)
+        activity?.navigateToFragment(DescriptionFragment.TAG)
+        /*
         AlertDialog.Builder(requireContext())
                 .setCancelable(false)
                 .setTitle(R.string.select_character_alert_title)
@@ -58,13 +61,26 @@ class SelectCharacterFragment : RobFragment() {
                 }
                 .create()
                 .show()
+         */
     }
 
     override fun onClickDelete() {
-        val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
-        (adapter as CharacterSelectAdapter).deleteSelectedPlayer()
-        adapter.notifyDataSetChanged()
-        toggleVisibility(adapter.itemCount > 0)
+        AlertDialog.Builder(requireContext())
+                .setCancelable(false)
+                .setTitle(R.string.select_character_delete_title)
+                .setMessage(R.string.select_character_delete_message)
+                .setPositiveButton(R.string.select_character_delete_positive){ dialog: DialogInterface, i: Int ->
+                    val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
+                    (adapter as CharacterSelectAdapter).deleteSelectedPlayer()
+                    adapter.notifyDataSetChanged()
+                    toggleVisibility(adapter.itemCount > 0)
+                }
+                .setNegativeButton(R.string.select_character_delete_negative) { dialog: DialogInterface, index: Int ->
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
+
     }
 
     override fun onClickEdit() {

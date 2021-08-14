@@ -7,6 +7,10 @@
     <string name="select_character_alert_message">Open a blank character sheet, or use the creation tool?</string>
     <string name="select_character_alert_positive">Create</string>
     <string name="select_character_alert_negative">Blank</string>
+    <string name="select_character_delete_title">Delete Character</string>
+    <string name="select_character_delete_message">Are you sure you wish to delete this character?</string>
+    <string name="select_character_delete_positive">Yes</string>
+    <string name="select_character_delete_negative">No</string>
     <string name="character_select_empty">Click the + button in the toolbar to get started!</string>
 
     <!--Description-->
