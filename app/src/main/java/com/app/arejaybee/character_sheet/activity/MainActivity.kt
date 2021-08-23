@@ -1,6 +1,5 @@
 package com.app.arejaybee.character_sheet.activity
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
-import com.app.arejaybee.character_sheet.data_objects.Spell
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
 import com.app.arejaybee.character_sheet.fragments.combat.CombatFragment
@@ -22,6 +20,9 @@ import com.app.arejaybee.character_sheet.fragments.select_character.SelectCharac
 import com.app.arejaybee.character_sheet.fragments.skills.SkillsFragment
 import com.app.arejaybee.character_sheet.fragments.spells.SpellsFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         SharedPreferenceUtil.setInstance(this)
         setContentView(R.layout.activity_main)
+
+        try {
+            MobileAds.initialize(this@MainActivity)
+            val adRequest = AdRequest.Builder().build()
+            findViewById<AdView>(R.id.adView).loadAd(adRequest)
+        } catch (err: Exception) {
+            Toast.makeText(this, "Way to avoid the ads!", Toast.LENGTH_LONG).show()
+        }
 
         val data = intent.extras?.get("characterJson")
         data?.let {
