@@ -41,6 +41,7 @@ class Skill(val skillName: String, var ability: String, private val edition: EDI
                     }
                     rank + bonus
                 }
+                else -> rank
             }
         }
 }

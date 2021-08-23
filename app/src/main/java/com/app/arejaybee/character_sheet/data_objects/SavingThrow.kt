@@ -35,5 +35,6 @@ class SavingThrow(val name: String, private val edition: EnumHelper.EDITION) {
                 base + bonus
             }
             EnumHelper.EDITION.THREE_FIVE -> base + classBonus + bonus
+            else -> base
         }
 }

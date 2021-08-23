@@ -6,7 +6,7 @@ class EnumHelper {
     }
 
     enum class EDITION {
-        THREE_FIVE, FIFTH
+        THREE_FIVE, FIFTH, NONE
     }
 
     enum class MODIFIER {

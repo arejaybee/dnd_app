@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
+import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.fragments.abilities.AbilitiesFragment
@@ -26,7 +27,7 @@ import com.google.android.gms.ads.MobileAds
 import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
-    lateinit var rob: PlayerCharacter
+    var rob: PlayerCharacter = PlayerCharacter(EnumHelper.EDITION.NONE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SharedPreferenceUtil.setInstance(this)
@@ -187,7 +188,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateToolbarTitle() {
-        if (this::rob.isInitialized && rob is CompanionCharacter) {
+        if (rob is CompanionCharacter) {
             setTitleText("Companion of " + (rob as CompanionCharacter).owner.name)
         }
         else {

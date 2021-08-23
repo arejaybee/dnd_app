@@ -34,7 +34,7 @@ class SkillsAdapter(private val dataSet: ArrayList<Skill>, val activity: MainAct
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val skill = dataSet[position]
-        if(skill.proficiency.ordinal > 1) {
+        if(skill.proficiency.ordinal > 0) {
             activity.runOnUiThread {
                 viewHolder.view.setBackgroundResource(R.drawable.selection_background_enabled)
             }
