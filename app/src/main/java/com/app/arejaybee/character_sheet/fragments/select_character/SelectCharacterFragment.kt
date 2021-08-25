@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
+import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.EnumHelper
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
@@ -29,16 +30,16 @@ class SelectCharacterFragment : RobFragment() {
         super.onResume()
         setupToolbar()
         activity?.hideNavigation()
+        createPlayerList()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.character_select_recycler)
+    private fun createPlayerList() {
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.character_select_recycler)
         val players = getPlayerList()
         toggleVisibility(players.isNotEmpty())
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
         activity?.let {
-            recyclerView.adapter = CharacterSelectAdapter(players, it)
+            recyclerView?.adapter = CharacterSelectAdapter(players, it)
         }
     }
 
@@ -47,21 +48,6 @@ class SelectCharacterFragment : RobFragment() {
         //Create a character here
         activity?.rob = PlayerCharacter(EnumHelper.EDITION.FIFTH)
         activity?.navigateToFragment(DescriptionFragment.TAG)
-        /*
-        AlertDialog.Builder(requireContext())
-                .setCancelable(false)
-                .setTitle(R.string.select_character_alert_title)
-                .setMessage(R.string.select_character_alert_message)
-                .setPositiveButton(R.string.select_character_alert_positive){ dialog: DialogInterface, i: Int ->
-                    val rob = PlayerCharacter(EnumHelper.EDITION.FIFTH)
-                }
-                .setNegativeButton(R.string.select_character_alert_negative) { dialog: DialogInterface, index: Int ->
-                    activity?.rob = PlayerCharacter(EnumHelper.EDITION.FIFTH)
-                    activity?.navigateToFragment(DescriptionFragment.TAG)
-                }
-                .create()
-                .show()
-         */
     }
 
     override fun onClickEmail() {
