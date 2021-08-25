@@ -38,9 +38,6 @@ open class RobFragment : Fragment() {
             } else {
                 val emailIntent = Intent(Intent.ACTION_SEND)
                 emailIntent.type = "message/char"
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is my character!")
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Attached is my character. Just download it, then the 5e can find it and add the character automatically!")
-
                 val uri = FileProvider.getUriForFile(it, it.packageName + ".provider", file);
                 emailIntent.putExtra(Intent.EXTRA_STREAM, uri)
                 try {

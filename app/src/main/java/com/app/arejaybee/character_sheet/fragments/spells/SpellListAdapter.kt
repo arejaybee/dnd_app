@@ -51,11 +51,11 @@ class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActi
 
             parent.findViewById<RecyclerView>(R.id.spell_recycler).swapAdapter(SpellAdapter(spellList.spells, activity), true)
 
-            Util.addNumberSpinnerToView(activity, activity.getString(R.string.spells_cast), casts, 0, {
+            Util.addNumberSpinnerToView(activity, activity.getString(R.string.spells_used), casts, 0, {
                 activity.rob.spellLists[position].used = casts.text.toString().toInt()
                 activity.rob.saveCharacter()
             })
-            Util.addNumberSpinnerToView(activity, activity.getString(R.string.spells_known), daily, 0, {
+            Util.addNumberSpinnerToView(activity, activity.getString(R.string.spells_per_day), daily, 0, {
                 activity.rob.spellLists[position].daily = daily.text.toString().toInt()
                 activity.rob.saveCharacter()
             })

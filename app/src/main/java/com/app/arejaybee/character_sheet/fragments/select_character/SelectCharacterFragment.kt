@@ -92,6 +92,7 @@ class SelectCharacterFragment : RobFragment() {
     override fun onClickEdit() {
         val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
         activity?.rob = (adapter as CharacterSelectAdapter).getCharacter()
+        applyCharacterUpdates()
         activity?.navigateToFragment(DescriptionFragment.TAG)
     }
 
@@ -119,5 +120,18 @@ class SelectCharacterFragment : RobFragment() {
         activity?.hideMenuItem(R.id.toolbar_email_btn)
         activity?.hideMenuItem(R.id.toolbar_home_btn)
         activity?.hideMenuItem(R.id.toolbar_save_btn)
+    }
+
+    /**
+     * This will be used to apply updates that are needed from version to version
+     */
+    private fun applyCharacterUpdates() {
+        activity?.rob?.let {
+            it.skills.map { skill ->
+                if(skill.name == "Insignt") {
+                    skill.name = "Insight"
+                }
+            }
+        }
     }
 }

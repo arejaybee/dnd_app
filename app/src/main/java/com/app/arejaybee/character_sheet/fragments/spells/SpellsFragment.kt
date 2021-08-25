@@ -252,7 +252,7 @@ class SpellsFragment : RobFragment() {
     private fun calculateSpellDC(): String {
         val rob = activity?.rob
         rob?.let {
-            return (rob.getModifier(rob.spellAbility) + rob.proficiency + rob.spellDCBonus).toString()
+            return (8 + rob.getModifier(rob.spellAbility) + rob.proficiency + rob.spellDCBonus).toString()
         }
         return "0"
     }

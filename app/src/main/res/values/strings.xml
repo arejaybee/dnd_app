@@ -89,8 +89,8 @@
     <string name="per_day">Per Day</string>
     <string name="notes_empty_text">No notes to display. Click \'+\' button to add a note</string>
     <string name="companions_empty_text">No companions to display. Click \'+\' button to add a companion</string>
-    <string name="spells_known">Spells Known</string>
-    <string name="spells_cast">Spells Cast</string>
+    <string name="spells_per_day">Spells Per Day</string>
+    <string name="spells_used">Spells Used</string>
     <string name="spell_mod_label">Spell Mod</string>
     <string name="spell_attack">Spell Attack</string>
     <string name="spell_dc">Spell DC</string>

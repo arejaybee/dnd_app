@@ -412,7 +412,7 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
                 addSkill(Skill("Nature", "INT", edition))
                 addSkill(Skill("Religion", "INT", edition))
                 addSkill(Skill("Animal Handling", "WIS", edition))
-                addSkill(Skill("Insignt", "WIS", edition))
+                addSkill(Skill("Insight", "WIS", edition))
                 addSkill(Skill("Medicine", "WIS", edition))
                 addSkill(Skill("Perception", "WIS", edition))
                 addSkill(Skill("Survival", "WIS", edition))
