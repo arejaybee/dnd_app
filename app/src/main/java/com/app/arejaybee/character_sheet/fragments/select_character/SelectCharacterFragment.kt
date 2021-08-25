@@ -33,16 +33,6 @@ class SelectCharacterFragment : RobFragment() {
         createPlayerList()
     }
 
-    private fun createPlayerList() {
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.character_select_recycler)
-        val players = getPlayerList()
-        toggleVisibility(players.isNotEmpty())
-        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-        activity?.let {
-            recyclerView?.adapter = CharacterSelectAdapter(players, it)
-        }
-    }
-
     override fun onClickAdd() {
         //val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
         //Create a character here
@@ -61,13 +51,14 @@ class SelectCharacterFragment : RobFragment() {
                 .setCancelable(false)
                 .setTitle(R.string.select_character_delete_title)
                 .setMessage(R.string.select_character_delete_message)
-                .setPositiveButton(R.string.select_character_delete_positive){ dialog: DialogInterface, i: Int ->
+                .setPositiveButton(R.string.select_character_delete_positive){ dialog, _ ->
                     val adapter = view?.findViewById<RecyclerView>(R.id.character_select_recycler)?.adapter
                     (adapter as CharacterSelectAdapter).deleteSelectedPlayer()
                     adapter.notifyDataSetChanged()
                     toggleVisibility(adapter.itemCount > 0)
+                    dialog.dismiss()
                 }
-                .setNegativeButton(R.string.select_character_delete_negative) { dialog: DialogInterface, index: Int ->
+                .setNegativeButton(R.string.select_character_delete_negative){ dialog, _ ->
                     dialog.dismiss()
                 }
                 .create()
@@ -80,6 +71,16 @@ class SelectCharacterFragment : RobFragment() {
         activity?.rob = (adapter as CharacterSelectAdapter).getCharacter()
         applyCharacterUpdates()
         activity?.navigateToFragment(DescriptionFragment.TAG)
+    }
+
+    private fun createPlayerList() {
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.character_select_recycler)
+        val players = getPlayerList()
+        toggleVisibility(players.isNotEmpty())
+        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+        activity?.let {
+            recyclerView?.adapter = CharacterSelectAdapter(players, it)
+        }
     }
 
     private fun getPlayerList() : ArrayList<PlayerCharacter> {
