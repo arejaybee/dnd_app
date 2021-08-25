@@ -46,7 +46,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="manifest"/>
+            android:value="ca-app-pub-2716559875596682~7377078638"/>
     </application>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
