@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.CompanionCharacter
+import com.app.arejaybee.character_sheet.data_objects.MinimalPlayerCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.companions.CompanionFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 import com.app.arejaybee.character_sheet.utils.Strings
 
-class CharacterSelectAdapter(private val dataSet: ArrayList<PlayerCharacter>, val activity: MainActivity) :
+class CharacterSelectAdapter(private val dataSet: ArrayList<MinimalPlayerCharacter>, val activity: MainActivity) :
         RecyclerView.Adapter<CharacterSelectAdapter.ViewHolder>() {
     var selectedIndex: Int = -1
 
@@ -57,7 +58,7 @@ class CharacterSelectAdapter(private val dataSet: ArrayList<PlayerCharacter>, va
     override fun getItemCount() = dataSet.size
 
     fun getCharacter() : PlayerCharacter {
-        return dataSet[selectedIndex]
+        return PlayerCharacter.getCharacterFromMinimalCharacter(dataSet[selectedIndex])
     }
 
     fun deleteSelectedPlayer() {

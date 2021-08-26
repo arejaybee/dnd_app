@@ -26,6 +26,9 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         fun createFromJson(json: String): PlayerCharacter {
             return Json.decodeFromString(json)
         }
+        fun getCharacterFromMinimalCharacter(mChar: MinimalPlayerCharacter) : PlayerCharacter {
+            return loadCharacter(mChar.characterID)
+        }
     }
 
     val characterID = UUID.randomUUID().toString()

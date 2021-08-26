@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.EnumHelper
+import com.app.arejaybee.character_sheet.data_objects.MinimalPlayerCharacter
 import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.description.DescriptionFragment
 import com.app.arejaybee.character_sheet.fragments.RobFragment
@@ -83,13 +84,13 @@ class SelectCharacterFragment : RobFragment() {
         }
     }
 
-    private fun getPlayerList() : ArrayList<PlayerCharacter> {
+    private fun getPlayerList() : ArrayList<MinimalPlayerCharacter> {
         val pref = SharedPreferenceUtil.instance
         val idList = pref.getUUIDList()
-        val players = arrayListOf<PlayerCharacter>()
+        val players = arrayListOf<MinimalPlayerCharacter>()
         idList.map {
             if(it.isNotEmpty()) {
-                players.add(PlayerCharacter.loadCharacter(it))
+                players.add(MinimalPlayerCharacter.loadCharacter(it))
             }
         }
         return players
