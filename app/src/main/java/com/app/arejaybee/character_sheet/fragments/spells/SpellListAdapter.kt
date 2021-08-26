@@ -63,7 +63,11 @@ class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActi
             daily.text = spellList.daily.toString()
         }
 
-        if(spellList.level == 0) {
+        if(selectedButton != null && viewHolder.spellListBtn.text == selectedButton?.text) {
+            viewHolder.spellListBtn.performClick()
+        }
+
+        else if(spellList.level == 0 && selectedButton == null) {
             viewHolder.spellListBtn.performClick()
         }
     }

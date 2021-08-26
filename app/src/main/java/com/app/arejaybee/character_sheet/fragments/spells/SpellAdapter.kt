@@ -26,11 +26,6 @@ class SpellAdapter(private val dataSet: ArrayList<Spell>, val activity: MainActi
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val spellName: TextView = view.findViewById(R.id.adapter_spell_name)
         val spellToggle: ImageButton = view.findViewById(R.id.adapter_spell_dropdown_btn)
-        val spellSchool: TextView = view.findViewById(R.id.adapter_spell_school)
-        val spellRange: TextView = view.findViewById(R.id.adapter_spell_range)
-        val spellTime: TextView = view.findViewById(R.id.adapter_spell_time)
-        val spellDuration: TextView = view.findViewById(R.id.adapter_spell_duration)
-        val spellComponents: TextView = view.findViewById(R.id.adapter_spell_component)
         val spellEffect: TextView = view.findViewById(R.id.adapter_spell_effect)
 
         val infoLayout: LinearLayout = view.findViewById(R.id.adapter_spell_info_layout)
@@ -60,20 +55,6 @@ class SpellAdapter(private val dataSet: ArrayList<Spell>, val activity: MainActi
         }
         viewHolder.spellName.text = spellList.name
         viewHolder.spellEffect.text = spellList.effect
-        viewHolder.spellSchool.text = spellList.school.name
-        viewHolder.spellRange.text = spellList.range
-        viewHolder.spellTime.text = spellList.castingTime
-        viewHolder.spellDuration.text = spellList.duration
-        var components = ""
-        if(spellList.isVerbal) components+="V"
-        if(spellList.isSemantic){
-            components += if(components.isNotEmpty()) ", S" else "S"
-        }
-        if(spellList.materialComponent.isNotEmpty()) {
-            components += if(components.isNotEmpty()) ", M (" else "M ("
-            components = "$components)"
-        }
-        viewHolder.spellComponents.text = components
 
         viewHolder.infoLayout.visibility = View.GONE
 
