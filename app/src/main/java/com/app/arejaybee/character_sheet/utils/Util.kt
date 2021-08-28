@@ -23,21 +23,6 @@ object Util {
         }
     }
 
-    fun addNumberSpinnerToView(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null, max: Int = 99) {
-        textView.setOnClickListener {
-            val dialog = buildNumberSpinner(context, title, textView, min, onDimiss, max)
-            dialog.show()
-        }
-    }
-
-    fun showErrorDialog(context: Activity, title: String, description: String) {
-        val dialog = AlertDialog.Builder(context)
-        dialog.setTitle(title)
-        dialog.setMessage(description)
-        dialog.setPositiveButton("OK"){d: DialogInterface, index: Int -> d.dismiss()}
-        dialog.create()
-    }
-
     fun getNumberFromEditText(edit: EditText) : Int{
         return try {
             edit.text.toString().toInt()
@@ -45,35 +30,4 @@ object Util {
             0
         }
     }
-
-    fun buildNumberSpinner(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null, max: Int = 99) : AlertDialog {
-        val dialog = AlertDialog.Builder(context)
-        val inflater = context.layoutInflater
-        val view = inflater.inflate(R.layout.dialog_number_picker, null)
-        val tvTitle = TextView(context)
-        tvTitle.text = title
-        tvTitle.gravity = Gravity.CENTER_HORIZONTAL
-        tvTitle.textSize = 20F
-        dialog.setCustomTitle(tvTitle)
-        val numberPicker = view.findViewById<NumberPicker>(R.id.dialog_number_picker)
-        val curValue = if(textView.text.toString().isEmpty()) 0 else textView.text.toString().toInt()
-        numberPicker.maxValue = max - min
-        numberPicker.minValue = 0
-        numberPicker.value = curValue - min
-        numberPicker.wrapSelectorWheel = false
-        numberPicker.setFormatter {
-            (it + min).toString()
-        }
-
-        dialog.setPositiveButton("Done") { d: DialogInterface, index: Int ->
-            textView.text = (numberPicker.value + min).toString()
-        }
-        dialog.setView(view)
-
-        if(onDimiss != null) {
-            dialog.setOnDismissListener(onDimiss)
-        }
-
-        return dialog.create()
-    }
-}
+ }

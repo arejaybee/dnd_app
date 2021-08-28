@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
@@ -49,12 +50,12 @@ class CombatSavesAdapter(private val dataSet: ArrayList<SavingThrow>, val activi
             val inflater = activity.layoutInflater
             val dialogView = inflater.inflate(R.layout.dialog_save, null)
 
-            val bonus = dialogView.findViewById<TextView>(R.id.save_dialog_bonus)
+            val bonus = dialogView.findViewById<EditText>(R.id.save_dialog_bonus)
             val proficiency = dialogView.findViewById<Spinner>(R.id.save_dialog_proficiency)
 
             Util.buildDialogTypeSpinner(activity, proficiency, R.array.proficiencies)
 
-            bonus.text = save.bonus.toString()
+            bonus.setText(save.bonus.toString())
             val profIndex = save.proficiency.ordinal
             proficiency.setSelection(profIndex, true)
             proficiency.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
@@ -68,10 +69,10 @@ class CombatSavesAdapter(private val dataSet: ArrayList<SavingThrow>, val activi
                 }
             }
 
-            Util.addNumberSpinnerToView(activity, "Save Bonus", bonus, -99,  {
-                save.bonus = bonus.text.toString().toInt()
+            bonus.addTextChangedListener {
+                save.bonus = Util.getNumberFromEditText(bonus)
                 rob.saves[rob.saves.indexOf(save)] = save //indexOf finds the skill by name, then we replace with the updated object
-            })
+            }
 
             AlertDialog.Builder(activity)
                     .setCancelable(false)
