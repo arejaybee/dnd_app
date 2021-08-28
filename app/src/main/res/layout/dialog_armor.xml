@@ -19,10 +19,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/armor_bonus"
                 android:gravity="center"/>
-            <TextView
+            <EditText
                 android:id="@+id/armor_dialog_armor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberSigned"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"/>
         </LinearLayout>
@@ -36,10 +37,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/shield_bonus"
                 android:gravity="center"/>
-            <TextView
+            <EditText
                 android:id="@+id/armor_dialog_shield"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberSigned"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"/>
         </LinearLayout>
@@ -75,10 +77,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bonus"
                 android:gravity="center"/>
-            <TextView
+            <EditText
                 android:id="@+id/armor_dialog_bonus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberSigned"
                 android:background="@android:drawable/edit_text"
                 android:gravity="center"/>
         </LinearLayout>

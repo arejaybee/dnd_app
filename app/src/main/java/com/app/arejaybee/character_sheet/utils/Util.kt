@@ -5,11 +5,9 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.view.Gravity
-import android.widget.ArrayAdapter
-import android.widget.NumberPicker
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import com.app.arejaybee.character_sheet.R
+import java.lang.NumberFormatException
 
 object Util {
     fun buildDialogTypeSpinner(context: Context, spinner: Spinner, arrayResource: Int) {
@@ -38,6 +36,14 @@ object Util {
         dialog.setMessage(description)
         dialog.setPositiveButton("OK"){d: DialogInterface, index: Int -> d.dismiss()}
         dialog.create()
+    }
+
+    fun getNumberFromEditText(edit: EditText) : Int{
+        return try {
+            edit.text.toString().toInt()
+        } catch(err: NumberFormatException) {
+            0
+        }
     }
 
     fun buildNumberSpinner(context: Activity, title: String, textView: TextView, min: Int, onDimiss: DialogInterface.OnDismissListener? = null, max: Int = 99) : AlertDialog {

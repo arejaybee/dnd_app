@@ -24,8 +24,7 @@
                 android:id="@+id/initiative_dialog_dex"
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:layout_height="wrap_content"
-                android:text="0"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
@@ -37,10 +36,11 @@
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
                 android:text="@string/bonus"/>
-            <TextView
+            <EditText
                 android:id="@+id/initiative_dialog_bonus"
                 android:layout_width="match_parent"
                 android:gravity="center"
+                android:inputType="numberSigned"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/edit_text"/>
         </LinearLayout>

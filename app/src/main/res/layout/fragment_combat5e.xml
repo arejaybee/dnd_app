@@ -117,12 +117,13 @@
                     android:background="@android:drawable/edit_text"
                     android:layout_columnWeight="1"/>
 
-                <TextView
+                <EditText
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:textColor="@color/black"
+                    android:inputType="number"
                     android:text="@={``+rob.proficiency}"
                     android:textSize="@dimen/text_field_header"
                     android:background="@android:drawable/edit_text"
@@ -197,12 +198,13 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:layout_gravity="center">
-                <TextView
+                <EditText
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_header"
                     android:gravity="center"
+                    android:inputType="numberSigned"
                     android:text="@={``+rob.currentHp}"
                     android:background="@android:drawable/edit_text"
                     android:id="@+id/combat_current_health"/>
@@ -213,12 +215,13 @@
                     android:textSize="@dimen/text_header"
                     android:gravity="center_vertical"
                     android:text="@string/health_separator"/>
-                <TextView
+                <EditText
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textSize="@dimen/text_header"
+                    android:inputType="numberSigned"
                     android:background="@android:drawable/edit_text"
                     android:text="@={``+rob.maxHp}"
                     android:id="@+id/combat_max_health"/>

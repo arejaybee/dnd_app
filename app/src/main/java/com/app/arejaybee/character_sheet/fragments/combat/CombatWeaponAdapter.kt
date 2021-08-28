@@ -45,16 +45,12 @@ class CombatWeaponAdapter(private val dataSet: ArrayList<Weapon>, val activity: 
         viewHolder.name.text = weapon.name
         viewHolder.notes.text = weapon.notes
 
-        if(weapon.toHit.isNotEmpty()) {
-            val toHit = weapon.toHit.toInt() + activity.rob.getAbilityMod(weapon.abilityType) + if (weapon.isProficient) activity.rob.proficiency else 0
-            viewHolder.attack.text = if (toHit >= 0) "+$toHit" else "-$toHit"
-        }
+        val toHit = weapon.intToHit + activity.rob.getAbilityMod(weapon.abilityType) + if (weapon.isProficient) activity.rob.proficiency else 0
+        viewHolder.attack.text = if (toHit >= 0) "+$toHit" else "-${toHit*-1}"
 
-        if(weapon.damageBonus.isNotEmpty()) {
-            val d = weapon.damageBonus.toInt() + activity.rob.getAbilityMod(weapon.abilityType)
-            val damageRoll = weapon.damage + (if (d >= 0) "+$d" else "-$d")
-            viewHolder.damage.text = damageRoll
-        }
+        val d = weapon.intDamage + activity.rob.getAbilityMod(weapon.abilityType)
+        val damageRoll = weapon.damage + (if (d >= 0) "+$d" else " - ${d*-1}")
+        viewHolder.damage.text = damageRoll
 
         viewHolder.view.onFocusChangeListener = View.OnFocusChangeListener { _, focus ->
             selectedWeapon = if (focus) {

@@ -51,16 +51,11 @@ class CombatFragment : RobFragment() {
         }
 
         val proficiency = view.findViewById<TextView>(R.id.combat_proficiency)
-        val curHp = view.findViewById<TextView>(R.id.combat_current_health)
-        val maxHp = view.findViewById<TextView>(R.id.combat_max_health)
 
-        Util.addNumberSpinnerToView(requireActivity(), getString(R.string.proficiency), proficiency, 0)
         proficiency.addTextChangedListener {
             attackRecyclerView.adapter?.notifyDataSetChanged()
             savesRecyclerView.adapter?.notifyDataSetChanged()
         }
-        Util.addNumberSpinnerToView(requireActivity(), "Current Health", curHp, -99)
-        Util.addNumberSpinnerToView(requireActivity(), "Max Health", maxHp, 0)
 
         view.findViewById<TextView>(R.id.combat_initiative_field).setOnClickListener {
             showInitiativeDialog()
@@ -106,14 +101,12 @@ class CombatFragment : RobFragment() {
             val type = it.findViewById<EditText>(R.id.weapon_dialog_type)
             val damageDice = it.findViewById<EditText>(R.id.weapon_dialog_damage_roll)
             val range = it.findViewById<EditText>(R.id.weapon_dialog_attack_range)
-            val attackBonus = it.findViewById<TextView>(R.id.weapon_dialog_attack_bonus)
-            val damageBonus = it.findViewById<TextView>(R.id.weapon_dialog_damage_bonus)
+            val attackBonus = it.findViewById<EditText>(R.id.weapon_dialog_attack_bonus)
+            val damageBonus = it.findViewById<EditText>(R.id.weapon_dialog_damage_bonus)
             val abilityType = it.findViewById<Spinner>(R.id.weapon_dialog_stat_type)
             val prof: CheckBox = it.findViewById(R.id.weapon_dialog_proficient)
 
             //Initialize spinners
-            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.attack_bonus), attackBonus, -99)
-            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.damage_bonus), damageBonus, -99)
             Util.buildDialogTypeSpinner(requireContext(), abilityType, R.array.abilities)
 
             //Set a default selection for spinners
@@ -130,8 +123,8 @@ class CombatFragment : RobFragment() {
                 type.setText(weapon.type)
                 damageDice.setText(weapon.damage)
                 range.setText(weapon.range)
-                attackBonus.text = weapon.toHit
-                damageBonus.text = weapon.damageBonus
+                attackBonus.setText(weapon.intToHit.toString())
+                damageBonus.setText(weapon.intDamage.toString())
                 prof.isChecked = weapon.isProficient
             }
 
@@ -146,8 +139,8 @@ class CombatFragment : RobFragment() {
                         weapon?.type = type.text.toString()
                         weapon?.damage = damageDice.text.toString()
                         weapon?.range = range.text.toString()
-                        weapon?.toHit = attackBonus.text.toString()
-                        weapon?.damageBonus = damageBonus.text.toString()
+                        weapon?.intToHit = Util.getNumberFromEditText(damageBonus)
+                        weapon?.intDamage = Util.getNumberFromEditText(damageBonus)
                         weapon?.abilityType = abilityType.selectedItem.toString()
                         weapon?.isProficient = prof.isChecked
 
@@ -187,7 +180,6 @@ class CombatFragment : RobFragment() {
             val prof = it.findViewById<Spinner>(R.id.initiative_dialog_proficiency)
 
             //Initialize spinners
-            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.bonus), bonus, -99)
             Util.buildDialogTypeSpinner(requireContext(), prof, R.array.proficiencies)
 
             //Set a default selection for spinners
@@ -198,7 +190,7 @@ class CombatFragment : RobFragment() {
 
             AlertDialog.Builder(requireContext())
                     .setView(it)
-                    .setTitle("Initiative")
+                    .setTitle(getText(R.string.initiative))
                     .setCancelable(false)
                     .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
                         //Set the object to the values in the dialog
@@ -224,16 +216,13 @@ class CombatFragment : RobFragment() {
         val rob = activity?.rob!!
         dialogView?.let {
             //Grab items from the view
-            val armor = it.findViewById<TextView>(R.id.armor_dialog_armor)
-            val shield = it.findViewById<TextView>(R.id.armor_dialog_shield)
+            val armor = it.findViewById<EditText>(R.id.armor_dialog_armor)
+            val shield = it.findViewById<EditText>(R.id.armor_dialog_shield)
             val dex = it.findViewById<TextView>(R.id.armor_dialog_dex)
             val type = it.findViewById<Spinner>(R.id.armor_dialog_armor_type)
-            val bonus = it.findViewById<TextView>(R.id.armor_dialog_bonus)
+            val bonus = it.findViewById<EditText>(R.id.armor_dialog_bonus)
 
             //Initialize spinners
-            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.bonus), bonus, -99)
-            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.armor_bonus), armor, -99)
-            Util.addNumberSpinnerToView(requireActivity(), getString(R.string.shield_bonus), shield, -99)
             Util.buildDialogTypeSpinner(requireContext(), type, R.array.armor_types)
             type?.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -250,22 +239,22 @@ class CombatFragment : RobFragment() {
             //Set a default selection for spinners
             type.setSelection(rob.armorClass.type.ordinal, true)
 
-            bonus.text = rob.armorClass.bonus.toString()
+            bonus.setText(rob.armorClass.bonus.toString())
             dex.text = rob.armorClass.maxDexMod.toString()
-            shield.text = rob.armorClass.shield.toString()
-            armor.text = rob.armorClass.armor.toString()
+            shield.setText(rob.armorClass.shield.toString())
+            armor.setText(rob.armorClass.armor.toString())
 
             AlertDialog.Builder(requireContext())
                     .setView(it)
-                    .setTitle("Armor Class")
+                    .setTitle(getText(R.string.armor_class))
                     .setCancelable(false)
                     .setPositiveButton(R.string.dialog_creation_positive) { dialog: DialogInterface, i: Int ->
                         //Set the object to the values in the dialog
                         val ac = ArmorClass(dex.text.toString().toInt() * 2 + 10)
                         ac.type = ArmorClass.ArmorType.values()[type.selectedItemPosition]
-                        ac.bonus = bonus.text.toString().toInt()
-                        ac.shield = shield.text.toString().toInt()
-                        ac.armor = armor.text.toString().toInt()
+                        ac.bonus = Util.getNumberFromEditText(bonus)
+                        ac.shield = Util.getNumberFromEditText(shield)
+                        ac.armor = Util.getNumberFromEditText(armor)
                         activity?.rob?.armorClass = ac
                         val x = activity?.rob!!
 
@@ -292,6 +281,7 @@ class CombatFragment : RobFragment() {
         val init = rob.dexMod + rob.initiativeBonus + profValue
         view?.findViewById<TextView>(R.id.combat_initiative_field)?.text = init.toString()
     }
+
     private fun updateArmorField() {
         val rob = activity?.rob!!
         view?.findViewById<TextView>(R.id.combat_armor_field)?.text = rob.armorClass.mod.toString()

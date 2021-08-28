@@ -84,9 +84,10 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_field_header"
                     android:text="@string/attack_bonus"/>
-                <TextView
+                <EditText
                     android:id="@+id/weapon_dialog_attack_bonus"
                     android:gravity="center"
+                    android:inputType="numberSigned"
                     android:background="@android:drawable/edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -103,9 +104,10 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_field_header"
                     android:text="@string/damage_bonus"/>
-                <TextView
+                <EditText
                     android:id="@+id/weapon_dialog_damage_bonus"
                     android:gravity="center"
+                    android:inputType="numberSigned"
                     android:background="@android:drawable/edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
