@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
@@ -51,12 +52,12 @@ class SkillsFragment : RobFragment() {
             val oBonus = skill.bonus
             val oProf = skill.proficiency
             val oAbility = skill.ability
-            val bonus = it.findViewById<TextView>(R.id.skill_dialog_bonus)
+            val bonus = it.findViewById<EditText>(R.id.skill_dialog_bonus)
             val ability = it.findViewById<Spinner>(R.id.skill_dialog_ability)
             val proficiency = it.findViewById<Spinner>(R.id.skill_dialog_proficiency)
             val total = it.findViewById<TextView>(R.id.skill_dialog_mod)
             total.text = rob.getSkillMod(skill).toString()
-            bonus.text = skill.bonus.toString()
+            bonus.setText(skill.bonus.toString())
             Util.buildDialogTypeSpinner(requireContext(), ability, R.array.abilities)
             Util.buildDialogTypeSpinner(requireContext(), proficiency, R.array.proficiencies)
 
@@ -93,13 +94,13 @@ class SkillsFragment : RobFragment() {
                 }
             }
 
-            Util.addNumberSpinnerToView(requireActivity(), "Skill Bonus", bonus, -99,  {
-                skill.bonus = bonus.text.toString().toInt()
+            bonus.addTextChangedListener {
+                skill.bonus = Util.getNumberFromEditText(bonus)
                 rob.skills[rob.skills.indexOf(skill)] = skill //indexOf finds the skill by name, then we replace with the updated object
 
                 total.text = rob.getSkillMod(skill).toString()
                 rob.saveCharacter()
-            })
+            }
 
             AlertDialog.Builder(requireContext())
                     .setCancelable(false)
