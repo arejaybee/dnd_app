@@ -1,15 +1,19 @@
 package com.app.arejaybee.character_sheet.fragments.description
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.databinding.FragmentDescriptionBinding
 import com.app.arejaybee.character_sheet.fragments.RobFragment
 import com.app.arejaybee.character_sheet.utils.Util
+import org.w3c.dom.Text
 
 
 class DescriptionFragment : RobFragment() {
@@ -28,33 +32,45 @@ class DescriptionFragment : RobFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val watcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val str = view.findViewById<TextView>(R.id.dtv_strMod)
+                val dex = view.findViewById<TextView>(R.id.dtv_dexMod)
+                val con = view.findViewById<TextView>(R.id.dtv_conMod)
+                val int = view.findViewById<TextView>(R.id.dtv_intMod)
+                val wis = view.findViewById<TextView>(R.id.dtv_wisMod)
+                val cha = view.findViewById<TextView>(R.id.dtv_charMod)
+
+                str.text = activity?.rob?.strMod.toString()
+                dex.text = activity?.rob?.dexMod.toString()
+                con.text = activity?.rob?.conMod.toString()
+                int.text = activity?.rob?.intMod.toString()
+                wis.text = activity?.rob?.wisMod.toString()
+                cha.text = activity?.rob?.charMod.toString()
+            }
+        }
+        view.findViewById<EditText>(R.id.det_strScore).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_strBonus).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_dexScore).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_dexBonus).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_conScore).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_conBonus).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_intScore).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_intBonus).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_wisScore).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_wisBonus).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_charScore).addTextChangedListener(watcher)
+        view.findViewById<EditText>(R.id.det_charBonus).addTextChangedListener(watcher)
     }
 
     override fun onResume() {
         super.onResume()
         setupToolbar()
         activity?.showNavigation(TAG)
-    }
-
-    fun onClickStatField(view: View) {
-        val tv = view as TextView
-        val title = when(tv.id) {
-            R.id.det_strScore -> "STR Score"
-            R.id.det_dexScore -> "DEX Score"
-            R.id.det_conScore -> "CON Score"
-            R.id.det_intScore -> "INT Score"
-            R.id.det_wisScore -> "WIS Score"
-            R.id.det_charScore -> "CHA Score"
-            R.id.det_strBonus -> "STR Bonus"
-            R.id.det_dexBonus -> "DEX Bonus"
-            R.id.det_conBonus -> "CON Bonus"
-            R.id.det_intBonus -> "INT Bonus"
-            R.id.det_wisBonus -> "WIS Bonus"
-            R.id.det_charBonus -> "CHA Bonus"
-            else -> ""
-        }
-        val min = if(title.contains("Score")) 0 else -99
-        Util.buildNumberSpinner(requireActivity(), title, tv, min).show()
     }
 
     private fun setupToolbar() {

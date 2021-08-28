@@ -180,13 +180,6 @@ class MainActivity : AppCompatActivity() {
         return supportFragmentManager.findFragmentByTag(backStackEntry.name)
     }
 
-    fun onClickStatField(view: View) {
-        val curFrag = getCurrentFragment()
-        if (curFrag is DescriptionFragment) {
-            curFrag.onClickStatField(view)
-        }
-    }
-
     private fun updateToolbarTitle() {
         if (rob is CompanionCharacter) {
             setTitleText("Companion of " + (rob as CompanionCharacter).owner.name)

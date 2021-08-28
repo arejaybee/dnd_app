@@ -16,452 +16,463 @@
         android:id="@+id/activity_main">
 
     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_header"
+                android:text="@string/ability_scores"
+                android:textColor="@color/black"/>
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4">
+                <TextView
+                    android:text="@string/ability"
+                    android:layout_columnWeight="1" />
+                <TextView
+                    android:text="@string/modifier"
+                    android:gravity="center"
+                    android:layout_columnWeight="1" />
+                <TextView
+                    android:text="@string/score"
+                    android:gravity="center"
+                    android:layout_columnWeight="1" />
+                <TextView
+                    android:text="@string/bonus"
+                    android:gravity="center"
+                    android:layout_columnWeight="1" />
+
+                <TextView
+                    android:text="@string/str"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_subHeader"/>
+
+                <TextView
+                    android:id="@+id/dtv_strMod"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_column_name"
+                    android:text="@{`` +rob.strMod}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_strScore"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    
+                    android:text="@={`` +rob.strScore}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_strBonus"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    
+                    android:text="@={`` +rob.strScoreBonus}"/>
+
+                <TextView
+                    android:text="@string/dex"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_subHeader"/>
+
+                <TextView
+                    android:id="@+id/dtv_dexMod"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_column_name"
+                    android:gravity="center"
+                    android:text="@{``+rob.dexMod}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_dexScore"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    
+                    android:text="@={``+rob.dexScore}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_dexBonus"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    
+                    android:text="@={``+rob.dexScoreBonus}"/>
+
+                <TextView
+                    android:text="@string/con"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_subHeader"/>
+
+                <TextView
+                    android:id="@+id/dtv_conMod"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_column_name"
+                    android:text="@{``+rob.conMod}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_conScore"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    
+                    android:text="@={``+rob.conScore}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_conBonus"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    
+                    android:text="@={``+rob.conScoreBonus}"/>
+
+                <TextView
+                    android:text="@string/int_mod_name"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_subHeader"/>
+
+                <TextView
+                    android:id="@+id/dtv_intMod"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_column_name"
+                    android:gravity="center"
+                    android:text="@{``+rob.intMod}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_intScore"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    
+                    android:maxLength="3"
+                    android:text="@={``+rob.intScore}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_intBonus"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    
+                    android:maxLength="3"
+                    android:text="@={``+rob.intScoreBonus}"/>
+
+                <TextView
+                    android:text="@string/wis"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_subHeader"/>
+
+                <TextView
+                    android:id="@+id/dtv_wisMod"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_column_name"
+                    android:gravity="center"
+                    android:text="@{``+rob.wisMod}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_wisScore"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    
+                    android:maxLength="3"
+                    android:text="@={``+rob.wisScore}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_wisBonus"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    
+                    android:maxLength="3"
+                    android:text="@={``+rob.wisScoreBonus}"/>
+
+                <TextView
+                    android:text="@string/cha"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:textSize="@dimen/text_subHeader"/>
+
+                <TextView
+                    android:id="@+id/dtv_charMod"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_column_name"
+                    android:text="@{``+rob.charMod}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_charScore"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    
+                    android:maxLength="3"
+                    android:text="@={``+rob.charScore}"/>
+
+                <EditText
+                    android:inputType="numberSigned"
+                    android:background="@android:drawable/edit_text"
+                    android:id="@+id/det_charBonus"
+                    android:layout_columnWeight="1"
+                    android:ems="3"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    android:text="@={``+rob.charScoreBonus}"/>
+
+            </GridLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="10dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_header"
+                android:text="@string/details"
+                android:textColor="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_header"
-                    android:text="@string/ability_scores"
-                    android:textColor="@color/black"/>
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:columnCount="4">
+                    android:orientation="horizontal">
                     <TextView
-                        android:text="@string/ability"
-                        android:layout_columnWeight="1" />
-                    <TextView
-                        android:text="@string/modifier"
-                        android:gravity="center"
-                        android:layout_columnWeight="1" />
-                    <TextView
-                        android:text="@string/score"
-                        android:gravity="center"
-                        android:layout_columnWeight="1" />
-                    <TextView
-                        android:text="@string/bonus"
-                        android:gravity="center"
-                        android:layout_columnWeight="1" />
-
-                    <TextView
-                        android:text="@string/str"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_subHeader"/>
-
-                    <TextView
-                        android:id="@+id/dtv_strMod"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
+                        android:text="@string/name"
                         android:textSize="@dimen/text_column_name"
-                        android:text="@{`` +rob.strMod}"/>
-
-                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_name"
                         android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_strScore"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:maxLength="3"
-                        android:onClick="onClickStatField"
-                        android:text="@={`` +rob.strScore}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_strBonus"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:maxLength="3"
-                        android:onClick="onClickStatField"
-                        android:text="@={`` +rob.strScoreBonus}"/>
-
-                    <TextView
-                        android:text="@string/dex"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_subHeader"/>
-
-                    <TextView
-                        android:id="@+id/dtv_dexMod"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_column_name"
-                        android:gravity="center"
-                        android:text="@{``+rob.dexMod}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_dexScore"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:maxLength="3"
-                        android:onClick="onClickStatField"
-                        android:text="@={``+rob.dexScore}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_dexBonus"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:maxLength="3"
-                        android:onClick="onClickStatField"
-                        android:text="@={``+rob.dexScoreBonus}"/>
-
-                    <TextView
-                        android:text="@string/con"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_subHeader"/>
-
-                    <TextView
-                        android:id="@+id/dtv_conMod"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:textSize="@dimen/text_column_name"
-                        android:text="@{``+rob.conMod}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_conScore"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:maxLength="3"
-                        android:onClick="onClickStatField"
-                        android:text="@={``+rob.conScore}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_conBonus"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:maxLength="3"
-                        android:onClick="onClickStatField"
-                        android:text="@={``+rob.conScoreBonus}"/>
-
-                    <TextView
-                        android:text="@string/int_mod_name"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_subHeader"/>
-
-                    <TextView
-                        android:id="@+id/dtv_intMod"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_column_name"
-                        android:gravity="center"
-                        android:text="@{``+rob.intMod}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_intScore"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:onClick="onClickStatField"
-                        android:maxLength="3"
-                        android:text="@={``+rob.intScore}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_intBonus"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:onClick="onClickStatField"
-                        android:maxLength="3"
-                        android:text="@={``+rob.intScoreBonus}"/>
-
-                    <TextView
-                        android:text="@string/wis"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_subHeader"/>
-
-                    <TextView
-                        android:id="@+id/dtv_wisMod"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_column_name"
-                        android:gravity="center"
-                        android:text="@{``+rob.wisMod}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_wisScore"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:onClick="onClickStatField"
-                        android:maxLength="3"
-                        android:text="@={``+rob.wisScore}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_wisBonus"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:onClick="onClickStatField"
-                        android:maxLength="3"
-                        android:text="@={``+rob.wisScoreBonus}"/>
-
-                    <TextView
-                        android:text="@string/cha"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:textSize="@dimen/text_subHeader"/>
-
-                    <TextView
-                        android:id="@+id/dtv_charMod"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:textSize="@dimen/text_column_name"
-                        android:text="@{``+rob.charMod}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_charScore"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:onClick="onClickStatField"
-                        android:maxLength="3"
-                        android:text="@={``+rob.charScore}"/>
-
-                    <TextView
-                        android:background="@android:drawable/edit_text"
-                        android:id="@+id/det_charBonus"
-                        android:layout_columnWeight="1"
-                        android:ems="3"
-                        android:gravity="center"
-                        android:onClick="onClickStatField"
-                        android:maxLength="3"
-                        android:text="@={``+rob.charScoreBonus}"/>
-
-                </GridLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="3dp"
-                    android:layout_marginTop="10dp"
-                    android:background="?android:attr/listDivider" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_header"
-                    android:text="@string/details"
-                    android:textColor="@color/black"/>
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={rob.name}"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/race"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_race"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/name"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_name"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.name}"/>
-                    </LinearLayout>
+                        android:text="@={rob.race}"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/character_class"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_class"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/race"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_race"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.race}"/>
-                    </LinearLayout>
+                        android:text="@={rob.characterClass}"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/level"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_level"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/character_class"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_class"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.characterClass}"/>
-                    </LinearLayout>
+                        android:text="@={rob.level}"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/alignment"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_alignment"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/level"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_level"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.level}"/>
-                    </LinearLayout>
+                        android:text="@={rob.alignment}"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/gender"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_gender"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/alignment"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_alignment"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.alignment}"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/gender"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_gender"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.gender}"/>
-                    </LinearLayout>
+                        android:text="@={rob.gender}"/>
+                </LinearLayout>
 
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/height"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_height"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/height"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_height"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.height}"/>
-                    </LinearLayout>
+                        android:text="@={rob.height}"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/weight"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_weight"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/weight"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_weight"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.weight}"/>
-                    </LinearLayout>
-                    
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/size"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content" />
-                        <EditText
-                            android:id="@+id/det_size"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.size}"/>
-                    </LinearLayout>
+                        android:text="@={rob.weight}"/>
+                </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/size"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/det_size"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:text="@string/exp"
-                            android:textSize="@dimen/text_column_name"
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"/>
-                        <EditText
-                            android:id="@+id/det_exp"
-                            android:background="@android:drawable/edit_text"
-                            android:singleLine="false"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@={rob.exp}"/>
-                    </LinearLayout>
+                        android:text="@={rob.size}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="@string/exp"
+                        android:textSize="@dimen/text_column_name"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/det_exp"
+                        android:background="@android:drawable/edit_text"
+                        android:singleLine="false"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@={rob.exp}"/>
                 </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </layout>

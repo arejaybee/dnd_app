@@ -115,7 +115,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.strScore)
         }
 
     @Bindable
@@ -124,7 +123,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             armorClass.dexScore = value + dexScoreBonus
             saveCharacter()
-            notifyPropertyChanged(BR.dexScore)
         }
 
     @Bindable
@@ -132,7 +130,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.conScore)
         }
 
     @Bindable
@@ -140,7 +137,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.intScore)
         }
 
     @Bindable
@@ -148,7 +144,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.wisScore)
         }
 
     @Bindable
@@ -156,7 +151,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.charScore)
         }
 
     @Bindable
@@ -164,7 +158,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.strScoreBonus)
         }
 
     @Bindable
@@ -173,7 +166,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             field = value
             armorClass.dexScore = value + dexScore
             saveCharacter()
-            notifyPropertyChanged(BR.dexScoreBonus)
         }
 
     @Bindable
@@ -181,7 +173,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.conScoreBonus)
         }
 
     @Bindable
@@ -189,7 +180,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.intScoreBonus)
         }
 
     @Bindable
@@ -197,7 +187,6 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.wisScoreBonus)
         }
 
     @Bindable
@@ -205,26 +194,19 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
         set(value) {
             field = value
             saveCharacter()
-            notifyPropertyChanged(BR.charScoreBonus)
         }
 
     val strMod: Int
-        @Bindable(value = ["strScore", "strScoreBonus"])
         get() = floor((strScore + strScoreBonus - 10) / 2.0).toInt()
     val dexMod: Int
-        @Bindable(value = ["dexScore", "dexScoreBonus"])
         get() = floor((dexScore + dexScoreBonus - 10) / 2.0).toInt()
     val conMod: Int
-        @Bindable(value = ["conScore", "conScoreBonus"])
         get() = floor((conScore + conScoreBonus - 10) / 2.0).toInt()
     val intMod: Int
-        @Bindable(value = ["intScore", "intScoreBonus"])
         get() = floor((intScore + intScoreBonus - 10) / 2.0).toInt()
     val wisMod: Int
-        @Bindable(value = ["wisScore", "wisScoreBonus"])
         get() = floor((wisScore + wisScoreBonus - 10) / 2.0).toInt()
     val charMod: Int
-        @Bindable(value = ["charScore", "charScoreBonus"])
         get() = floor((charScore + charScoreBonus - 10) / 2.0).toInt()
 
     @Bindable
