@@ -123,8 +123,7 @@
                         android:gravity="center"
                         android:text="@string/per_day"/>
 
-                    <TextView
-                        android:layout_weight="1"
+                    <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"
@@ -133,11 +132,11 @@
                         android:textSize="@dimen/text_field_header"
                         android:background="@android:drawable/edit_text"
                         android:gravity="center"
+                        android:inputType="number"
                         android:id="@+id/spell_used"
                         android:layout_columnWeight="1"/>
 
-                    <TextView
-                        android:layout_weight="1"
+                    <EditText
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"
@@ -146,6 +145,7 @@
                         android:textSize="@dimen/text_field_header"
                         android:background="@android:drawable/edit_text"
                         android:gravity="center"
+                        android:inputType="number"
                         android:id="@+id/spell_daily"
                         android:layout_columnWeight="1"/>
                 </GridLayout>

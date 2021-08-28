@@ -1,5 +1,7 @@
 package com.app.arejaybee.character_sheet.fragments.spells
 
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +12,15 @@ import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
 import com.app.arejaybee.character_sheet.data_objects.SpellList
 import com.app.arejaybee.character_sheet.utils.Util
+import org.w3c.dom.Text
 
 class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActivity, val parent: View) :
         RecyclerView.Adapter<SpellListAdapter.ViewHolder>() {
     lateinit var viewHolder: ViewHolder
     companion object {
         var selectedButton: Button? = null
+        var usedWatcher: TextWatcher? = null
+        var dailyWatcher: TextWatcher? = null
     }
     /**
      * Provide a reference to the type of views that you are using
@@ -36,31 +41,51 @@ class SpellListAdapter(var dataSet: ArrayList<SpellList>, val activity: MainActi
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val spellList = dataSet[position]
-
+        val spellList = dataSet[viewHolder.absoluteAdapterPosition]
         viewHolder.spellListBtn.text = if(spellList.level == 0) activity.getString(R.string.cantrips) else "Level ${spellList.level}"
+
+        val casts = parent.findViewById<EditText>(R.id.spell_used)
+        val daily = parent.findViewById<EditText>(R.id.spell_daily)
 
         viewHolder.spellListBtn.setOnClickListener { l ->
             selectedButton?.isSelected = false
-            val casts = parent.findViewById<TextView>(R.id.spell_used)
-            val daily = parent.findViewById<TextView>(R.id.spell_daily)
 
             viewHolder.spellListBtn.isSelected = true
             selectedButton = viewHolder.spellListBtn
-            val spellList = dataSet[position]
 
             parent.findViewById<RecyclerView>(R.id.spell_recycler).swapAdapter(SpellAdapter(spellList.spells, activity), true)
 
-            Util.addNumberSpinnerToView(activity, activity.getString(R.string.spells_used), casts, 0, {
-                activity.rob.spellLists[position].used = casts.text.toString().toInt()
-                activity.rob.saveCharacter()
-            })
-            Util.addNumberSpinnerToView(activity, activity.getString(R.string.spells_per_day), daily, 0, {
-                activity.rob.spellLists[position].daily = daily.text.toString().toInt()
-                activity.rob.saveCharacter()
-            })
-            casts.text = spellList.used.toString()
-            daily.text = spellList.daily.toString()
+            usedWatcher?.let {
+                casts.removeTextChangedListener(it)
+            }
+            dailyWatcher?.let {
+                daily.removeTextChangedListener(it)
+            }
+
+            casts.setText(spellList.used.toString())
+            daily.setText(spellList.daily.toString())
+
+            usedWatcher = object:TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    activity.rob.spellLists[viewHolder.absoluteAdapterPosition].used =
+                        Util.getNumberFromEditText(casts)
+                    activity.rob.saveCharacter()
+                }
+
+            }
+            dailyWatcher = object:TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    activity.rob.spellLists[viewHolder.absoluteAdapterPosition].daily =
+                        Util.getNumberFromEditText(daily)
+                    activity.rob.saveCharacter()
+                }
+            }
+            casts.addTextChangedListener(usedWatcher)
+            daily.addTextChangedListener(dailyWatcher)
         }
 
         if(selectedButton != null && viewHolder.spellListBtn.text == selectedButton?.text) {

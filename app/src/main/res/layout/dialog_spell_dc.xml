@@ -68,7 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_field_header"
-                android:inputType="number"
+                android:inputType="numberSigned"
                 android:text="@{``+rob.spellDCBonus}"/>
         </LinearLayout>
 

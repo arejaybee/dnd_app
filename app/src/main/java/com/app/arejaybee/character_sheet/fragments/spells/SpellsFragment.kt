@@ -155,16 +155,12 @@ class SpellsFragment : RobFragment() {
         val dialogView: View = binding.root
         binding.rob = activity?.rob
 
-        dialogView?.findViewById<EditText>(R.id.dialog_spell_attack_bonus).doOnTextChanged { text, start, count, after ->
-            if (text.isNullOrEmpty()) {
-                activity?.rob?.spellAttackBonus = 0
-            }
-            else {
-                activity?.rob?.spellAttackBonus = text.toString().toInt()
-            }
+        val ab = dialogView.findViewById<EditText>(R.id.dialog_spell_attack_bonus)
+        ab.doOnTextChanged { text, start, count, after ->
+            activity?.rob?.spellAttackBonus = Util.getNumberFromEditText(ab)
         }
 
-        dialogView?.let {
+        dialogView.let {
 
             AlertDialog.Builder(requireContext())
                     .setView(it)
@@ -188,16 +184,12 @@ class SpellsFragment : RobFragment() {
         val dialogView: View = binding.root
         binding.rob = activity?.rob
 
-        dialogView?.findViewById<EditText>(R.id.dialog_spell_dc_bonus).doOnTextChanged { text, start, count, after ->
-            if (text.isNullOrEmpty()) {
-                activity?.rob?.spellDCBonus = 0
-            }
-            else {
-                activity?.rob?.spellDCBonus = text.toString().toInt()
-            }
+        val bonus = dialogView.findViewById<EditText>(R.id.dialog_spell_dc_bonus)
+        bonus.doOnTextChanged { text, start, count, after ->
+            activity?.rob?.spellDCBonus = Util.getNumberFromEditText(bonus)
         }
 
-        dialogView?.let {
+        dialogView.let {
 
             AlertDialog.Builder(requireContext())
                     .setView(it)
