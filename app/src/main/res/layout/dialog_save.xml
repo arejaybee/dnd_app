@@ -59,11 +59,12 @@
             android:text="@string/bonus"
             android:textSize="@dimen/text_field_header" />
 
-        <TextView
+        <EditText
             android:id="@+id/save_dialog_bonus"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:inputType="numberSigned"
             android:background="@android:drawable/edit_text"
             android:gravity="center" />
     </LinearLayout>
