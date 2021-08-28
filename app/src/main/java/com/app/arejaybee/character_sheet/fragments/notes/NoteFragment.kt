@@ -51,6 +51,9 @@ class NoteFragment : RobFragment() {
         val adapter = view?.findViewById<RecyclerView>(R.id.notes_recycler)?.adapter as NotesAdapter
         adapter.deleteNote()
         adapter.notifyDataSetChanged()
+        if(adapter.itemCount == 0) {
+            view?.findViewById<TextView>(R.id.notes_empty)?.visibility = View.VISIBLE
+        }
     }
 
     private fun setupToolbar() {
@@ -95,6 +98,7 @@ class NoteFragment : RobFragment() {
                         }
                         view?.findViewById<RecyclerView>(R.id.notes_recycler)?.adapter?.notifyDataSetChanged()
                         activity?.rob?.saveCharacter()
+                        view?.findViewById<TextView>(R.id.notes_empty)?.visibility = View.GONE
                     }
                     .setNegativeButton(R.string.dialog_creation_negative) { dialog: DialogInterface, index: Int ->
                         dialog.dismiss()
