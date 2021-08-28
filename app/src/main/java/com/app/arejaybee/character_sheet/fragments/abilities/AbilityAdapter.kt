@@ -51,6 +51,7 @@ class AbilityAdapter(var dataSet: Array<ArrayList<Ability>?>, val activity: Main
         }
 
         viewHolder.dropdownBtn.setOnClickListener {
+            it.rotation += 180
             it.rotation %= 360
             viewHolder.recyclerView.visibility = if(it.rotation == 0F) View.GONE else View.VISIBLE
         }
