@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.app.arejaybee.character_sheet.R
 import com.app.arejaybee.character_sheet.activity.MainActivity
@@ -13,6 +14,7 @@ import com.app.arejaybee.character_sheet.data_objects.PlayerCharacter
 import com.app.arejaybee.character_sheet.fragments.companions.CompanionFragment
 import com.app.arejaybee.character_sheet.utils.SharedPreferenceUtil
 import com.app.arejaybee.character_sheet.utils.Strings
+import java.lang.IndexOutOfBoundsException
 
 class CharacterSelectAdapter(private val dataSet: ArrayList<MinimalPlayerCharacter>, val activity: MainActivity) :
         RecyclerView.Adapter<CharacterSelectAdapter.ViewHolder>() {
@@ -63,13 +65,20 @@ class CharacterSelectAdapter(private val dataSet: ArrayList<MinimalPlayerCharact
 
     fun deleteSelectedPlayer() {
         //delete character
-        val uuid = dataSet[selectedIndex].characterID
-        SharedPreferenceUtil.instance.removeString(uuid)
-        //delete id from list
-        val uuidList = SharedPreferenceUtil.instance.getUUIDList()
-        uuidList.remove(uuid)
-        SharedPreferenceUtil.instance.setString(Strings.UUID_LIST_KEY, uuidList.joinToString(","))
-        //remove character from list
-        dataSet.removeAt(selectedIndex)
+        try {
+            val uuid = dataSet[selectedIndex].characterID
+            SharedPreferenceUtil.instance.removeString(uuid)
+            //delete id from list
+            val uuidList = SharedPreferenceUtil.instance.getUUIDList()
+            uuidList.remove(uuid)
+            SharedPreferenceUtil.instance.setString(
+                Strings.UUID_LIST_KEY,
+                uuidList.joinToString(",")
+            )
+            //remove character from list
+            dataSet.removeAt(selectedIndex)
+        } catch(err : IndexOutOfBoundsException) {
+            print("Failed to delete character")
+        }
     }
 }
