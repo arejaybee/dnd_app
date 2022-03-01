@@ -57,8 +57,6 @@ class CompanionFragment : RobFragment() {
         val companion = adapter.getCharacter()
 
         activity?.rob?.let {
-            companion.owner = it
-            it.companions.add(companion)
             activity?.rob = companion
             companion.saveCharacter()
             activity?.navigateToFragment(DescriptionFragment.TAG)

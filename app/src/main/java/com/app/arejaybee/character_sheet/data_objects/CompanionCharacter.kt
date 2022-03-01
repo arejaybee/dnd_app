@@ -1,9 +1,7 @@
 package com.app.arejaybee.character_sheet.data_objects
-
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
-@Serializable
+@kotlinx.serialization.Serializable
 class CompanionCharacter(var index: Int, var companionEdition: EnumHelper.EDITION) : PlayerCharacter(companionEdition) {
     @Transient
     lateinit var owner: PlayerCharacter
