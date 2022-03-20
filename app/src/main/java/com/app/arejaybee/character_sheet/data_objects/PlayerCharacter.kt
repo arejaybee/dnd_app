@@ -24,7 +24,21 @@ open class PlayerCharacter(open val edition: EnumHelper.EDITION) : BaseObservabl
             return createFromJson(SharedPreferenceUtil.instance.getString(key))
         }
         fun createFromJson(json: String): PlayerCharacter {
-            return Json.decodeFromString(json)
+            return try {
+                Json.decodeFromString(json)
+            } catch(e: Exception) {
+                val newJson = json.replace("\"companions\":[","\"null\":[")
+                val rob = createFromJson(newJson)
+                rob.companions.clear()
+                rob.saveCharacter()
+                rob
+            }
+        }
+        fun hasTriplet(nums: List<IntArray>, triplet: IntArray): Boolean {
+            val triplets = nums.filter{num ->
+                return num[0] == triplet[0] && num[1] == triplet[1] && num[2] == triplet[2]
+            }
+            return triplets.size > 0
         }
         fun getCharacterFromMinimalCharacter(mChar: MinimalPlayerCharacter) : PlayerCharacter {
             return loadCharacter(mChar.characterID)
